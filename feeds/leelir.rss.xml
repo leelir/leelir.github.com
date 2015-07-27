@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MY WORLD</title><link>https://leelir.github.io/</link><description></description><atom:link href="https://leelir.github.io/feeds/leelir.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 27 Jul 2015 16:46:00 +0800</lastBuildDate><item><title>fun</title><link>https://leelir.github.io/articles/fun.html</link><description>&lt;h1&gt;好玩&lt;/h1&gt;
+&lt;p&gt;终于弄好了，虽然还不知道这个东西具体是怎么个玩法，不过还是能用了。我以后也是有自己网站blog的人啦。&lt;/p&gt;
+&lt;h4&gt;据说写一段代码会高亮显示，试试（这个就不要hello了吧）：&lt;/h4&gt;
+&lt;pre class=”brush: c; gutter: true;”&gt;
+
+&lt;h1&gt;include stdio.h&lt;/h1&gt;
+&lt;h1&gt;include math.h&lt;/h1&gt;
+&lt;p&gt;int main()
+{
+    double a,b,c,d,s;
+    while(scanf("%lf %lf %lf %lf",&amp;amp;a,&amp;amp;b,&amp;amp;c,&amp;amp;d)!=EOF)
+    {
+        s = sqrt((a-c)&lt;em&gt;(a-c)+(b-d)&lt;/em&gt;(b-d));
+        printf("%.2f\n",s );
+    }
+}
+&lt;/pre&gt;
+先将就着看吧，个人觉得这个代码区域不是很好。&lt;/p&gt;
+&lt;h3&gt;再插入歌图片试试吧：&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="3d" src="http://pic1.sc.chinaz.com/files/pic/pic9/201507/apic13323.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;相当给力是吧。有没有心动？我要再去注册个域名了。886.。。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">leelir</dc:creator><pubDate>Mon, 27 Jul 2015 16:46:00 +0800</pubDate><guid>tag:leelir.github.io,2015-07-27:articles/fun.html</guid><category>fun</category></item></channel></rss>
