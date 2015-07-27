@@ -1,0 +1,2 @@
+er-agent: *
+Sitemap: http://mcsrainbow.github.io/sitemap.xml
