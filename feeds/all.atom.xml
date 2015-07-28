@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>MY WORLD</title><link href="https://leelir.github.io/" rel="alternate"></link><link href="https://leelir.github.io/feeds/all.atom.xml" rel="self"></link><id>https://leelir.github.io/</id><updated>2015-07-27T16:46:00+08:00</updated><entry><title>fun</title><link href="https://leelir.github.io/articles/fun.html" rel="alternate"></link><updated>2015-07-27T16:46:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2015-07-27:articles/fun.html</id><summary type="html">&lt;h1&gt;好玩&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MY WORLD</title><link href="https://leelir.github.io/" rel="alternate"></link><link href="https://leelir.github.io/feeds/all.atom.xml" rel="self"></link><id>https://leelir.github.io/</id><updated>2015-07-28T21:01:00+08:00</updated><entry><title>headache</title><link href="https://leelir.github.io/articles/headache.html" rel="alternate"></link><updated>2015-07-28T21:01:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2015-07-28:articles/headache.html</id><summary type="html">&lt;h2&gt;头疼了&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;h2&gt;"All the power on faith can't change destiny."&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="godfather" src="http://img21.mtime.cn/pi/2011/06/17/171454.62289438_500X600.jpg" /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;从昨天在单位的椅子上躺着睡了一会一后就开始头疼了，也不知道怎么回事。每到这个时候我就害怕活着。希望明天能够快快好起来。&lt;/p&gt;
+&lt;p&gt;明天就要开始看qt项目的代码了，争取这一周能弄明白这个。c++prime plus也要看。明天就要写点自己看的东西。单纯的回忆一天的收获。&lt;/p&gt;
+&lt;p&gt;记录下每一天发生的事情，感觉挺好，前两天就像做个这样的东西，现在终于完成了。兴趣是最好的老师，这句话真的没有错。我以后就要想做什么就大胆的去做，该坚持的事情一定要坚持。&lt;/p&gt;
+&lt;p&gt;============================================&lt;/p&gt;</summary><category term="diary"></category></entry><entry><title>fun</title><link href="https://leelir.github.io/articles/fun.html" rel="alternate"></link><updated>2015-07-27T16:46:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2015-07-27:articles/fun.html</id><summary type="html">&lt;h1&gt;好玩&lt;/h1&gt;
 &lt;p&gt;终于弄好了，虽然还不知道这个东西具体是怎么个玩法，不过还是能用了。我以后也是有自己网站blog的人啦。&lt;/p&gt;
 &lt;h4&gt;据说写一段代码会高亮显示，试试（这个就不要hello了吧）：&lt;/h4&gt;
 &lt;p&gt;&lt;pre class=”brush: c; gutter: true;”&gt;
@@ -18,4 +26,4 @@ include math.h&lt;/p&gt;
 先将就着看吧，个人觉得这个代码区域不是很好。&lt;/p&gt;
 &lt;h3&gt;再插入歌图片试试吧：&lt;/h3&gt;
 &lt;p&gt;&lt;img alt="3d" src="http://pic1.sc.chinaz.com/files/pic/pic9/201507/apic13323.jpg" /&gt;&lt;/p&gt;
-&lt;p&gt;相当给力是吧。有没有心动？我要再去注册个域名了。886.。。&lt;/p&gt;</summary><category term="fun"></category></entry><entry><title>Hello</title><link href="https://leelir.github.io/articles/hello.html" rel="alternate"></link><updated>2014-09-24T02:06:00+08:00</updated><author><name>mcsrainbow</name></author><id>tag:leelir.github.io,2014-09-24:articles/hello.html</id><summary type="html">&lt;p&gt;Hello Pelican, Markdown and GitHub Pages.&lt;/p&gt;</summary><category term="Pelican"></category><category term="Markdown"></category></entry></feed>
+&lt;p&gt;相当给力是吧。有没有心动？我要再去注册个域名了。886.。。&lt;/p&gt;</summary><category term="fun"></category></entry><entry><title>hello</title><link href="https://leelir.github.io/articles/hello.html" rel="alternate"></link><updated>2015-07-27T16:46:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2015-07-27:articles/hello.html</id><summary type="html">&lt;h4&gt;hello world,hello github,hello pelican,hello markdown&lt;/h4&gt;</summary><category term="fun"></category></entry></feed>
