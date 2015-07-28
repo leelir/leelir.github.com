@@ -2,10 +2,9 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>MY WORLD</title><link href="https://leelir.github.io/" rel="alternate"></link><link href="https://leelir.github.io/feeds/all.atom.xml" rel="self"></link><id>https://leelir.github.io/</id><updated>2015-07-27T16:46:00+08:00</updated><entry><title>fun</title><link href="https://leelir.github.io/articles/fun.html" rel="alternate"></link><updated>2015-07-27T16:46:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2015-07-27:articles/fun.html</id><summary type="html">&lt;h1&gt;好玩&lt;/h1&gt;
 &lt;p&gt;终于弄好了，虽然还不知道这个东西具体是怎么个玩法，不过还是能用了。我以后也是有自己网站blog的人啦。&lt;/p&gt;
 &lt;h4&gt;据说写一段代码会高亮显示，试试（这个就不要hello了吧）：&lt;/h4&gt;
-&lt;pre class=”brush: c; gutter: true;”&gt;
-
-&lt;h1&gt;include stdio.h&lt;/h1&gt;
-&lt;h1&gt;include math.h&lt;/h1&gt;
+&lt;p&gt;&lt;pre class=”brush: c; gutter: true;”&gt;
+include stdio.h
+include math.h&lt;/p&gt;
 &lt;p&gt;int main()
 {
     double a,b,c,d,s;
