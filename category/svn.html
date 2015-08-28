@@ -4,7 +4,7 @@
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width" />
 
-    <title>fun</title>
+    <title>MY WORLD - svn</title>
 
     <link rel="stylesheet" href="https://leelir.github.io/theme/css/normalize.css" />
     <link rel="stylesheet" href="https://leelir.github.io/theme/css/foundation.min.css" />
@@ -42,60 +42,45 @@
 
     <!-- Main Blog Content -->
     <div class="large-9 columns">
-<article>
-    <header>
-        <h3 class="article-title"><a href="https://leelir.github.io/articles/fun.html" rel="bookmark"
-        title="Permalink to fun">fun</a></h3>
-    </header>
+        
+        
 
-<h6 class="subheader" title="2015-07-27T16:46:00+08:00">2015-07-27
+            <article>
+                <a href="https://leelir.github.io/articles/svn.html"><h3 class="article-title">ubuntu14.04如何安装可视化svn</h3></a>
+<h6 class="subheader" title="2015-08-27T08:55:00+08:00">2015-08-27
 </h6>
 
 
-    <h1>好玩</h1>
-<p>终于弄好了，虽然还不知道这个东西具体是怎么个玩法，不过还是能用了。我以后也是有自己网站blog的人啦。</p>
-<h4>据说写一段代码会高亮显示，试试（这个就不要hello了吧）：</h4>
-<p><pre class=”brush: c; gutter: true;”>
-include stdio.h
-include math.h</p>
-<p>int main()
-{
-    double a,b,c,d,s;
-    while(scanf("%lf %lf %lf %lf",&amp;a,&amp;b,&amp;c,&amp;d)!=EOF)
-    {
-        s = sqrt((a-c)<em>(a-c)+(b-d)</em>(b-d));
-        printf("%.2f\n",s );
-    }
-}
-</pre>
-先将就着看吧，个人觉得这个代码区域不是很好。</p>
-<h3>再插入歌图片试试吧：</h3>
-<p><img alt="3d" src="http://pic1.sc.chinaz.com/files/pic/pic9/201507/apic13323.jpg" /></p>
-<p>相当给力是吧。有没有心动？我要再去注册个域名了。886.。。</p>
-<p class="subheader">Category: <a href="https://leelir.github.io/category/funny-things.html">funny things</a>
+<p>1.sudo add-apt-repository ppa:rabbitvcs/ppa
+上面的地址在http://wiki.rabbitvcs.org/wiki/download 下 点击ubuntu可以找到</p>
+<p>2.打开gedit /etc/apt/sources.list 文件 </p>
+<p>添加 deb http://ppa.launchpad.net/rabbitvcs/ppa/ubuntu karmic main这句话</p>
+<p>3.sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 34EF4A35 (实际上这一步可以省略)</p>
+<p>4.sudo apt-get update</p>
+<p>5.sudo apt-get install rabbitvcs-cli rabbitvcs-core rabbitvcs-gedit rabbitvcs-nautilus3 rabbitvcs-thunar thunarx-python</p>
+<p>6.不需要重启电脑，在terminal中执行命令nautilus -q重启Nautilus就可以使用rabbitvcs了。</p><p class="subheader">Category: <a href="https://leelir.github.io/category/svn.html">svn</a>
 
     Tagged: 
-    <a href="https://leelir.github.io/tag/fun.html">fun </a>
+    <a href="https://leelir.github.io/tag/svn.html">svn </a>
+    <a href="https://leelir.github.io/tag/linux.html">linux </a>
 </p>
 
 
 
+<p><a href="https://leelir.github.io/articles/svn.html#disqus_thread">comments</a></p>            </article>
 
-	<h4>Comments</h4>
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'leelir'
-        var disqus_identifier = "articles/fun.html";
-        var disqus_url = "https://leelir.github.io/articles/fun.html";
+<div class="pagination-centered">
+<h6 class="subheader">Page 1 of 1</h6>
 
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</article>
+<p>
+
+</p>
+</div>
+
+
+
+            <!-- /#posts-list -->
+
     </div>
     <!-- End Main Content -->
 

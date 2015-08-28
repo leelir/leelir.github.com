@@ -46,13 +46,43 @@
         
 
             <article>
+                <a href="https://leelir.github.io/articles/svn.html"><h3 class="article-title">ubuntu14.04如何安装可视化svn</h3></a>
+<h6 class="subheader" title="2015-08-27T08:55:00+08:00">2015-08-27
+</h6>
+
+
+<p>1.sudo add-apt-repository ppa:rabbitvcs/ppa
+上面的地址在http://wiki.rabbitvcs.org/wiki/download 下 点击ubuntu可以找到</p>
+<p>2.打开gedit /etc/apt/sources.list 文件 </p>
+<p>添加 deb http://ppa.launchpad.net/rabbitvcs/ppa/ubuntu karmic main这句话</p>
+<p>3.sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 34EF4A35 (实际上这一步可以省略)</p>
+<p>4.sudo apt-get update</p>
+<p>5.sudo apt-get install rabbitvcs-cli rabbitvcs-core rabbitvcs-gedit rabbitvcs-nautilus3 rabbitvcs-thunar thunarx-python</p>
+<p>6.不需要重启电脑，在terminal中执行命令nautilus -q重启Nautilus就可以使用rabbitvcs了。</p><p class="subheader">Category: <a href="https://leelir.github.io/category/svn.html">svn</a>
+
+    Tagged: 
+    <a href="https://leelir.github.io/tag/svn.html">svn </a>
+    <a href="https://leelir.github.io/tag/linux.html">linux </a>
+</p>
+
+
+
+<p><a href="https://leelir.github.io/articles/svn.html#disqus_thread">comments</a></p>            </article>
+
+
+                <hr  class="gradient"/>
+
+
+        
+
+
+            <article>
                 <a href="https://leelir.github.io/articles/just write.html"><h3 class="article-title">无题</h3></a>
 <h6 class="subheader" title="2015-07-29T21:36:00+08:00">2015-07-29
 </h6>
 
 
-<p>好喜欢听梁静茹的歌啊，今晚上听了一晚。每次听都有一种全身都被触动的感觉，真的是很美好。忍不住都要跟着哼几下。等以后，我不一定回去亲临现场去听梁静茹的演唱会，也可能一辈子都见不到她，但我一定会买一个Walkman，把里面全部存她的歌，喜欢的歌静静地听。要是能在阳台上，吹着夏日的晚风，最好再来一杯加冰的威士忌。和自己喜欢的人在一起聊聊天，谈谈心。可以静静地凝视着她迷人的微笑。这就是我想要的生活。</p>
-<p>感谢美妙的歌声把我又带到了美好的画面，想想都觉得很美。</p><p class="subheader">Category: <a href="https://leelir.github.io/category/diary.html">diary</a>
+<p>no sense.</p><p class="subheader">Category: <a href="https://leelir.github.io/category/diary.html">diary</a>
 
     Tagged: 
     <a href="https://leelir.github.io/tag/dairy.html">dairy </a>
@@ -60,11 +90,9 @@
 
 
 
-<p><a href="https://leelir.github.io/articles/just write.html#disqus_thread">comments</a></p>            </article>
-
-
+<p><a href="https://leelir.github.io/articles/just write.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="https://leelir.github.io/articles/just write.html">Read More</a>
                 <hr  class="gradient"/>
-
+            </article>
 
         
 
@@ -175,6 +203,7 @@
         <ul class="side-nav">
             <li><a href="https://leelir.github.io/category/diary.html">diary</a></li>
             <li><a href="https://leelir.github.io/category/funny-things.html">funny things</a></li>
+            <li><a href="https://leelir.github.io/category/svn.html">svn</a></li>
             <li><a href="https://leelir.github.io/category/work.html">work</a></li>
    
         </ul>
