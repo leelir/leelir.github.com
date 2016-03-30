@@ -90,15 +90,15 @@
   let tapRecognizer = UITapGestureRecognizer(target: self, action:Selector("scrollerTapped:"))
   scroller.addGestureRecognizer(tapRecognizer)
 }&lt;/p&gt;
-&lt;p&gt;```
-重装的方法是在重新加载UITableView数据数据之后建模的；它重新加载所有的数据用于构建horizontal scroller。&lt;br /&gt;
-下面是每一步的步骤：&lt;br /&gt;
-1.创建一个新的UIScrollerView实例并且把它添加到父视图。&lt;br /&gt;
-2.关闭自动排版。这样你就可以使用你自己的布局约束条件。&lt;br /&gt;
-3.对scrollview使用约束条件，使scroller view完全填充满horizontalscroller&lt;br /&gt;
-4.创建一个tap手势识别。tap收拾识别探测在scrollerview上的触摸并且检查是否有相册封面被选中。如果被选中将会通知horizontalscroller delegate。&lt;br /&gt;
-现在再添加上这个方法：  &lt;/p&gt;
-&lt;p&gt;```swift
+&lt;div class="highlight"&gt;&lt;pre&gt;重装的方法是在重新加载UITableView数据数据之后建模的；它重新加载所有的数据用于构建horizontal scroller。  
+下面是每一步的步骤：  
+1.创建一个新的UIScrollerView实例并且把它添加到父视图。  
+2.关闭自动排版。这样你就可以使用你自己的布局约束条件。  
+3.对scrollview使用约束条件，使scroller view完全填充满horizontalscroller  
+4.创建一个tap手势识别。tap收拾识别探测在scrollerview上的触摸并且检查是否有相册封面被选中。如果被选中将会通知horizontalscroller delegate。  
+现在再添加上这个方法：  
+
+```swift
 func scrollerTapped(gesture: UITapGestureRecognizer) {
     let location = gesture.locationInView(gesture.view)
     if let delegate = delegate {
@@ -111,9 +111,11 @@ func scrollerTapped(gesture: UITapGestureRecognizer) {
         }
       }
     }
-  }&lt;/p&gt;
-&lt;p&gt;```
-这个手势以一个元素传入，使你用locationInView（）来提取位置信息。&lt;br /&gt;
+  }
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这个手势以一个元素传入，使你用locationInView（）来提取位置信息。&lt;br /&gt;
 接下来，调用delegate里面的numberOfViewsForHorizontalScroller（）。HorizontalScroller实例没有关于delegate的信息，而是知道它可以安全地传递消息，因为delegate必须遵从HorizontalScrollerDelegate协议。&lt;br /&gt;
 对于在scroll view里的每一个view用一个点击测试CGRectContainsPoint找到被触摸的view。当找到了这个view，调用horizontalScrollerClickedViewAtIndex方法。在打破for循环之前，触摸scroll view里的view。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">leelir</dc:creator><pubDate>Thu, 31 Mar 2016 00:04:00 +0800</pubDate><guid>tag:leelir.github.io,2016-03-31:articles/IOS.html</guid><category>IOS</category></item><item><title>ubuntu14.04如何安装可视化svn</title><link>https://leelir.github.io/articles/svn.html</link><description>&lt;p&gt;1.sudo add-apt-repository ppa:rabbitvcs/ppa
 上面的地址在http://wiki.rabbitvcs.org/wiki/download 下 点击ubuntu可以找到&lt;/p&gt;
