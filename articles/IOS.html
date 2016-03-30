@@ -81,36 +81,36 @@
 
 <p>定义一个名为HorizontalScrollerDelegate的协议。你需要在协议声明前添加一个@objc。然后你就可以像在Object－C里面一样好好使用@optional代理的方法了。<br />
 你定义了需要的和可选的方法，然后代理就会使用协议中的方法。因此在协议中加入如下方法：</p>
-<div class="highlight"><pre>// ask the delegate how many views he wants to present inside the horizontal scroller
-func numberOfViewsForHorizontalScroller(scroller: HorizontalScroller) -&gt; Int
-// ask the delegate to return the view that should appear at &lt;index&gt;
-func horizontalScrollerViewAtIndex(scroller: HorizontalScroller, index:Int) -&gt; UIView
-// inform the delegate what the view at &lt;index&gt; has been clicked
-func horizontalScrollerClickedViewAtIndex(scroller: HorizontalScroller, index:Int)
-// ask the delegate for the index of the initial view to display. this method is optional
-// and defaults to 0 if it&#39;s not implemented by the delegate
-optional func initialViewIndex(scroller: HorizontalScroller) -&gt; Int
+<div class="highlight"><pre><span class="c1">// ask the delegate how many views he wants to present inside the horizontal scroller</span>
+<span class="kd">func</span> <span class="nf">numberOfViewsForHorizontalScroller</span><span class="p">(</span><span class="n">scroller</span><span class="p">:</span> <span class="n">HorizontalScroller</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span>
+<span class="c1">// ask the delegate to return the view that should appear at &lt;index&gt;</span>
+<span class="kd">func</span> <span class="nf">horizontalScrollerViewAtIndex</span><span class="p">(</span><span class="n">scroller</span><span class="p">:</span> <span class="n">HorizontalScroller</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span><span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="bp">UIView</span>
+<span class="c1">// inform the delegate what the view at &lt;index&gt; has been clicked</span>
+<span class="kd">func</span> <span class="nf">horizontalScrollerClickedViewAtIndex</span><span class="p">(</span><span class="n">scroller</span><span class="p">:</span> <span class="n">HorizontalScroller</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span><span class="nb">Int</span><span class="p">)</span>
+<span class="c1">// ask the delegate for the index of the initial view to display. this method is optional</span>
+<span class="c1">// and defaults to 0 if it&#39;s not implemented by the delegate</span>
+<span class="kr">optional</span> <span class="kd">func</span> <span class="nf">initialViewIndex</span><span class="p">(</span><span class="n">scroller</span><span class="p">:</span> <span class="n">HorizontalScroller</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span>
 </pre></div>
 
 
 <p>现在已经有了必需的方法和可选的方法。必需的方法是代理必需使用的，并且通常包含者一些类必需用刀的数据。在这个例子里面，这些必需的细节是view的数量，view的具体编号和当view被触摸时的行为。可选方法是view的初始化；如果它没有被使用HorizontalScroller将会默认设置为第一个。<br />
 在HorizontalScroller.swift里加上如下代码定义HorizontalScroller类：</p>
-<div class="highlight"><pre>weak var delegate: HorizontalScrollerDelegate?
+<div class="highlight"><pre><span class="kr">weak</span> <span class="kd">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="n">HorizontalScrollerDelegate</span><span class="p">?</span>
 </pre></div>
 
 
 <p>将你定义的变量属性设置为weak，这是避免死循环而必需做的。如果类与它的代理有着强引用关系，并且代理对它遵从的类也保持着强引用，你的APP将会内存不足，因为所有的类都不会释放内存再分配给其他类。swift里面所有的变量都默认是strong。<br />
 代理是可选的，因此，无论是谁都可能不比提供代理而使用这个类。但是，如果它们这么做了，它就会遵从HorizontalScrollerDelegate 并且可以保证协议里的方法是可以在这里被使用的。<br />
 为类添加几个的变量：  </p>
-<div class="highlight"><pre>// 1
-private let VIEW_PADDING = 10
-private let VIEW_DIMENSIONS = 100
-private let VIEWS_OFFSET = 100
+<div class="highlight"><pre><span class="c1">// 1</span>
+<span class="kd">private</span> <span class="kd">let</span> <span class="nv">VIEW_PADDING</span> <span class="p">=</span> <span class="mi">10</span>
+<span class="kd">private</span> <span class="kd">let</span> <span class="nv">VIEW_DIMENSIONS</span> <span class="p">=</span> <span class="mi">100</span>
+<span class="kd">private</span> <span class="kd">let</span> <span class="nv">VIEWS_OFFSET</span> <span class="p">=</span> <span class="mi">100</span>
 
-// 2
-private var scroller : UIScrollView!
-// 3
-var viewArray = [UIView]()
+<span class="c1">// 2</span>
+<span class="kd">private</span> <span class="kd">var</span> <span class="nv">scroller</span> <span class="p">:</span> <span class="bp">UIScrollView</span><span class="p">!</span>
+<span class="c1">// 3</span>
+<span class="kd">var</span> <span class="nv">viewArray</span> <span class="p">=</span> <span class="p">[</span><span class="bp">UIView</span><span class="p">]()</span>
 </pre></div>
 
 
@@ -143,17 +143,16 @@ var viewArray = [UIView]()
   let tapRecognizer = UITapGestureRecognizer(target: self, action:Selector("scrollerTapped:"))
   scroller.addGestureRecognizer(tapRecognizer)
 }</p>
-<div class="highlight"><pre>重装的方法是在重新加载UITableView数据数据之后建模的；它重新加载所有的数据用于构建horizontal scroller。  
-下面是每一步的步骤：  
-1.创建一个新的UIScrollerView实例并且把它添加到父视图。  
-2.关闭自动排版。这样你就可以使用你自己的布局约束条件。  
-3.对scrollview使用约束条件，使scroller view完全填充满horizontalscroller  
-4.创建一个tap手势识别。tap收拾识别探测在scrollerview上的触摸并且检查是否有相册封面被选中。如果被选中将会通知horizontalscroller delegate。  
-现在再添加上这个方法：  
-</pre></div>
-
-
-<p>func scrollerTapped(gesture: UITapGestureRecognizer) {
+<p>```
+重装的方法是在重新加载UITableView数据数据之后建模的；它重新加载所有的数据用于构建horizontal scroller。<br />
+下面是每一步的步骤：<br />
+1.创建一个新的UIScrollerView实例并且把它添加到父视图。<br />
+2.关闭自动排版。这样你就可以使用你自己的布局约束条件。<br />
+3.对scrollview使用约束条件，使scroller view完全填充满horizontalscroller<br />
+4.创建一个tap手势识别。tap收拾识别探测在scrollerview上的触摸并且检查是否有相册封面被选中。如果被选中将会通知horizontalscroller delegate。<br />
+现在再添加上这个方法：  </p>
+<p>```swift
+func scrollerTapped(gesture: UITapGestureRecognizer) {
     let location = gesture.locationInView(gesture.view)
     if let delegate = delegate {
       for index in 0..&lt;delegate.numberOfViewsForHorizontalScroller(self) {
@@ -169,7 +168,7 @@ var viewArray = [UIView]()
 <p>```
 这个手势以一个元素传入，使你用locationInView（）来提取位置信息。<br />
 接下来，调用delegate里面的numberOfViewsForHorizontalScroller（）。HorizontalScroller实例没有关于delegate的信息，而是知道它可以安全地传递消息，因为delegate必须遵从HorizontalScrollerDelegate协议。<br />
-&esmp;&esmp;对于在scroll view里的每一个view用一个点击测试CGRectContainsPoint找到被触摸的view。当找到了这个view，调用horizontalScrollerClickedViewAtIndex方法。在打破for循环之前，触摸scroll view里的view。</p>
+对于在scroll view里的每一个view用一个点击测试CGRectContainsPoint找到被触摸的view。当找到了这个view，调用horizontalScrollerClickedViewAtIndex方法。在打破for循环之前，触摸scroll view里的view。</p>
 <p class="subheader">Category: <a href="https://leelir.github.io/category/ios.html">IOS</a>
 
     Tagged: 
