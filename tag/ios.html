@@ -53,33 +53,33 @@
 
 <p><strong>2015年4月22日</strong>: Xcode6.3 和Swift1.2 更新<br />
 <strong>更新日志</strong>：这次IOS8和Swift的指导课是有Vincent Ngo更新的。原版本事由指导课成员Eli Ganem推出的。<br />
-&emsp;&emsp;欢迎回到设计模式介绍指导课的第二部分！在第一部分，你已经学习关于Cocoa的一些基本的设计模式，例如MVC，单例模式，和装饰模式等。<br />
-&emsp;&emsp;在最后这一部分，你将会学习一些其他的由大量IOS和OS X开发者提出的一些基本设计模式。例如：适配器模式，观察者模式和纪念品模式。让我们马上开始学习吧！  </p>
+欢迎回到设计模式介绍指导课的第二部分！在第一部分，你已经学习关于Cocoa的一些基本的设计模式，例如MVC，单例模式，和装饰模式等。<br />
+在最后这一部分，你将会学习一些其他的由大量IOS和OS X开发者提出的一些基本设计模式。例如：适配器模式，观察者模式和纪念品模式。让我们马上开始学习吧！  </p>
 <h1>Getting Started</h1>
 <p>你可以下载<a href="http://www.raywenderlich.com/wp-content/uploads/2014/12/BlueLibrarySwift-Part11.zip">第一部分的实例代码</a>开始这一部分。<br />
 这是我们在第一部分结束的时候完成的音乐库APP：
 <div align=center>
 <img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/Screen-Shot-2014-11-11-at-12.38.53-AM.png" width="240" height="430" alt="第一部分效果图"/>
 </div><br />
-&emsp;&emsp;这个APP原来的设计是在屏幕的顶部设计一个水平滚动窗口来选择相册。既然不是为了单一的目的而设计使用的，为什么我们不使他为每一个视图重复使用呢？<br />
-&emsp;&emsp;为了使这个视图重复使用，因此所有关于它内容的决定都要交给另一个对象：一个委托。这个水平滑动视图要声明委托工具（delegate implements）的方法来使他为滚动窗口工作。这种方法一UITableView委托方法相似。我们将在接下来的要讨论的设计模式中用到这种方法。  </p>
+这个APP原来的设计是在屏幕的顶部设计一个水平滚动窗口来选择相册。既然不是为了单一的目的而设计使用的，为什么我们不使他为每一个视图重复使用呢？<br />
+为了使这个视图重复使用，因此所有关于它内容的决定都要交给另一个对象：一个委托。这个水平滑动视图要声明委托工具（delegate implements）的方法来使他为滚动窗口工作。这种方法一UITableView委托方法相似。我们将在接下来的要讨论的设计模式中用到这种方法。  </p>
 <h1>The Adapter Pattern</h1>
-<p>&emsp;&emsp;适配器可以使接口不匹配的类一起工作。他用一个类将自己包裹起来，并且暴露出标准接口给要交流的类。<br />
-&emsp;&emsp;如果你熟悉适配器模式，你会发现，苹果的用一种完全不同的方法使用它－苹果用协议来完成这份工作。你可能已经了解了UITableViewDelegate，UIScrollViewDelegate，NSCoding和NSCopying. 例如：在NSCopying协议里面，每一种协议可以提供一种标准的复制方法。</p>
+<p>适配器可以使接口不匹配的类一起工作。他用一个类将自己包裹起来，并且暴露出标准接口给要交流的类。<br />
+如果你熟悉适配器模式，你会发现，苹果的用一种完全不同的方法使用它－苹果用协议来完成这份工作。你可能已经了解了UITableViewDelegate，UIScrollViewDelegate，NSCoding和NSCopying. 例如：在NSCopying协议里面，每一种协议可以提供一种标准的复制方法。</p>
 <h1>How to Use the Adapter Pattern</h1>
 <p>水平滑动的方法看起来会是这样的：
 <div align=center>
 <img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern7.png" width="450" height="140" alt="相册效果图"/>
 </div>
-&emsp;&emsp;在开始之前，在工程视图里面选择新建文件选择IOS》cocola touch class 并且点击下一步。设置类名为HorizontalSCroller，使他继承自UIView。<br />
-&emsp;&emsp;打开HorizontalSCroller.swift 然后插入如下代码：  </p>
-<div class="highlight"><pre>@objc protocol HorizontalScrollerDelegate {
-}
+在开始之前，在工程视图里面选择新建文件选择IOS》cocola touch class 并且点击下一步。设置类名为HorizontalSCroller，使他继承自UIView。<br />
+打开HorizontalSCroller.swift 然后插入如下代码：  </p>
+<div class="highlight"><pre><span class="kr">@objc</span> <span class="kd">protocol</span> <span class="nc">HorizontalScrollerDelegate</span> <span class="p">{</span>
+<span class="p">}</span>
 </pre></div>
 
 
-<p>&emsp;&emsp;定义一个名为HorizontalScrollerDelegate的协议。你需要在协议声明前添加一个@objc。然后你就可以像在Object－C里面一样好好使用@optional代理的方法了。<br />
-&emsp;&emsp;你定义了需要的和可选的方法，然后代理就会使用协议中的方法。因此在协议中加入如下方法：</p>
+<p>定义一个名为HorizontalScrollerDelegate的协议。你需要在协议声明前添加一个@objc。然后你就可以像在Object－C里面一样好好使用@optional代理的方法了。<br />
+你定义了需要的和可选的方法，然后代理就会使用协议中的方法。因此在协议中加入如下方法：</p>
 <div class="highlight"><pre>// ask the delegate how many views he wants to present inside the horizontal scroller
 func numberOfViewsForHorizontalScroller(scroller: HorizontalScroller) -&gt; Int
 // ask the delegate to return the view that should appear at &lt;index&gt;
@@ -92,15 +92,15 @@ optional func initialViewIndex(scroller: HorizontalScroller) -&gt; Int
 </pre></div>
 
 
-<p>&emsp;&emsp;现在已经有了必需的方法和可选的方法。必需的方法是代理必需使用的，并且通常包含者一些类必需用刀的数据。在这个例子里面，这些必需的细节是view的数量，view的具体编号和当view被触摸时的行为。可选方法是view的初始化；如果它没有被使用HorizontalScroller将会默认设置为第一个。<br />
-&emsp;&emsp;在HorizontalScroller.swift里加上如下代码定义HorizontalScroller类：</p>
+<p>现在已经有了必需的方法和可选的方法。必需的方法是代理必需使用的，并且通常包含者一些类必需用刀的数据。在这个例子里面，这些必需的细节是view的数量，view的具体编号和当view被触摸时的行为。可选方法是view的初始化；如果它没有被使用HorizontalScroller将会默认设置为第一个。<br />
+在HorizontalScroller.swift里加上如下代码定义HorizontalScroller类：</p>
 <div class="highlight"><pre>weak var delegate: HorizontalScrollerDelegate?
 </pre></div>
 
 
-<p>&espm;&esmp;将你定义的变量属性设置为weak，这是避免死循环而必需做的。如果类与它的代理有着强引用关系，并且代理对它遵从的类也保持着强引用，你的APP将会内存不足，因为所有的类都不会释放内存再分配给其他类。swift里面所有的变量都默认是strong。<br />
-&emsp;&emsp;代理是可选的，因此，无论是谁都可能不比提供代理而使用这个类。但是，如果它们这么做了，它就会遵从HorizontalScrollerDelegate 并且可以保证协议里的方法是可以在这里被使用的。<br />
-&emsp;&emsp;为类添加几个的变量：  </p>
+<p>将你定义的变量属性设置为weak，这是避免死循环而必需做的。如果类与它的代理有着强引用关系，并且代理对它遵从的类也保持着强引用，你的APP将会内存不足，因为所有的类都不会释放内存再分配给其他类。swift里面所有的变量都默认是strong。<br />
+代理是可选的，因此，无论是谁都可能不比提供代理而使用这个类。但是，如果它们这么做了，它就会遵从HorizontalScrollerDelegate 并且可以保证协议里的方法是可以在这里被使用的。<br />
+为类添加几个的变量：  </p>
 <div class="highlight"><pre>// 1
 private let VIEW_PADDING = 10
 private let VIEW_DIMENSIONS = 100
@@ -118,7 +118,7 @@ var viewArray = [UIView]()
 2.创建一个scroller包含这个view。<br />
 3.创建一个包含所有相册封面的数组。
 接下来就要执行初始化，添加如下代码：  </p>
-<p>```
+<p>```swift
  override init(frame: CGRect) {
   super.init(frame: frame)
   initializeScrollView()
@@ -142,7 +142,7 @@ var viewArray = [UIView]()
   let tapRecognizer = UITapGestureRecognizer(target: self, action:Selector("scrollerTapped:"))
   scroller.addGestureRecognizer(tapRecognizer)
 }</p>
-<div class="highlight"><pre>&amp;emsp;&amp;emsp;重装的方法是在重新加载UITableView数据数据之后建模的；它重新加载所有的数据用于构建horizontal scroller。  
+<div class="highlight"><pre>重装的方法是在重新加载UITableView数据数据之后建模的；它重新加载所有的数据用于构建horizontal scroller。  
 下面是每一步的步骤：  
 1.创建一个新的UIScrollerView实例并且把它添加到父视图。  
 2.关闭自动排版。这样你就可以使用你自己的布局约束条件。  
@@ -166,8 +166,8 @@ var viewArray = [UIView]()
     }
   }</p>
 <p>```
-  &emsp;&emsp;这个手势以一个元素传入，使你用locationInView（）来提取位置信息。<br />
-&emsp;&emsp;接下来，调用delegate里面的numberOfViewsForHorizontalScroller（）。HorizontalScroller实例没有关于delegate的信息，而是知道它可以安全地传递消息，因为delegate必须遵从HorizontalScrollerDelegate协议。<br />
+这个手势以一个元素传入，使你用locationInView（）来提取位置信息。<br />
+接下来，调用delegate里面的numberOfViewsForHorizontalScroller（）。HorizontalScroller实例没有关于delegate的信息，而是知道它可以安全地传递消息，因为delegate必须遵从HorizontalScrollerDelegate协议。<br />
 &esmp;&esmp;对于在scroll view里的每一个view用一个点击测试CGRectContainsPoint找到被触摸的view。当找到了这个view，调用horizontalScrollerClickedViewAtIndex方法。在打破for循环之前，触摸scroll view里的view。</p><p class="subheader">Category: <a href="https://leelir.github.io/category/ios.html">IOS</a>
 
     Tagged: 
