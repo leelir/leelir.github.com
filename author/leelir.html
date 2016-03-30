@@ -105,7 +105,6 @@
 <span class="kd">private</span> <span class="kd">let</span> <span class="nv">VIEW_PADDING</span> <span class="p">=</span> <span class="mi">10</span>
 <span class="kd">private</span> <span class="kd">let</span> <span class="nv">VIEW_DIMENSIONS</span> <span class="p">=</span> <span class="mi">100</span>
 <span class="kd">private</span> <span class="kd">let</span> <span class="nv">VIEWS_OFFSET</span> <span class="p">=</span> <span class="mi">100</span>
-
 <span class="c1">// 2</span>
 <span class="kd">private</span> <span class="kd">var</span> <span class="nv">scroller</span> <span class="p">:</span> <span class="bp">UIScrollView</span><span class="p">!</span>
 <span class="c1">// 3</span>
@@ -118,21 +117,29 @@
 2.创建一个scroller包含这个view。<br />
 3.创建一个包含所有相册封面的数组。
 接下来就要执行初始化，添加如下代码：  </p>
+<div class="highlight"><pre><span class="c1">// 1</span>
+<span class="kd">private</span> <span class="kd">let</span> <span class="nv">VIEW_PADDING</span> <span class="p">=</span> <span class="mi">10</span>
+<span class="kd">private</span> <span class="kd">let</span> <span class="nv">VIEW_DIMENSIONS</span> <span class="p">=</span> <span class="mi">100</span>
+<span class="kd">private</span> <span class="kd">let</span> <span class="nv">VIEWS_OFFSET</span> <span class="p">=</span> <span class="mi">100</span>
+<span class="c1">// 2</span>
+<span class="kd">private</span> <span class="kd">var</span> <span class="nv">scroller</span> <span class="p">:</span> <span class="bp">UIScrollView</span><span class="p">!</span>
+<span class="c1">// 3</span>
+<span class="kd">var</span> <span class="nv">viewArray</span> <span class="p">=</span> <span class="p">[</span><span class="bp">UIView</span><span class="p">]()</span>
+</pre></div>
+
+
 <div class="highlight"><pre> <span class="kr">override</span> <span class="kd">init</span><span class="p">(</span><span class="n">frame</span><span class="p">:</span> <span class="bp">CGRect</span><span class="p">)</span> <span class="p">{</span>
   <span class="kc">super</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">frame</span><span class="p">:</span> <span class="n">frame</span><span class="p">)</span>
   <span class="n">initializeScrollView</span><span class="p">()</span>
 <span class="p">}</span>
-
 <span class="kr">required</span> <span class="kd">init</span><span class="p">(</span><span class="n">coder</span> <span class="n">aDecoder</span><span class="p">:</span> <span class="bp">NSCoder</span><span class="p">)</span> <span class="p">{</span>
   <span class="kc">super</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">coder</span><span class="p">:</span> <span class="n">aDecoder</span><span class="p">)</span>
   <span class="n">initializeScrollView</span><span class="p">()</span>
 <span class="p">}</span>
-
 <span class="kd">func</span> <span class="nf">initializeScrollView</span><span class="p">()</span> <span class="p">{</span>
   <span class="c1">//1</span>
   <span class="n">scroller</span> <span class="p">=</span> <span class="bp">UIScrollView</span><span class="p">()</span>
   <span class="n">addSubview</span><span class="p">(</span><span class="n">scroller</span><span class="p">)</span>
-
   <span class="c1">//2</span>
   <span class="n">scroller</span><span class="p">.</span><span class="n">setTranslatesAutoresizingMaskIntoConstraints</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
   <span class="c1">//3</span>
@@ -140,7 +147,6 @@
   <span class="kc">self</span><span class="p">.</span><span class="n">addConstraint</span><span class="p">(</span><span class="bp">NSLayoutConstraint</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">scroller</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="p">.</span><span class="n">Trailing</span><span class="p">,</span> <span class="n">relatedBy</span><span class="p">:</span> <span class="p">.</span><span class="n">Equal</span><span class="p">,</span> <span class="n">toItem</span><span class="p">:</span> <span class="kc">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="p">.</span><span class="n">Trailing</span><span class="p">,</span> <span class="n">multiplier</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">constant</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">))</span>
   <span class="kc">self</span><span class="p">.</span><span class="n">addConstraint</span><span class="p">(</span><span class="bp">NSLayoutConstraint</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">scroller</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="p">.</span><span class="n">Top</span><span class="p">,</span> <span class="n">relatedBy</span><span class="p">:</span> <span class="p">.</span><span class="n">Equal</span><span class="p">,</span> <span class="n">toItem</span><span class="p">:</span> <span class="kc">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="p">.</span><span class="n">Top</span><span class="p">,</span> <span class="n">multiplier</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">constant</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">))</span>
   <span class="kc">self</span><span class="p">.</span><span class="n">addConstraint</span><span class="p">(</span><span class="bp">NSLayoutConstraint</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">scroller</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="p">.</span><span class="n">Bottom</span><span class="p">,</span> <span class="n">relatedBy</span><span class="p">:</span> <span class="p">.</span><span class="n">Equal</span><span class="p">,</span> <span class="n">toItem</span><span class="p">:</span> <span class="kc">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="p">.</span><span class="n">Bottom</span><span class="p">,</span> <span class="n">multiplier</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">constant</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">))</span>
-
   <span class="c1">//4</span>
   <span class="kd">let</span> <span class="nv">tapRecognizer</span> <span class="p">=</span> <span class="bp">UITapGestureRecognizer</span><span class="p">(</span><span class="n">target</span><span class="p">:</span> <span class="kc">self</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span><span class="nb">Selector</span><span class="p">(</span><span class="s">&quot;scrollerTapped:&quot;</span><span class="p">))</span>
   <span class="n">scroller</span><span class="p">.</span><span class="n">addGestureRecognizer</span><span class="p">(</span><span class="n">tapRecognizer</span><span class="p">)</span>
