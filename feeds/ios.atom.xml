@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>MY WORLD</title><link href="https://leelir.github.io/" rel="alternate"></link><link href="https://leelir.github.io/feeds/all.atom.xml" rel="self"></link><id>https://leelir.github.io/</id><updated>2016-03-31T00:04:00+08:00</updated><entry><title>Introducing iOS Design Patterns in Swift Part 2（翻译，未完待续。。。）</title><link href="https://leelir.github.io/articles/IOS.html" rel="alternate"></link><updated>2016-03-31T00:04:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2016-03-31:articles/IOS.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;2015年4月22日&lt;/strong&gt;: Xcode6.3 和Swift1.2 更新&lt;br /&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MY WORLD</title><link href="https://leelir.github.io/" rel="alternate"></link><link href="https://leelir.github.io/feeds/ios.atom.xml" rel="self"></link><id>https://leelir.github.io/</id><updated>2016-03-31T00:04:00+08:00</updated><entry><title>Introducing iOS Design Patterns in Swift Part 2（翻译，未完待续。。。）</title><link href="https://leelir.github.io/articles/IOS.html" rel="alternate"></link><updated>2016-03-31T00:04:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2016-03-31:articles/IOS.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;2015年4月22日&lt;/strong&gt;: Xcode6.3 和Swift1.2 更新&lt;br /&gt;
 &lt;strong&gt;更新日志&lt;/strong&gt;：这次IOS8和Swift的指导课是有Vincent Ngo更新的。原版本事由指导课成员Eli Ganem推出的。&lt;br /&gt;
 &amp;emsp;&amp;emsp;欢迎回到设计模式介绍指导课的第二部分！在第一部分，你已经学习关于Cocoa的一些基本的设计模式，例如MVC，单例模式，和装饰模式等。&lt;br /&gt;
 &amp;emsp;&amp;emsp;在最后这一部分，你将会学习一些其他的由大量IOS和OS X开发者提出的一些基本设计模式。例如：适配器模式，观察者模式和纪念品模式。让我们马上开始学习吧！  &lt;/p&gt;
@@ -116,45 +116,4 @@ var viewArray = [UIView]()
 &lt;p&gt;```
   &amp;emsp;&amp;emsp;这个手势以一个元素传入，使你用locationInView（）来提取位置信息。&lt;br /&gt;
 &amp;emsp;&amp;emsp;接下来，调用delegate里面的numberOfViewsForHorizontalScroller（）。HorizontalScroller实例没有关于delegate的信息，而是知道它可以安全地传递消息，因为delegate必须遵从HorizontalScrollerDelegate协议。&lt;br /&gt;
-&amp;esmp;&amp;esmp;对于在scroll view里的每一个view用一个点击测试CGRectContainsPoint找到被触摸的view。当找到了这个view，调用horizontalScrollerClickedViewAtIndex方法。在打破for循环之前，触摸scroll view里的view。&lt;/p&gt;</summary><category term="IOS"></category></entry><entry><title>ubuntu14.04如何安装可视化svn</title><link href="https://leelir.github.io/articles/svn.html" rel="alternate"></link><updated>2015-08-27T08:55:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2015-08-27:articles/svn.html</id><summary type="html">&lt;p&gt;1.sudo add-apt-repository ppa:rabbitvcs/ppa
-上面的地址在http://wiki.rabbitvcs.org/wiki/download 下 点击ubuntu可以找到&lt;/p&gt;
-&lt;p&gt;2.打开gedit /etc/apt/sources.list 文件 &lt;/p&gt;
-&lt;p&gt;添加 deb http://ppa.launchpad.net/rabbitvcs/ppa/ubuntu karmic main这句话&lt;/p&gt;
-&lt;p&gt;3.sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 34EF4A35 (实际上这一步可以省略)&lt;/p&gt;
-&lt;p&gt;4.sudo apt-get update&lt;/p&gt;
-&lt;p&gt;5.sudo apt-get install rabbitvcs-cli rabbitvcs-core rabbitvcs-gedit rabbitvcs-nautilus3 rabbitvcs-thunar thunarx-python&lt;/p&gt;
-&lt;p&gt;6.不需要重启电脑，在terminal中执行命令nautilus -q重启Nautilus就可以使用rabbitvcs了。&lt;/p&gt;</summary><category term="svn"></category><category term="linux"></category></entry><entry><title>无题</title><link href="https://leelir.github.io/articles/just%20write.html" rel="alternate"></link><updated>2015-07-29T21:36:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2015-07-29:articles/just write.html</id><summary type="html">&lt;p&gt;好喜欢听梁静茹的歌啊，今晚上听了一晚。每次听都有一种全身都被触动的感觉，真的是很美好。忍不住都要跟着哼几下。等以后，我不一定回去亲临现场去听梁静茹的演唱会，也可能一辈子都见不到她，但我一定会买一个Walkman，把里面全部存她的歌，喜欢的歌静静地听。要是能在阳台上，吹着夏日的晚风，最好再来一杯加冰的威士忌。和自己喜欢的人在一起聊聊天，谈谈心。可以静静地凝视着她迷人的微笑。这就是我想要的生活。&lt;/p&gt;
-&lt;p&gt;感谢美妙的歌声把我又带到了美好的画面，想想都觉得很美。&lt;/p&gt;</summary><category term="dairy"></category></entry><entry><title>学习总结</title><link href="https://leelir.github.io/articles/summary.html" rel="alternate"></link><updated>2015-07-29T21:07:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2015-07-29:articles/summary.html</id><summary type="html">&lt;h1&gt;关于今天学习的回忆&lt;/h1&gt;
-&lt;p&gt;1.c++中引用的用法。&lt;/p&gt;
-&lt;p&gt;int &amp;amp;a在c++中不是地址的意思，而是引用的符号。引用的变量与原变量的值变化和地址变化时同步的。这个在两个数交换是用的最多。单纯的写个转换变量转换两个值是不行的，可以用引用的方法或者是用指针的方法。&lt;/p&gt;
-&lt;p&gt;2.项目的理解。&lt;/p&gt;
-&lt;p&gt;new360 这个用qt写的界面十分的美观，而且代码非常清晰明确。主要用了动画，动画组，堆栈窗体显示等。基本的操作已经明白，明天专注于看他写的公共类中的内容。好好看看特怎么对button附图片的做法，今天看了一下还不是很明白。还要把自己项目的各个类定义出来，试着模仿这个项目写一个简单的功能选择显示。&lt;/p&gt;
-&lt;p&gt;3.收藏一些算法明天看吧。
-&lt;a href="http://blog.jobbole.com/72850/"&gt;排序算法&lt;/a&gt;&lt;/p&gt;</summary><category term="work"></category></entry><entry><title>headache</title><link href="https://leelir.github.io/articles/headache.html" rel="alternate"></link><updated>2015-07-28T21:01:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2015-07-28:articles/headache.html</id><summary type="html">&lt;h2&gt;头疼了&lt;/h2&gt;
-&lt;hr /&gt;
-&lt;h2&gt;"All the power on earth can't change destiny."&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="godfather" src="http://img21.mtime.cn/pi/2011/06/17/171454.62289438_500X600.jpg" /&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;从昨天在单位的椅子上躺着睡了一会一后就开始头疼了，也不知道怎么回事。每到这个时候我就害怕活着。希望明天能够快快好起来。&lt;/p&gt;
-&lt;p&gt;明天就要开始看qt项目的代码了，争取这一周能弄明白这个。c++prime plus也要看。明天就要写点自己看的东西。单纯的回忆一天的收获。&lt;/p&gt;
-&lt;p&gt;记录下每一天发生的事情，感觉挺好，前两天就像做个这样的东西，现在终于完成了。兴趣是最好的老师，这句话真的没有错。我以后就要想做什么就大胆的去做，该坚持的事情一定要坚持。&lt;/p&gt;
-&lt;p&gt;============================================&lt;/p&gt;</summary><category term="diary"></category></entry><entry><title>fun</title><link href="https://leelir.github.io/articles/fun.html" rel="alternate"></link><updated>2015-07-27T16:46:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2015-07-27:articles/fun.html</id><summary type="html">&lt;h1&gt;好玩&lt;/h1&gt;
-&lt;p&gt;终于弄好了，虽然还不知道这个东西具体是怎么个玩法，不过还是能用了。我以后也是有自己网站blog的人啦。&lt;/p&gt;
-&lt;h4&gt;据说写一段代码会高亮显示，试试（这个就不要hello了吧）：&lt;/h4&gt;
-&lt;p&gt;&lt;pre class=”brush: c; gutter: true;”&gt;
-include stdio.h
-include math.h&lt;/p&gt;
-&lt;p&gt;int main()
-{
-    double a,b,c,d,s;
-    while(scanf("%lf %lf %lf %lf",&amp;amp;a,&amp;amp;b,&amp;amp;c,&amp;amp;d)!=EOF)
-    {
-        s = sqrt((a-c)&lt;em&gt;(a-c)+(b-d)&lt;/em&gt;(b-d));
-        printf("%.2f\n",s );
-    }
-}
-&lt;/pre&gt;
-先将就着看吧，个人觉得这个代码区域不是很好。&lt;/p&gt;
-&lt;h3&gt;再插入歌图片试试吧：&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="3d" src="http://pic1.sc.chinaz.com/files/pic/pic9/201507/apic13323.jpg" /&gt;&lt;/p&gt;
-&lt;p&gt;相当给力是吧。有没有心动？我要再去注册个域名了。886.。。&lt;/p&gt;</summary><category term="fun"></category></entry><entry><title>hello</title><link href="https://leelir.github.io/articles/hello.html" rel="alternate"></link><updated>2015-07-27T16:46:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2015-07-27:articles/hello.html</id><summary type="html">&lt;h4&gt;hello world,hello github,hello pelican,hello markdown&lt;/h4&gt;</summary><category term="fun"></category></entry></feed>
+&amp;esmp;&amp;esmp;对于在scroll view里的每一个view用一个点击测试CGRectContainsPoint找到被触摸的view。当找到了这个view，调用horizontalScrollerClickedViewAtIndex方法。在打破for循环之前，触摸scroll view里的view。&lt;/p&gt;</summary><category term="IOS"></category></entry></feed>
