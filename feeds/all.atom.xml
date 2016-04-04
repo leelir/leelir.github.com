@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>H4C3R</title><link href="https://leelir.github.io/" rel="alternate"></link><link href="https://leelir.github.io/feeds/all.atom.xml" rel="self"></link><id>https://leelir.github.io/</id><updated>2016-03-31T00:04:00+08:00</updated><entry><title>Introducing iOS Design Patterns in Swift Part 2（翻译，未完待续。。。）</title><link href="https://leelir.github.io/articles/IOS.html" rel="alternate"></link><updated>2016-03-31T00:04:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2016-03-31:articles/IOS.html</id><summary type="html">&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;3月31日&lt;/strong&gt; 刚刚开始写。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;4月5日&lt;/strong&gt;写着写着就凌晨一点多了，又添加了一些内容。本来想着写到项目目前的状态来，不过也不早了，明天还要好好想一想论文的实验的几个关键点。睡了，明天接着写。  &lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;&lt;strong&gt;2015年4月22日&lt;/strong&gt;: Xcode6.3 和Swift1.2 更新&lt;br /&gt;
