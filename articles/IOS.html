@@ -131,7 +131,11 @@
 <span class="label">Tags</span>
 	<a href="https://leelir.github.io/tag/ios.html"><i class="icon-tag"></i>IOS</a>
 </footer><!-- /.post-info -->                </div>
-                <p><strong>2015年4月22日</strong>: Xcode6.3 和Swift1.2 更新<br />
+                <p><strong>3月31日</strong>很好的一篇文章，<a href="http://www.devtalking.com/articles/ios-design-pattern-in-swift-1/">程序员说翻译了上半部分</a>我从网上找到了下半部分的英文版，英文渣渣，边练边写，多多指教！  </p>
+<hr />
+<p><strong>4月5日</strong>写着写着就凌晨一点多了，又添加了一些内容。本来想着写到项目目前的状态来，不过也不早了，明天还要好好想一想论文的实验的几个关键点。睡了，明天接着写。  </p>
+<hr />
+<p><strong>2015年4月22日</strong>: Xcode6.3 和Swift1.2 更新<br />
 <strong>更新日志</strong>：这次IOS8和Swift的指导课是有Vincent Ngo更新的。原版本事由指导课成员Eli Ganem推出的。<br />
 欢迎回到设计模式介绍指导课的第二部分！在第一部分，你已经学习关于Cocoa的一些基本的设计模式，例如MVC，单例模式，和装饰模式等。<br />
 在最后这一部分，你将会学习一些其他的由大量IOS和OS X开发者提出的一些基本设计模式。例如：适配器模式，观察者模式和纪念品模式。让我们马上开始学习吧！  </p>
@@ -259,7 +263,136 @@
 
 <p>这个手势以一个元素传入，使你用locationInView（）来提取位置信息。<br />
 接下来，调用delegate里面的numberOfViewsForHorizontalScroller（）。HorizontalScroller实例没有关于delegate的信息，而是知道它可以安全地传递消息，因为delegate必须遵从HorizontalScrollerDelegate协议。<br />
-对于在scroll view里的每一个view用一个点击测试CGRectContainsPoint找到被触摸的view。当找到了这个view，调用horizontalScrollerClickedViewAtIndex方法。在打破for循环之前，触摸scroll view里的view。</p>
+对于在scroll view里的每一个view用一个点击测试CGRectContainsPoint找到被触摸的view。当找到了这个view，调用horizontalScrollerClickedViewAtIndex方法。在打破for循环之前，触摸scroll view里的view。<br />
+现在添加reload到scroller里面：  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">reload</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 1 - Check if there is a delegate, if not there is nothing to load.</span>
+    <span class="k">if</span> <span class="kd">let</span> <span class="nv">delegate</span> <span class="p">=</span> <span class="n">delegate</span> <span class="p">{</span>
+      <span class="c1">//2 - Will keep adding new album views on reload, need to reset.</span>
+      <span class="n">viewArray</span> <span class="p">=</span> <span class="p">[]</span>
+      <span class="kd">let</span> <span class="nv">views</span><span class="p">:</span> <span class="bp">NSArray</span> <span class="p">=</span> <span class="n">scroller</span><span class="p">.</span><span class="n">subviews</span>
+            <span class="c1">// 3 - remove all subviews</span>
+            <span class="k">for</span> <span class="n">view</span> <span class="k">in</span> <span class="n">views</span> <span class="p">{</span>
+                <span class="n">view</span><span class="p">.</span><span class="n">removeFromSuperview</span><span class="p">()</span>
+            <span class="p">}</span>
+      <span class="c1">// 4 - xValue is the starting point of the views inside the scroller</span>
+      <span class="kd">var</span> <span class="nv">xValue</span> <span class="p">=</span> <span class="n">VIEWS_OFFSET</span>
+      <span class="k">for</span> <span class="n">index</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="n">delegate</span><span class="p">.</span><span class="n">numberOfViewsForHorizontalScroller</span><span class="p">(</span><span class="kc">self</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 5 - add a view at the right position</span>
+        <span class="n">xValue</span> <span class="o">+=</span> <span class="n">VIEW_PADDING</span>
+        <span class="kd">let</span> <span class="nv">view</span> <span class="p">=</span> <span class="n">delegate</span><span class="p">.</span><span class="n">horizontalScrollerViewAtIndex</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n">index</span><span class="p">)</span>
+        <span class="n">view</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">(</span><span class="n">xValue</span><span class="p">),</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">VIEW_PADDING</span><span class="p">),</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">VIEW_DIMENSIONS</span><span class="p">),</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">VIEW_DIMENSIONS</span><span class="p">))</span>
+        <span class="n">scroller</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">view</span><span class="p">)</span>
+        <span class="n">xValue</span> <span class="o">+=</span> <span class="n">VIEW_DIMENSIONS</span> <span class="o">+</span> <span class="n">VIEW_PADDING</span>
+        <span class="c1">// 6 - Store the view so we can reference it later</span>
+        <span class="n">viewArray</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">view</span><span class="p">)</span>
+      <span class="p">}</span>
+      <span class="c1">// 7</span>
+      <span class="n">scroller</span><span class="p">.</span><span class="n">contentSize</span> <span class="p">=</span> <span class="n">CGSizeMake</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">(</span><span class="n">xValue</span> <span class="o">+</span> <span class="n">VIEWS_OFFSET</span><span class="p">),</span> <span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">)</span>
+      <span class="c1">// 8 - If an initial view is defined, center the scroller on it</span>
+      <span class="k">if</span> <span class="kd">let</span> <span class="nv">initialView</span> <span class="p">=</span> <span class="n">delegate</span><span class="p">.</span><span class="n">initialViewIndex</span><span class="p">?(</span><span class="kc">self</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">scroller</span><span class="p">.</span><span class="n">setContentOffset</span><span class="p">(</span><span class="bp">CGPoint</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">initialView</span><span class="p">)</span><span class="o">*</span><span class="n">CGFloat</span><span class="p">((</span><span class="n">VIEW_DIMENSIONS</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">VIEW_PADDING</span><span class="p">))),</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">),</span> <span class="n">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+
+
+<p>reload方法是在UITableView重新加载数据以后设计的模型；它重新加载了用于构建horizontal scroller的所有数据。<br />
+具体步骤如下：<br />
+1.在我们做任何一个reload之前，检查是否存在一个delegate。<br />
+2.即使你清除了相册封面，你也需要重置viewArray。否则，将会有大量的数据从之前的封面里留存下来。<br />
+3.在添加到scroller view之前，移除所有的subview。<br />
+4.所有view的初始位置都是由给定的offset定位的，当前是100，但是它可以通过修改文件开始的VIEW_OFFET的内容很容易的进行拉伸。<br />
+5.HorizontalView要求它的delegate 按照设定好的padding一次一个view水平的依次摆放。<br />
+6.将view存到viewArray里面以追踪scrollview里所有view的踪迹。<br />
+7.一旦所有的view就位以后，为scroll view设置content offset来使用户可以在所有的相册封面之间滑动。<br />
+8.horizontalscroller 检查它的delegate是否执行了initialviewindex方法。这一步检查是必不可少的，因为特殊协议方法是可选的。如果delegate没有使用这个方法，默认值就是0。最终，这段代码设置scroll view 到由delegate定义的初始视图的中心。<br />
+当数据改变时，执行reload方法。当你添加horizontalscroller到其他的view时也需要这个方法。将如下代码添加到HorizontalView.swift：  </p>
+<div class="highlight"><pre><span class="kr">override</span> <span class="kd">func</span> <span class="nf">didMoveToSuperview</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">reload</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>didMoveToSuperview是一个view在被添加到另一个view作为子视图时被调用的。这正是重新加载scroller内容的好时机。<br />
+关于HorizontalScroller最后的一个难点就是要确定你正在浏览的相册总是在scrollerview的内部。要做到这一点，当用户用手指拖拽scroll的时候你需要做一些计算。<br />
+添加如下代码：  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">centerCurrentView</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">xFinal</span> <span class="p">=</span> <span class="nb">Int</span><span class="p">(</span><span class="n">scroller</span><span class="p">.</span><span class="n">contentOffset</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">VIEWS_OFFSET</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">VIEW_PADDING</span>
+    <span class="kd">let</span> <span class="nv">viewIndex</span> <span class="p">=</span> <span class="n">xFinal</span> <span class="o">/</span> <span class="p">(</span><span class="n">VIEW_DIMENSIONS</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">VIEW_PADDING</span><span class="p">))</span>
+    <span class="n">xFinal</span> <span class="p">=</span> <span class="n">viewIndex</span> <span class="o">*</span> <span class="p">(</span><span class="n">VIEW_DIMENSIONS</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">VIEW_PADDING</span><span class="p">))</span>
+        <span class="n">scroller</span><span class="p">.</span><span class="n">setContentOffset</span><span class="p">(</span><span class="bp">CGPoint</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">xFinal</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">),</span> <span class="n">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+    <span class="k">if</span> <span class="kd">let</span> <span class="nv">delegate</span> <span class="p">=</span> <span class="n">delegate</span> <span class="p">{</span>
+      <span class="n">delegate</span><span class="p">.</span><span class="n">horizontalScrollerClickedViewAtIndex</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">(</span><span class="n">viewIndex</span><span class="p">))</span>
+    <span class="p">}</span>  
+ <span class="p">}</span>
+</pre></div>
+
+
+<p>上面的代码时为了计算当前view到中心的距离，所以要考虑到当前scroll view的offset，尺寸和view的padding。最后一行是很重要的，一旦view居中了，然后你就通知delegate选中的view改变了。<br />
+为了探测到用户在scroll view里面结束拖动，你需要使用一些UIScrollViewDelegate方法。添加如下类拓展，记住要添加在类的大括号外面！  </p>
+<div class="highlight"><pre><span class="kd">extension</span> <span class="nc">HorizontalScroller</span><span class="p">:</span> <span class="bp">UIScrollViewDelegate</span> <span class="p">{</span>
+  <span class="kd">func</span> <span class="nf">scrollViewDidEndDragging</span><span class="p">(</span><span class="n">scrollView</span><span class="p">:</span> <span class="bp">UIScrollView</span><span class="p">,</span> <span class="n">willDecelerate</span> <span class="n">decelerate</span><span class="p">:</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="o">!</span><span class="n">decelerate</span> <span class="p">{</span>
+      <span class="n">centerCurrentView</span><span class="p">()</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="kd">func</span> <span class="nf">scrollViewDidEndDecelerating</span><span class="p">(</span><span class="n">scrollView</span><span class="p">:</span> <span class="bp">UIScrollView</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">centerCurrentView</span><span class="p">()</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>scrollViewDidEndDragging(_:willDecelerate:)当用户结束拖动时通知delegate。如果scroll view 没有完全停止则减速参数为真。当scroll动作停止了，系统将会调用scrollViewDidEndDecelerating。这两种情况你都需要调用新方法使当前的view居中，即使当前的试图可能在用户的拖拽scroll view时改变了。<br />
+左后不要忘了设置delegate。在initializeScrollView（）里面的scroller = UIScrollView():后面添加如下代码： </p>
+<div class="highlight"><pre><span class="n">scroller</span><span class="p">.</span><span class="n">delegate</span> <span class="p">=</span> <span class="kc">self</span><span class="p">;</span>
+</pre></div>
+
+
+<p>HorizontalScroller已经等着你使用了！浏览你刚才写的代码你会发现；你一点也没有提到Album类或AlbumView类。这太棒了，因为这意味着新的scroller真正的实现了独立和重用。<br />
+build你的工程确保每一件事都完美完成。<br />
+现在HorizontalScroller 已经完成了，是时候在你的app里面使用了。首先，打开main.storyboard.点击顶部的灰色矩形视图，并且点击 identity inspector。用如下操作修改类名。<br />
+<div align=center>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattwern9.png" width="640" height="430" alt="第一部分效果图"/>
+</div> 
+接下来，打开assistant editor按住control从灰色矩形视图拖动到ViewController.swift创建一个outlet命名为scroller，如下所示：<br />
+<div align=center>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern10.png" width="640" height="430" alt="第一部分效果图"/>
+</div> 
+下一步，打开ViewController.swift。是时候使用一些HorizontalScrollerDelegate方法了。
+在文件底部添加如下扩展：  </p>
+<div class="highlight"><pre><span class="kd">extension</span> <span class="nc">ViewController</span><span class="p">:</span> <span class="n">HorizontalScrollerDelegate</span> <span class="p">{</span>
+  <span class="kd">func</span> <span class="nf">horizontalScrollerClickedViewAtIndex</span><span class="p">(</span><span class="n">scroller</span><span class="p">:</span> <span class="n">HorizontalScroller</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//1</span>
+    <span class="kd">let</span> <span class="nv">previousAlbumView</span> <span class="p">=</span> <span class="n">scroller</span><span class="p">.</span><span class="n">viewAtIndex</span><span class="p">(</span><span class="n">currentAlbumIndex</span><span class="p">)</span> <span class="kc">as</span><span class="p">!</span> <span class="n">AlbumView</span>
+    <span class="n">previousAlbumView</span><span class="p">.</span><span class="n">highlightAlbum</span><span class="p">(</span><span class="n">didHighlightView</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+    <span class="c1">//2</span>
+    <span class="n">currentAlbumIndex</span> <span class="p">=</span> <span class="n">index</span>
+    <span class="c1">//3</span>
+    <span class="kd">let</span> <span class="nv">albumView</span> <span class="p">=</span> <span class="n">scroller</span><span class="p">.</span><span class="n">viewAtIndex</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="kc">as</span><span class="p">!</span> <span class="n">AlbumView</span>
+    <span class="n">albumView</span><span class="p">.</span><span class="n">highlightAlbum</span><span class="p">(</span><span class="n">didHighlightView</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+    <span class="c1">//4</span>
+    <span class="n">showDataForAlbum</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>让我们再一行一行的走一遍delegate方法：<br />
+1.首先，抓取之前选定的相册，不选定相册封面。<br />
+2.存储当前你点击的相册封面的序号。<br />
+3.抓取当前选定的相册封面并且使它高亮选中。<br />
+4.在tableview中显示新的相册的数据。
+接下来，添加如下扩展方法：  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">numberOfViewsForHorizontalScroller</span><span class="p">(</span><span class="n">scroller</span><span class="p">:</span> <span class="n">HorizontalScroller</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">allAlbums</span><span class="p">.</span><span class="bp">count</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>这个方法就像你想的一样，是一个返回scroll view里view数量的一个协议方法。因为scroll view将会显示所有相册数据的封面，这个值是相册记录的数量。</p>
                 </div><!-- /.entry-content -->
                 <div class="comments">
                 <h2>Comments !</h2>

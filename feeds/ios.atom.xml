@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>H4C3R</title><link href="https://leelir.github.io/" rel="alternate"></link><link href="https://leelir.github.io/feeds/ios.atom.xml" rel="self"></link><id>https://leelir.github.io/</id><updated>2016-03-31T00:04:00+08:00</updated><entry><title>Introducing iOS Design Patterns in Swift Part 2（翻译，未完待续。。。）</title><link href="https://leelir.github.io/articles/IOS.html" rel="alternate"></link><updated>2016-03-31T00:04:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2016-03-31:articles/IOS.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;2015年4月22日&lt;/strong&gt;: Xcode6.3 和Swift1.2 更新&lt;br /&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>H4C3R</title><link href="https://leelir.github.io/" rel="alternate"></link><link href="https://leelir.github.io/feeds/ios.atom.xml" rel="self"></link><id>https://leelir.github.io/</id><updated>2016-03-31T00:04:00+08:00</updated><entry><title>Introducing iOS Design Patterns in Swift Part 2（翻译，未完待续。。。）</title><link href="https://leelir.github.io/articles/IOS.html" rel="alternate"></link><updated>2016-03-31T00:04:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2016-03-31:articles/IOS.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;3月31日&lt;/strong&gt;很好的一篇文章，&lt;a href="http://www.devtalking.com/articles/ios-design-pattern-in-swift-1/"&gt;程序员说翻译了上半部分&lt;/a&gt;我从网上找到了下半部分的英文版，英文渣渣，边练边写，多多指教！  &lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;4月5日&lt;/strong&gt;写着写着就凌晨一点多了，又添加了一些内容。本来想着写到项目目前的状态来，不过也不早了，明天还要好好想一想论文的实验的几个关键点。睡了，明天接着写。  &lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;2015年4月22日&lt;/strong&gt;: Xcode6.3 和Swift1.2 更新&lt;br /&gt;
 &lt;strong&gt;更新日志&lt;/strong&gt;：这次IOS8和Swift的指导课是有Vincent Ngo更新的。原版本事由指导课成员Eli Ganem推出的。&lt;br /&gt;
 欢迎回到设计模式介绍指导课的第二部分！在第一部分，你已经学习关于Cocoa的一些基本的设计模式，例如MVC，单例模式，和装饰模式等。&lt;br /&gt;
 在最后这一部分，你将会学习一些其他的由大量IOS和OS X开发者提出的一些基本设计模式。例如：适配器模式，观察者模式和纪念品模式。让我们马上开始学习吧！  &lt;/p&gt;
@@ -127,4 +131,133 @@
 
 &lt;p&gt;这个手势以一个元素传入，使你用locationInView（）来提取位置信息。&lt;br /&gt;
 接下来，调用delegate里面的numberOfViewsForHorizontalScroller（）。HorizontalScroller实例没有关于delegate的信息，而是知道它可以安全地传递消息，因为delegate必须遵从HorizontalScrollerDelegate协议。&lt;br /&gt;
-对于在scroll view里的每一个view用一个点击测试CGRectContainsPoint找到被触摸的view。当找到了这个view，调用horizontalScrollerClickedViewAtIndex方法。在打破for循环之前，触摸scroll view里的view。&lt;/p&gt;</summary><category term="IOS"></category></entry></feed>
+对于在scroll view里的每一个view用一个点击测试CGRectContainsPoint找到被触摸的view。当找到了这个view，调用horizontalScrollerClickedViewAtIndex方法。在打破for循环之前，触摸scroll view里的view。&lt;br /&gt;
+现在添加reload到scroller里面：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;func&lt;/span&gt; &lt;span class="nf"&gt;reload&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="c1"&gt;// 1 - Check if there is a delegate, if not there is nothing to load.&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;delegate&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;delegate&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="c1"&gt;//2 - Will keep adding new album views on reload, need to reset.&lt;/span&gt;
+      &lt;span class="n"&gt;viewArray&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+      &lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;views&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="bp"&gt;NSArray&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scroller&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subviews&lt;/span&gt;
+            &lt;span class="c1"&gt;// 3 - remove all subviews&lt;/span&gt;
+            &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;view&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;views&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="n"&gt;view&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;removeFromSuperview&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+            &lt;span class="p"&gt;}&lt;/span&gt;
+      &lt;span class="c1"&gt;// 4 - xValue is the starting point of the views inside the scroller&lt;/span&gt;
+      &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;xValue&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;VIEWS_OFFSET&lt;/span&gt;
+      &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="mf"&gt;0.&lt;/span&gt;&lt;span class="p"&gt;.&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;delegate&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;numberOfViewsForHorizontalScroller&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="c1"&gt;// 5 - add a view at the right position&lt;/span&gt;
+        &lt;span class="n"&gt;xValue&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;VIEW_PADDING&lt;/span&gt;
+        &lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;view&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;delegate&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;horizontalScrollerViewAtIndex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;view&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;frame&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;CGRectMake&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;CGFloat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;xValue&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;CGFloat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;VIEW_PADDING&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;CGFloat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;VIEW_DIMENSIONS&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;CGFloat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;VIEW_DIMENSIONS&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="n"&gt;scroller&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addSubview&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;view&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;xValue&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;VIEW_DIMENSIONS&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;VIEW_PADDING&lt;/span&gt;
+        &lt;span class="c1"&gt;// 6 - Store the view so we can reference it later&lt;/span&gt;
+        &lt;span class="n"&gt;viewArray&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;view&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="p"&gt;}&lt;/span&gt;
+      &lt;span class="c1"&gt;// 7&lt;/span&gt;
+      &lt;span class="n"&gt;scroller&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;contentSize&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;CGSizeMake&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;CGFloat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;xValue&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;VIEWS_OFFSET&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;frame&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="c1"&gt;// 8 - If an initial view is defined, center the scroller on it&lt;/span&gt;
+      &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;initialView&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;delegate&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;initialViewIndex&lt;/span&gt;&lt;span class="p"&gt;?(&lt;/span&gt;&lt;span class="kc"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;scroller&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setContentOffset&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;CGPoint&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;CGFloat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;initialView&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;CGFloat&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;VIEW_DIMENSIONS&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;VIEW_PADDING&lt;/span&gt;&lt;span class="p"&gt;))),&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;animated&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;reload方法是在UITableView重新加载数据以后设计的模型；它重新加载了用于构建horizontal scroller的所有数据。&lt;br /&gt;
+具体步骤如下：&lt;br /&gt;
+1.在我们做任何一个reload之前，检查是否存在一个delegate。&lt;br /&gt;
+2.即使你清除了相册封面，你也需要重置viewArray。否则，将会有大量的数据从之前的封面里留存下来。&lt;br /&gt;
+3.在添加到scroller view之前，移除所有的subview。&lt;br /&gt;
+4.所有view的初始位置都是由给定的offset定位的，当前是100，但是它可以通过修改文件开始的VIEW_OFFET的内容很容易的进行拉伸。&lt;br /&gt;
+5.HorizontalView要求它的delegate 按照设定好的padding一次一个view水平的依次摆放。&lt;br /&gt;
+6.将view存到viewArray里面以追踪scrollview里所有view的踪迹。&lt;br /&gt;
+7.一旦所有的view就位以后，为scroll view设置content offset来使用户可以在所有的相册封面之间滑动。&lt;br /&gt;
+8.horizontalscroller 检查它的delegate是否执行了initialviewindex方法。这一步检查是必不可少的，因为特殊协议方法是可选的。如果delegate没有使用这个方法，默认值就是0。最终，这段代码设置scroll view 到由delegate定义的初始视图的中心。&lt;br /&gt;
+当数据改变时，执行reload方法。当你添加horizontalscroller到其他的view时也需要这个方法。将如下代码添加到HorizontalView.swift：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kr"&gt;override&lt;/span&gt; &lt;span class="kd"&gt;func&lt;/span&gt; &lt;span class="nf"&gt;didMoveToSuperview&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;reload&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;didMoveToSuperview是一个view在被添加到另一个view作为子视图时被调用的。这正是重新加载scroller内容的好时机。&lt;br /&gt;
+关于HorizontalScroller最后的一个难点就是要确定你正在浏览的相册总是在scrollerview的内部。要做到这一点，当用户用手指拖拽scroll的时候你需要做一些计算。&lt;br /&gt;
+添加如下代码：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;func&lt;/span&gt; &lt;span class="nf"&gt;centerCurrentView&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;xFinal&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;Int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;scroller&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;contentOffset&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;VIEWS_OFFSET&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;VIEW_PADDING&lt;/span&gt;
+    &lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;viewIndex&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;xFinal&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;VIEW_DIMENSIONS&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;VIEW_PADDING&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="n"&gt;xFinal&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;viewIndex&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;VIEW_DIMENSIONS&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;VIEW_PADDING&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="n"&gt;scroller&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setContentOffset&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;CGPoint&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;xFinal&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;animated&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;delegate&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;delegate&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="n"&gt;delegate&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;horizontalScrollerClickedViewAtIndex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;Int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;viewIndex&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;  
+ &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;上面的代码时为了计算当前view到中心的距离，所以要考虑到当前scroll view的offset，尺寸和view的padding。最后一行是很重要的，一旦view居中了，然后你就通知delegate选中的view改变了。&lt;br /&gt;
+为了探测到用户在scroll view里面结束拖动，你需要使用一些UIScrollViewDelegate方法。添加如下类拓展，记住要添加在类的大括号外面！  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;extension&lt;/span&gt; &lt;span class="nc"&gt;HorizontalScroller&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="bp"&gt;UIScrollViewDelegate&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="kd"&gt;func&lt;/span&gt; &lt;span class="nf"&gt;scrollViewDidEndDragging&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;scrollView&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="bp"&gt;UIScrollView&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;willDecelerate&lt;/span&gt; &lt;span class="n"&gt;decelerate&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;Bool&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="n"&gt;decelerate&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="n"&gt;centerCurrentView&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="kd"&gt;func&lt;/span&gt; &lt;span class="nf"&gt;scrollViewDidEndDecelerating&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;scrollView&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="bp"&gt;UIScrollView&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;centerCurrentView&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;scrollViewDidEndDragging(_:willDecelerate:)当用户结束拖动时通知delegate。如果scroll view 没有完全停止则减速参数为真。当scroll动作停止了，系统将会调用scrollViewDidEndDecelerating。这两种情况你都需要调用新方法使当前的view居中，即使当前的试图可能在用户的拖拽scroll view时改变了。&lt;br /&gt;
+左后不要忘了设置delegate。在initializeScrollView（）里面的scroller = UIScrollView():后面添加如下代码： &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;scroller&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;delegate&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;self&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;HorizontalScroller已经等着你使用了！浏览你刚才写的代码你会发现；你一点也没有提到Album类或AlbumView类。这太棒了，因为这意味着新的scroller真正的实现了独立和重用。&lt;br /&gt;
+build你的工程确保每一件事都完美完成。&lt;br /&gt;
+现在HorizontalScroller 已经完成了，是时候在你的app里面使用了。首先，打开main.storyboard.点击顶部的灰色矩形视图，并且点击 identity inspector。用如下操作修改类名。&lt;br /&gt;
+&lt;div align=center&gt;
+&lt;img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattwern9.png" width="640" height="430" alt="第一部分效果图"/&gt;
+&lt;/div&gt; 
+接下来，打开assistant editor按住control从灰色矩形视图拖动到ViewController.swift创建一个outlet命名为scroller，如下所示：&lt;br /&gt;
+&lt;div align=center&gt;
+&lt;img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern10.png" width="640" height="430" alt="第一部分效果图"/&gt;
+&lt;/div&gt; 
+下一步，打开ViewController.swift。是时候使用一些HorizontalScrollerDelegate方法了。
+在文件底部添加如下扩展：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;extension&lt;/span&gt; &lt;span class="nc"&gt;ViewController&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;HorizontalScrollerDelegate&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="kd"&gt;func&lt;/span&gt; &lt;span class="nf"&gt;horizontalScrollerClickedViewAtIndex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;scroller&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;HorizontalScroller&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;Int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="c1"&gt;//1&lt;/span&gt;
+    &lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;previousAlbumView&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scroller&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;viewAtIndex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;currentAlbumIndex&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kc"&gt;as&lt;/span&gt;&lt;span class="p"&gt;!&lt;/span&gt; &lt;span class="n"&gt;AlbumView&lt;/span&gt;
+    &lt;span class="n"&gt;previousAlbumView&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;highlightAlbum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;didHighlightView&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;//2&lt;/span&gt;
+    &lt;span class="n"&gt;currentAlbumIndex&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;
+    &lt;span class="c1"&gt;//3&lt;/span&gt;
+    &lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;albumView&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scroller&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;viewAtIndex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kc"&gt;as&lt;/span&gt;&lt;span class="p"&gt;!&lt;/span&gt; &lt;span class="n"&gt;AlbumView&lt;/span&gt;
+    &lt;span class="n"&gt;albumView&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;highlightAlbum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;didHighlightView&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;//4&lt;/span&gt;
+    &lt;span class="n"&gt;showDataForAlbum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;让我们再一行一行的走一遍delegate方法：&lt;br /&gt;
+1.首先，抓取之前选定的相册，不选定相册封面。&lt;br /&gt;
+2.存储当前你点击的相册封面的序号。&lt;br /&gt;
+3.抓取当前选定的相册封面并且使它高亮选中。&lt;br /&gt;
+4.在tableview中显示新的相册的数据。
+接下来，添加如下扩展方法：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;func&lt;/span&gt; &lt;span class="nf"&gt;numberOfViewsForHorizontalScroller&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;scroller&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;HorizontalScroller&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;Int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;allAlbums&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="bp"&gt;count&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这个方法就像你想的一样，是一个返回scroll view里view数量的一个协议方法。因为scroll view将会显示所有相册数据的封面，这个值是相册记录的数量。&lt;/p&gt;</summary><category term="IOS"></category></entry></feed>
