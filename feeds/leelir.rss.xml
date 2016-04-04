@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>H4C3R</title><link>https://leelir.github.io/</link><description></description><atom:link href="https://leelir.github.io/feeds/leelir.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 31 Mar 2016 00:04:00 +0800</lastBuildDate><item><title>Introducing iOS Design Patterns in Swift Part 2（翻译，未完待续。。。）</title><link>https://leelir.github.io/articles/IOS.html</link><description>&lt;p&gt;&lt;strong&gt;3月31日&lt;/strong&gt;很好的一篇文章，&lt;a href="http://www.devtalking.com/articles/ios-design-pattern-in-swift-1/"&gt;程序员说翻译了上半部分&lt;/a&gt;我从网上找到了下半部分的英文版，英文渣渣，边练边写，多多指教！  &lt;/p&gt;
-&lt;hr /&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>H4C3R</title><link>https://leelir.github.io/</link><description></description><atom:link href="https://leelir.github.io/feeds/leelir.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 31 Mar 2016 00:04:00 +0800</lastBuildDate><item><title>Introducing iOS Design Patterns in Swift Part 2（翻译，未完待续。。。）</title><link>https://leelir.github.io/articles/IOS.html</link><description>&lt;hr /&gt;
 &lt;p&gt;&lt;strong&gt;4月5日&lt;/strong&gt;写着写着就凌晨一点多了，又添加了一些内容。本来想着写到项目目前的状态来，不过也不早了，明天还要好好想一想论文的实验的几个关键点。睡了，明天接着写。  &lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;&lt;strong&gt;2015年4月22日&lt;/strong&gt;: Xcode6.3 和Swift1.2 更新&lt;br /&gt;
