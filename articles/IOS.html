@@ -432,7 +432,7 @@ build你的工程确保每一件事都完美完成。<br />
 
 
 <p>既然HorizontalScroller在storyboard中创建，你所要做的事情有：设置delegate，调用reloadScroller（）来为scroller加载subview以显示相册数据。  </p>
-<div class="highlight"><pre>    **注意：** 如果一个协议变得很大并且有很多可选的方法，你就要考虑把它拆成几个小的协议。UITableViewDelegate and UITableViewDataSource就是很好的例子。试着设计你的协议，这样每一个协议处理一个具体的功能区域。
+<div class="highlight"><pre>    注意：如果一个协议变得很大并且有很多可选的方法，你就要考虑把它拆成几个小的协议。UITableViewDelegate and UITableViewDataSource就是很好的例子。试着设计你的协议，这样每一个协议处理一个具体的功能区域。
 </pre></div>
 
 
@@ -454,7 +454,7 @@ Cocoa用两种相似的方法使用了观察者模式：Notifications 和 Key-Va
 <h2>Notifications</h2>
 <p>不要将它与推送和本地通知混淆，Notification是基于subscribe-and-publish模型，这个模型允许一个对象发送消息给其他的对象。出版商永远不必知道关于订购者的任何消息。<br />
 Notification在Apple中广泛使用。例如，键盘显示或隐藏时，系统发送一个UIKeyboardWillShowNotification/UIKeyboardWillHideNotification，当你的程序进入后台时，系统发送一个UIApplicationDidEnterBackgroundNotification。  </p>
-<div class="highlight"><pre>    **注意：** 打开UIApplication.swift,在文档的末尾，你会看见至少20个由系统发出的notifications。
+<div class="highlight"><pre>    注意：打开UIApplication.swift,在文档的末尾，你会看见至少20个由系统发出的notifications。
 </pre></div>
 
 
