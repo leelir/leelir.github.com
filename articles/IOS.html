@@ -119,8 +119,8 @@
                 <div class="well">
 <footer class="post-info">
 <span class="label">Date</span>
-<abbr class="published" title="2016-04-05T01:40:00+08:00">
-        <i class="icon-calendar"></i>2016-04-05
+<abbr class="published" title="2016-04-06T01:30:00+08:00">
+        <i class="icon-calendar"></i>2016-04-06
 </abbr>
 <span class="label">By</span>
 <a href="https://leelir.github.io/author/leelir.html"><i class="icon-user"></i>leelir</a>
@@ -133,7 +133,8 @@
 </footer><!-- /.post-info -->                </div>
                 <hr />
 <p><strong>3月31日</strong> 刚刚开始写。</p>
-<p><strong>4月5日</strong>写着写着就凌晨一点多了，又添加了一些内容。本来想着写到项目目前的状态来，不过也不早了，明天还要好好想一想论文的实验的几个关键点。睡了，明天接着写。  </p>
+<p><strong>4月5日</strong>写着写着就凌晨一点多了，又添加了一些内容。本来想着写到项目目前的状态来，不过也不早了，明天还要好好想一想论文的实验的几个关键点。睡了，明天接着写。 </p>
+<p><strong>4月6日</strong>网络不好真的很耽误事，还影响心情，今天整了一天的网，不开心。本来能多做好多事的，明天继续。</p>
 <hr />
 <p><strong>2015年4月22日</strong>: Xcode6.3 和Swift1.2 更新<br />
 <strong>更新日志</strong>：这次IOS8和Swift的指导课是有Vincent Ngo更新的。原版本事由指导课成员Eli Ganem推出的。<br />
@@ -355,11 +356,11 @@
 build你的工程确保每一件事都完美完成。<br />
 现在HorizontalScroller 已经完成了，是时候在你的app里面使用了。首先，打开main.storyboard.点击顶部的灰色矩形视图，并且点击 identity inspector。用如下操作修改类名。<br />
 <div align=center>
-<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattwern9.png" width="640" height="430" alt="第一部分效果图"/>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattwern9.png" width="640" height="430" alt="修改类名效果图"/>
 </div> 
 接下来，打开assistant editor按住control从灰色矩形视图拖动到ViewController.swift创建一个outlet命名为scroller，如下所示：<br />
 <div align=center>
-<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern10.png" width="640" height="430" alt="第一部分效果图"/>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern10.png" width="640" height="430" alt="拖动效果图"/>
 </div> 
 下一步，打开ViewController.swift。是时候使用一些HorizontalScrollerDelegate方法了。
 在文件底部添加如下扩展：  </p>
@@ -392,7 +393,152 @@ build你的工程确保每一件事都完美完成。<br />
 </pre></div>
 
 
-<p>这个方法就像你想的一样，是一个返回scroll view里view数量的一个协议方法。因为scroll view将会显示所有相册数据的封面，这个值是相册记录的数量。</p>
+<p>这个方法就像你想的一样，是一个返回scroll view里view数量的一个协议方法。因为scroll view将会显示所有相册数据的封面，这个值是相册记录的数量。<br />
+现在添加如下代码：  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">horizontalScrollerViewAtIndex</span><span class="p">(</span><span class="n">scroller</span><span class="p">:</span> <span class="n">HorizontalScroller</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="bp">UIView</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">album</span> <span class="p">=</span> <span class="n">allAlbums</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="kd">let</span> <span class="nv">albumView</span> <span class="p">=</span> <span class="n">AlbumView</span><span class="p">(</span><span class="n">frame</span><span class="p">:</span> <span class="bp">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">100</span><span class="p">),</span> <span class="n">albumCover</span><span class="p">:</span> <span class="n">album</span><span class="p">.</span><span class="n">coverUrl</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">currentAlbumIndex</span> <span class="p">==</span> <span class="n">index</span> <span class="p">{</span>
+      <span class="n">albumView</span><span class="p">.</span><span class="n">highlightAlbum</span><span class="p">(</span><span class="n">didHighlightView</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n">albumView</span><span class="p">.</span><span class="n">highlightAlbum</span><span class="p">(</span><span class="n">didHighlightView</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">albumView</span>
+  <span class="p">}</span>
+</pre></div>
+
+
+<p>在这里创建一个新的AlbumView，接下来点击试一下用户是否选中了这个相册。然后就可以根据相册是否被选中设置为高亮显示或不高亮。最后传递给HorizontalScroller。<br />
+这就好了！仅仅三个简单的方法就能实现一个好看的水平滑动窗口。<br />
+是的，你还需要创建一个scroller并把它添加到你的主view中，但是在你做这个之前，添加如下方法到主类：  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">reloadScroller</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">allAlbums</span> <span class="p">=</span> <span class="n">LibraryAPI</span><span class="p">.</span><span class="n">sharedInstance</span><span class="p">.</span><span class="n">getAlbums</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">currentAlbumIndex</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">{</span>
+      <span class="n">currentAlbumIndex</span> <span class="p">=</span> <span class="mi">0</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">currentAlbumIndex</span> <span class="o">&gt;=</span> <span class="n">allAlbums</span><span class="p">.</span><span class="bp">count</span> <span class="p">{</span>
+      <span class="n">currentAlbumIndex</span> <span class="p">=</span> <span class="n">allAlbums</span><span class="p">.</span><span class="bp">count</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="p">}</span>
+    <span class="n">scroller</span><span class="p">.</span><span class="n">reload</span><span class="p">()</span>
+    <span class="n">showDataForAlbum</span><span class="p">(</span><span class="n">currentAlbumIndex</span><span class="p">)</span>
+  <span class="p">}</span>
+</pre></div>
+
+
+<p>这个方法通过LibraryAPI重新加载相册数据，并且基于当前view的序号值显示当前的view。如果当前的view序号小于0，意味着现在没有view被选中，然后显示list中的第一个相册。否则，显示最后一个相册。<br />
+现在，通过在viewDidLoad的最后添加如下代码初始化scroller：  </p>
+<div class="highlight"><pre><span class="n">scroller</span><span class="p">.</span><span class="n">delegate</span> <span class="p">=</span> <span class="kc">self</span>
+<span class="n">reloadScroller</span><span class="p">()</span>
+</pre></div>
+
+
+<p>既然HorizontalScroller在storyboard中创建，你所要做的事情有：设置delegate，调用reloadScroller（）来为scroller加载subview以显示相册数据。  </p>
+<div class="highlight"><pre>    **注意：** 如果一个协议变得很大并且有很多可选的方法，你就要考虑把它拆成几个小的协议。UITableViewDelegate and UITableViewDataSource就是很好的例子。试着设计你的协议，这样每一个协议处理一个具体的功能区域。
+</pre></div>
+
+
+<p>编译运行你的项目，然后就能看到你美好的水平滑动窗口。<br />
+<div align=center>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern12.png" width="360" height="430" alt="初始效果图"/>
+</div> 
+哈哈，😄😄😄。等等，水平滑动窗口有了，可是封面去哪儿了？<br />
+是的，你还没有写用来加载封面的代码。你需要添加一个下载图片的方法。因为，你所有的存取服务都是通过LibraryAPI。这就是新的方法要做的事情。然而，在这之前还有一些事情需要考虑：<br />
+1.AlbumView不应该直接使用LibraryAPI。你不想将视图逻辑和交互逻辑混合。<br />
+2.出于相同的理由，LibraryAPI不应该知道AlbumView。<br />
+3.一旦封面下载完成，LibraryAPI需要告知AlbumView，因为AlbumView需要显示封面。<br />
+听起来是不是很复杂？不要担心，接下来你将会学习观察者模式！😄  </p>
+<h1>The Observer Pattern</h1>
+<p>在观察者模式中，一个对象通知其他的对象所有关于状态的改变。参与对象不需要知道彼此－尽管支持松耦合。这些模式大多数用于感兴趣的对象，当属性发生变化的时候。<br />
+通常的做法是需要一个观察登记员对另一个对象的状态感兴趣。当状态发生改变时，所有的观察对象都会被通知。<br />
+如果你想依照MVC概念，你需要Model对象与View对象交互，但不是直接在两者之间交互。这就产生了观察者模式。<br />
+Cocoa用两种相似的方法使用了观察者模式：Notifications 和 Key-Value Observing。  </p>
+<h2>Notifications</h2>
+<p>不要将它与推送和本地通知混淆，Notification是基于subscribe-and-publish模型，这个模型允许一个对象发送消息给其他的对象。出版商永远不必知道关于订购者的任何消息。<br />
+Notification在Apple中广泛使用。例如，键盘显示或隐藏时，系统发送一个UIKeyboardWillShowNotification/UIKeyboardWillHideNotification，当你的程序进入后台时，系统发送一个UIApplicationDidEnterBackgroundNotification。  </p>
+<div class="highlight"><pre>    **注意：** 打开UIApplication.swift,在文档的末尾，你会看见至少20个由系统发出的notifications。
+</pre></div>
+
+
+<h2>How to Use Notifations</h2>
+<p>打开AlbumView.swift在init（）后面插入如下代码：  </p>
+<div class="highlight"><pre><span class="bp">NSNotificationCenter</span><span class="p">.</span><span class="n">defaultCenter</span><span class="p">().</span><span class="n">postNotificationName</span><span class="p">(</span><span class="s">&quot;BLDownloadImageNotification&quot;</span><span class="p">,</span> <span class="n">object</span><span class="p">:</span> <span class="kc">self</span><span class="p">,</span> <span class="n">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;imageView&quot;</span><span class="p">:</span><span class="n">coverImage</span><span class="p">,</span> <span class="s">&quot;coverUrl&quot;</span> <span class="p">:</span> <span class="n">albumCover</span><span class="p">])</span>
+</pre></div>
+
+
+<p>这一行代码通过NSNotifacationCenter单例来发送一个notification。通知信息包括UIImageview和将要下载的封面信息的URL。这是所有你需要的完成封面下载任务的信息。<br />
+直接在super.init()后添加如下一行初始化LibraryAPI.swift：  </p>
+<div class="highlight"><pre><span class="bp">NSNotificationCenter</span><span class="p">.</span><span class="n">defaultCenter</span><span class="p">().</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span><span class="s">&quot;downloadImage:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&quot;BLDownloadImageNotification&quot;</span><span class="p">,</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+</pre></div>
+
+
+<p>这就是方程的另一面：观察者。每次AlbumView类发出一个BLDownloadImageNotification 通知时，因为LibraryAPI已经登记为为了相同通知的观察者，系统通知LibraryAPI。然后LibraryAPI调用downloadImage（）作为回应。<br />
+然而，在你使用downloadImage（）之前，你必须记住当类被释放的时候你要从通知中取消订阅。如果你不从你注册的通知中取消订阅，通知可能会送到一个释放的实例。这可能导致应用冲突。<br />
+在LibraryAPI.swift中添加如下代码：  </p>
+<div class="highlight"><pre><span class="kd">deinit</span> <span class="p">{</span>
+  <span class="bp">NSNotificationCenter</span><span class="p">.</span><span class="n">defaultCenter</span><span class="p">().</span><span class="n">removeObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>当对象被释放，它将会从所有登记过的通知中移除观察者自己。<br />
+这儿还有一件事情要做。将下载的封面保存到本地是一个好方法，这样app就不用一遍一遍地下载相同的封面了。<br />
+打开PersistencyManager.swift并且添加如下方法：  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">getImage</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="bp">UIImage</span><span class="p">?</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+        <span class="kd">let</span> <span class="nv">path</span> <span class="p">=</span> <span class="n">NSHomeDirectory</span><span class="p">().</span><span class="n">stringByAppendingString</span><span class="p">(</span><span class="s">&quot;/Documents/</span><span class="si">\(</span><span class="n">filename</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="kd">let</span> <span class="nv">data</span> <span class="p">:</span> <span class="bp">NSData</span><span class="p">?</span>
+        <span class="k">do</span> <span class="p">{</span>
+            <span class="n">data</span> <span class="p">=</span> <span class="n">try</span> <span class="bp">NSData</span><span class="p">(</span><span class="n">contentsOfFile</span><span class="p">:</span> <span class="n">path</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="p">.</span><span class="n">UncachedRead</span><span class="p">)</span>
+        <span class="p">}</span> <span class="n">catch</span> <span class="kd">let</span> <span class="nv">error1</span> <span class="kc">as</span> <span class="bp">NSError</span> <span class="p">{</span>
+            <span class="n">error</span> <span class="p">=</span> <span class="n">error1</span>
+            <span class="n">data</span> <span class="p">=</span> <span class="kc">nil</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="kd">let</span> <span class="nv">unwrappedError</span> <span class="p">=</span> <span class="n">error</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">nil</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="bp">UIImage</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">data</span><span class="p">!)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+
+<p>这段代码十分的直接，下载的图片将会存储直接存储到document，如果没有在document中找到匹配的文件，getImage（）会返回nil。<br />
+现在在LibraryAPI.swift中添加如下方法：  </p>
+<div class="highlight"><pre>  <span class="kd">func</span> <span class="nf">downloadImage</span><span class="p">(</span><span class="n">notification</span><span class="p">:</span> <span class="bp">NSNotification</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//1</span>
+    <span class="kd">let</span> <span class="nv">userInfo</span> <span class="p">=</span> <span class="n">notification</span><span class="p">.</span><span class="n">userInfo</span> <span class="kc">as</span><span class="p">!</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span>
+    <span class="kd">var</span> <span class="nv">imageView</span> <span class="p">=</span> <span class="n">userInfo</span><span class="p">[</span><span class="s">&quot;imageView&quot;</span><span class="p">]</span> <span class="kc">as</span><span class="p">!</span> <span class="bp">UIImageView</span><span class="p">?</span>
+    <span class="kd">let</span> <span class="nv">coverUrl</span> <span class="p">=</span> <span class="n">userInfo</span><span class="p">[</span><span class="s">&quot;coverUrl&quot;</span><span class="p">]</span> <span class="kc">as</span><span class="p">!</span> <span class="nb">String</span>
+    <span class="c1">//2</span>
+    <span class="k">if</span> <span class="kd">let</span> <span class="nv">imageViewUnWrapped</span> <span class="p">=</span> <span class="n">imageView</span> <span class="p">{</span>
+      <span class="n">imageViewUnWrapped</span><span class="p">.</span><span class="n">image</span> <span class="p">=</span> <span class="n">persistencyManager</span><span class="p">.</span><span class="n">getImage</span><span class="p">(</span><span class="n">coverUrl</span><span class="p">.</span><span class="n">lastPathComponent</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">imageViewUnWrapped</span><span class="p">.</span><span class="n">image</span> <span class="p">==</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="c1">//3</span>
+        <span class="n">dispatch_async</span><span class="p">(</span><span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="n">DISPATCH_QUEUE_PRIORITY_DEFAULT</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">{</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Void</span> <span class="k">in</span>
+          <span class="kd">let</span> <span class="nv">downloadedImage</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">httpClient</span><span class="p">.</span><span class="n">downloadImage</span><span class="p">(</span><span class="n">coverUrl</span> <span class="kc">as</span> <span class="nb">String</span><span class="p">)</span>
+          <span class="c1">//4</span>
+          <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">dispatch_get_main_queue</span><span class="p">(),</span> <span class="p">{</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Void</span> <span class="k">in</span>
+            <span class="n">imageViewUnWrapped</span><span class="p">.</span><span class="n">image</span> <span class="p">=</span> <span class="n">downloadedImage</span>
+            <span class="kc">self</span><span class="p">.</span><span class="n">persistencyManager</span><span class="p">.</span><span class="n">saveImage</span><span class="p">(</span><span class="n">downloadedImage</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="n">coverUrl</span><span class="p">.</span><span class="n">lastPathComponent</span><span class="p">)</span>
+          <span class="p">})</span>
+        <span class="p">})</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+
+
+<p>下面就是代码中的断点：<br />
+1.downloadImage是通过通知执行的，所以方法接收通知对象作为参数。UIImageView和图像的URL从通知中取回。<br />
+2.如果之前已经下载了图像，直接从PersistencyManager里取回图像。<br />
+3.如果图像还没有被下载，用HTTPClient取回。<br />
+4.当下载完成，在图像窗口显示图像，并且用PersistencyManager保存到本地。<br />
+在次说明，你正在使用Facade模式隐藏从其他类下载图片的复杂细节。通知发送者不关心图像是来自网络还是本地。<br />
+编译运行你的程序，你就会在水平滑动窗口里面看到美丽的封面。<br />
+<div align=center>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern13.png" width="360" height="430" alt="带封面初始效果图"/>
+</div> 
+停止项目重新运行，你将会发现现在毫无延迟的加载封面，因为它们已经被加载到本地了。你甚至可以断网，你的app还会正常工作的。然而这儿有一点非常古怪：这个转动进度图不断的转动！到底是怎么了？<br />
+当你下载图片的时候开启的旋转，但你没有做当图片加载完成时停止旋转的逻辑。每次你可以在一个图片下载完成时发出一个通知，但是作为替代，你将会你将会用到其他的观察者模式，KOV。</p>
                 </div><!-- /.entry-content -->
                 <div class="comments">
                 <h2>Comments !</h2>
