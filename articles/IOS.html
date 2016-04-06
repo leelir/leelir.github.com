@@ -119,8 +119,8 @@
                 <div class="well">
 <footer class="post-info">
 <span class="label">Date</span>
-<abbr class="published" title="2016-04-06T01:30:00+08:00">
-        <i class="icon-calendar"></i>2016-04-06
+<abbr class="published" title="2016-04-07T07:40:00+08:00">
+        <i class="icon-calendar"></i>2016-04-07
 </abbr>
 <span class="label">By</span>
 <a href="https://leelir.github.io/author/leelir.html"><i class="icon-user"></i>leelir</a>
@@ -134,7 +134,8 @@
                 <hr />
 <p><strong>3月31日</strong> 刚刚开始写。</p>
 <p><strong>4月5日</strong>写着写着就凌晨一点多了，又添加了一些内容。本来想着写到项目目前的状态来，不过也不早了，明天还要好好想一想论文的实验的几个关键点。睡了，明天接着写。 </p>
-<p><strong>4月6日</strong>网络不好真的很耽误事，还影响心情，今天整了一天的网，不开心。本来能多做好多事的，明天继续。</p>
+<p><strong>4月6日</strong>网络不好真的很耽误事，还影响心情，今天整了一天的网，不开心。本来能多做好多事的，明天继续。  </p>
+<p><strong>4月7日</strong>早上早起写的，写着写着饿了，看看中午加把劲，把这个弄完，再把项目自己写一遍。</p>
 <hr />
 <p><strong>2015年4月22日</strong>: Xcode6.3 和Swift1.2 更新<br />
 <strong>更新日志</strong>：这次IOS8和Swift的指导课是有Vincent Ngo更新的。原版本事由指导课成员Eli Ganem推出的。<br />
@@ -538,7 +539,105 @@ Notification在Apple中广泛使用。例如，键盘显示或隐藏时，系统
 <img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern13.png" width="360" height="430" alt="带封面初始效果图"/>
 </div> 
 停止项目重新运行，你将会发现现在毫无延迟的加载封面，因为它们已经被加载到本地了。你甚至可以断网，你的app还会正常工作的。然而这儿有一点非常古怪：这个转动进度图不断的转动！到底是怎么了？<br />
-当你下载图片的时候开启的旋转，但你没有做当图片加载完成时停止旋转的逻辑。每次你可以在一个图片下载完成时发出一个通知，但是作为替代，你将会你将会用到其他的观察者模式，KOV。</p>
+当你下载图片的时候开启的旋转，但你没有做当图片加载完成时停止旋转的逻辑。每次你可以在一个图片下载完成时发出一个通知，但是作为替代，你将会你将会用到其他的观察者模式，KOV。  </p>
+<h1>Key-Value Observing(KVO)</h1>
+<p>在kvo中一个对象能够具体性质的任意变化的通知，不管是他自己的还是其他对象的。如果你感兴趣，你可以参考<a href="https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html">Apple’s KVO Programming Guide.</a>  </p>
+<h2>如何使用KVO模式</h2>
+<p>上边我们提到过，KVO机制允许对象观察一个属性的变化。在你的示例中，你可以用KVO观察者模式去观察UIImageView中image属性的变化。<br />
+打开AlbumView.swift添加如下代码到init（frame：albumCover），就像添加coverImage作为自窗口一样：  </p>
+<div class="highlight"><pre><span class="n">coverImage</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">forKeyPath</span><span class="p">:</span> <span class="s">&quot;image&quot;</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="p">[],</span> <span class="n">context</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+</pre></div>
+
+
+<p>添加self是指当前作为coverImage属性image的观察者。<br />
+当你用完以后，你还需要注销观察者。还是在AlbumView.swift,添加如下代码：  </p>
+<div class="highlight"><pre><span class="kd">deinit</span> <span class="p">{</span>
+  <span class="n">coverImage</span><span class="p">.</span><span class="n">removeObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">forKeyPath</span><span class="p">:</span> <span class="s">&quot;image&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>最后添加如下方法：</p>
+<div class="highlight"><pre><span class="kr">override</span> <span class="kd">func</span> <span class="nf">observeValueForKeyPath</span><span class="p">(</span><span class="n">keyPath</span><span class="p">:</span> <span class="nb">String</span><span class="p">?,</span> <span class="n">ofObject</span> <span class="n">object</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">?,</span> <span class="n">change</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span> <span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]?,</span> <span class="n">context</span><span class="p">:</span> <span class="nb">UnsafeMutablePointer</span><span class="p">&lt;</span><span class="nb">Void</span><span class="p">&gt;)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">keyPath</span> <span class="p">==</span> <span class="s">&quot;image&quot;</span> <span class="p">{</span>
+            <span class="n">indicator</span><span class="p">.</span><span class="n">stopAnimating</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+
+<p>作为一个观察者，你必须在每一个类里面都适用这个方法。每当被观察的属性发生改变时系统都会执行这个方法。在上面的代码中。当“image”属性发生变化时停止转动。这样，当一个图像加载完成时，就会停止转动。<br />
+编译运行，这时转动加载将会消失：<br />
+<div align=center>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern14.png" width="360" height="430" alt="带封面无加载初始效果图"/>
+</div> </p>
+<div class="highlight"><pre>    注意：一定要记住当观察者结束时，移除它们。否则你的app会在对象视图发送消息给那些不存在的观察者时崩溃。
+</pre></div>
+
+
+<p>如果你玩弄一下你的app并且终止他，你将会发现你app的状态没有保存。当app启动的时候，你最后观察的相册不会时默认的相册。<br />
+为了修正这个问题，你可以使用下一个设计模式－纪念品模式（Memento）。</p>
+<h1>The Memento Pattern</h1>
+<p>纪念品模式捕获并展示项目的初始状态。用另外一句话说就是，他保存你某一时刻的事情。然后，这种外部状态在不违背封装的情况下恢复，也就是说，私有数据还是私有的。</p>
+<h2>How to Use Memnto pattern</h2>
+<p>添加如下代码到viewcontroler.swift:  </p>
+<div class="highlight"><pre><span class="c1">//</span><span class="cs">MARK:</span><span class="c1"> Memento Pattern</span>
+<span class="kd">func</span> <span class="nf">saveCurrentState</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// When the user leaves the app and then comes back again, he wants it to be in the exact same state</span>
+  <span class="c1">// he left it. In order to do this we need to save the currently displayed album.</span>
+  <span class="c1">// Since it&#39;s only one piece of information we can use NSUserDefaults.</span>
+  <span class="bp">NSUserDefaults</span><span class="p">.</span><span class="n">standardUserDefaults</span><span class="p">().</span><span class="n">setInteger</span><span class="p">(</span><span class="n">currentAlbumIndex</span><span class="p">,</span> <span class="n">forKey</span><span class="p">:</span> <span class="s">&quot;currentAlbumIndex&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="nf">loadPreviousState</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">currentAlbumIndex</span> <span class="p">=</span> <span class="bp">NSUserDefaults</span><span class="p">.</span><span class="n">standardUserDefaults</span><span class="p">().</span><span class="n">integerForKey</span><span class="p">(</span><span class="s">&quot;currentAlbumIndex&quot;</span><span class="p">)</span>
+  <span class="n">showDataForAlbum</span><span class="p">(</span><span class="n">currentAlbumIndex</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>saveCurrentState()保存当前相册的序号到NSUserDefaults – NSUserDefaults是由IOS为了保存应用具体的设置和数据提供的标准数据存储。<br />
+loadPreviousState()加载之前保存的序号。这并不是纪念品模式全部的应用，你学到这儿即可。<br />
+现在，在scroller.delegate = self:添加下边这一行到ViewControler.swift的viewDidLoad  </p>
+<div class="highlight"><pre><span class="n">loadPreviousState</span><span class="p">()</span>
+</pre></div>
+
+
+<p>这样当app启动的时候就会加载之前保存的状态。但是你从那个地方保存当前app的状态呢？你可以用通知解决这个问题。当app进入后台时ios发售一个UIApplicationDidEnterBackgroundNotification的通知。你可以用这个通知去调用saveCurrentState，这不是很方便吗？<br />
+在viewDidLoad方法末尾添加下边这一行  </p>
+<div class="highlight"><pre><span class="bp">NSNotificationCenter</span><span class="p">.</span><span class="n">defaultCenter</span><span class="p">().</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span><span class="s">&quot;saveCurrentState&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">UIApplicationDidEnterBackgroundNotification</span><span class="p">,</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+</pre></div>
+
+
+<p>现在当app进入后台运行的时候，ViewControler将会通过调用saveCurrentState自动的保存当前状态。<br />
+想往常一样，你还需要注销观察者通知。添加如下代码：  </p>
+<div class="highlight"><pre><span class="kd">deinit</span> <span class="p">{</span>
+  <span class="bp">NSNotificationCenter</span><span class="p">.</span><span class="n">defaultCenter</span><span class="p">().</span><span class="n">removeObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>这可以保证当ViewController被释放时，移除类的观察者。<br />
+编译运行你的程序，指到其中的一个相册，点击 home键（command＋shift＋H如果你用的是虚拟机）然后从Xcode里面关闭你的应用程序。重新启动发现之前选中的相册已经居中了。<br />
+<div align=center>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern15.png" width="280" height="430" alt="重启初始效果图"/>
+</div>
+这样看起来相册数据已经正确了，但是scroller不集中在当前的相册上，怎么办？<br />
+这就是方法initialViewIndexForHorizontalScroller 要做的事情！然而这个方法没有在delegate中使用，在这个例子中ViewControler的初始view总是设置为第一个view。<br />
+为了修复这个问题，添加如下代码到ViewControler.swift中：  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">initialViewIndex</span><span class="p">(</span><span class="n">scroller</span><span class="p">:</span> <span class="n">HorizontalScroller</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">currentAlbumIndex</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>现在HorizontalScroller的第一个view的相册已经设置为由currentAlbumIndex决定的。这是一个确保app保持私人化并且可以重用的好方法。<br />
+再次运行你的app，按照上一步的操作执行，发现问题已经解决了。<br />
+<div align=center>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern16.png" width="280" height="430" alt="重启修正初始效果图"/>
+</div>
+如果你观察PersistencyManager的初始化，你将会发现相册数据是硬编码，并且每次创建PersistencyManager时都会被重新创建。但是最好的方法是一次创建相册列表，并且把他们存到文件里面。那你怎么把相册数据保存到一个文件里呢？<br />
+其中的一个办法是通过相册是属性迭代，把他们保存到一个plist文件中，当需要的时候重建Album的实例。但这并不是最好的选择，因为你需要写的代码决定于每一个类中的数据或属性。例如，你后来创建了一个有不同属性的Movie类，那么报讯和加载数据需要写一段新的代码。<br />
+另外，你不能保存每一个类实例中的私有变量，因为他们不能被外部类读写，这就是为什么Apple创建了archiving机制的原因了。  </p>
                 </div><!-- /.entry-content -->
                 <div class="comments">
                 <h2>Comments !</h2>
