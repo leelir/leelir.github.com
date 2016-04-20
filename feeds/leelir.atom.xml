@@ -1,5 +1,741 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>H4C3R</title><link href="https://leelir.github.io/" rel="alternate"></link><link href="https://leelir.github.io/feeds/leelir.atom.xml" rel="self"></link><id>https://leelir.github.io/</id><updated>2016-04-10T14:10:00+08:00</updated><entry><title>The mind behind Linux</title><link href="https://leelir.github.io/articles/interview.html" rel="alternate"></link><updated>2016-04-10T14:10:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2016-04-10:articles/interview.html</id><summary type="html">&lt;h1&gt;The mind behind Linux&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>H4C3R</title><link href="https://leelir.github.io/" rel="alternate"></link><link href="https://leelir.github.io/feeds/leelir.atom.xml" rel="self"></link><id>https://leelir.github.io/</id><updated>2016-04-20T16:56:00+08:00</updated><entry><title>Android project guidelines</title><link href="https://leelir.github.io/articles/project%20guidelines.html" rel="alternate"></link><updated>2016-04-20T16:56:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2016-04-20:articles/project guidelines.html</id><summary type="html">&lt;h1&gt;1. Project guidelines&lt;/h1&gt;
+&lt;h2&gt;1.1 Project structure&lt;/h2&gt;
+&lt;p&gt;New projects should follow the Android Gradle project structure that is defined on the &lt;a href="http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Project-Structure"&gt;Android Gradle plugin user guide&lt;/a&gt;. The &lt;a href="https://github.com/ribot/android-boilerplate"&gt;ribot Boilerplate&lt;/a&gt; project is a good reference to start from.&lt;/p&gt;
+&lt;h2&gt;1.2 File naming&lt;/h2&gt;
+&lt;h3&gt;1.2.1 Class files&lt;/h3&gt;
+&lt;p&gt;Class names are written in &lt;a href="http://en.wikipedia.org/wiki/CamelCase"&gt;UpperCamelCase&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For classes that extend an Android component, the name of the class should end with the name of the component; for example: &lt;code&gt;SignInActivity&lt;/code&gt;, &lt;code&gt;SignInFragment&lt;/code&gt;, &lt;code&gt;ImageUploaderService&lt;/code&gt;, &lt;code&gt;ChangePasswordDialog&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;1.2.2 Resources files&lt;/h3&gt;
+&lt;p&gt;Resources file names are written in &lt;strong&gt;lowercase_underscore&lt;/strong&gt;.&lt;/p&gt;
+&lt;h4&gt;1.2.2.1 Drawable files&lt;/h4&gt;
+&lt;p&gt;Naming conventions for drawables:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Asset Type&lt;/th&gt;
+&lt;th&gt;Prefix&lt;/th&gt;
+&lt;th&gt;Example&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Action bar&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ab_&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ab_stacked.9.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Button&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;btn_&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;btn_send_pressed.9.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dialog&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;dialog_&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;dialog_top.9.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Divider&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;divider_&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;divider_horizontal.9.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Icon&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ic_&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ic_star.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Menu&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;menu_&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;menu_submenu_bg.9.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Notification&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;notification_&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;notification_bg.9.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Tabs&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;tab_&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;tab_pressed.9.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Naming conventions for icons (taken from &lt;a href="http://developer.android.com/design/style/iconography.html"&gt;Android iconography guidelines&lt;/a&gt;):&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Asset Type&lt;/th&gt;
+&lt;th&gt;Prefix&lt;/th&gt;
+&lt;th&gt;Example&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Icons&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ic_&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ic_star.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Launcher icons&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ic_launcher&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ic_launcher_calendar.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Menu icons and Action Bar icons&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ic_menu&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ic_menu_archive.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Status bar icons&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ic_stat_notify&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ic_stat_notify_msg.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Tab icons&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ic_tab&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ic_tab_recent.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dialog icons&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ic_dialog&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ic_dialog_info.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Naming conventions for selector states:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;State&lt;/th&gt;
+&lt;th&gt;Suffix&lt;/th&gt;
+&lt;th&gt;Example&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Normal&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;_normal&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;btn_order_normal.9.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pressed&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;_pressed&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;btn_order_pressed.9.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Focused&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;_focused&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;btn_order_focused.9.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Disabled&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;_disabled&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;btn_order_disabled.9.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Selected&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;_selected&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;btn_order_selected.9.png&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;1.2.2.2 Layout files&lt;/h4&gt;
+&lt;p&gt;Layout files should match the name of the Android components that they are intended for but moving the top level component name to the beginning. For example, if we are creating a layout for the &lt;code&gt;SignInActivity&lt;/code&gt;, the name of the layout file should be &lt;code&gt;activity_sign_in.xml&lt;/code&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Component&lt;/th&gt;
+&lt;th&gt;Class Name&lt;/th&gt;
+&lt;th&gt;Layout Name&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Activity&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;UserProfileActivity&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;activity_user_profile.xml&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Fragment&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;SignUpFragment&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;fragment_sign_up.xml&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dialog&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ChangePasswordDialog&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;dialog_change_password.xml&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AdapterView item&lt;/td&gt;
+&lt;td&gt;---&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;item_person.xml&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Partial layout&lt;/td&gt;
+&lt;td&gt;---&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;partial_stats_bar.xml&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;A slightly different case is when we are creating a layout that is going to be inflated by an &lt;code&gt;Adapter&lt;/code&gt;, e.g to populate a &lt;code&gt;ListView&lt;/code&gt;. In this case, the name of the layout should start with &lt;code&gt;item_&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Note that there are cases where these rules will not be possible to apply. For example, when creating layout files that are intended to be part of other layouts. In this case you should use the prefix &lt;code&gt;partial_&lt;/code&gt;.&lt;/p&gt;
+&lt;h4&gt;1.2.2.3 Menu files&lt;/h4&gt;
+&lt;p&gt;Similar to layout files, menu files should match the name of the component. For example, if we are defining a menu file that is going to be used in the &lt;code&gt;UserActivity&lt;/code&gt;, then the name of the file should be &lt;code&gt;activity_user.xml&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;A good practice is to not include the word &lt;code&gt;menu&lt;/code&gt; as part of the name because these files are already located in the &lt;code&gt;menu&lt;/code&gt; directory.&lt;/p&gt;
+&lt;h4&gt;1.2.2.4 Values files&lt;/h4&gt;
+&lt;p&gt;Resource files in the values folder should be &lt;strong&gt;plural&lt;/strong&gt;, e.g. &lt;code&gt;strings.xml&lt;/code&gt;, &lt;code&gt;styles.xml&lt;/code&gt;, &lt;code&gt;colors.xml&lt;/code&gt;, &lt;code&gt;dimens.xml&lt;/code&gt;, &lt;code&gt;attrs.xml&lt;/code&gt;&lt;/p&gt;
+&lt;h1&gt;2 Code guidelines&lt;/h1&gt;
+&lt;h2&gt;2.1 Java language rules&lt;/h2&gt;
+&lt;h3&gt;2.1.1 Don't ignore exceptions&lt;/h3&gt;
+&lt;p&gt;You must never do the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;setServerPort&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;try&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;serverPort&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;parseInt&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;catch&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NumberFormatException&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt; &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;While you may think that your code will never encounter this error condition or that it is not important to handle it, ignoring exceptions like above creates mines in your code for someone else to trip over some day. You must handle every Exception in your code in some principled way. The specific handling varies depending on the case.&lt;/em&gt; - (&lt;a href="https://source.android.com/source/code-style.html"&gt;Android code style guidelines&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;See alternatives &lt;a href="https://source.android.com/source/code-style.html#dont-ignore-exceptions"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;2.1.2 Don't catch generic exception&lt;/h3&gt;
+&lt;p&gt;You should not do this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;try&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;someComplicatedIOFunction&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;        &lt;span class="c1"&gt;// may throw IOException&lt;/span&gt;
+    &lt;span class="n"&gt;someComplicatedParsingFunction&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;   &lt;span class="c1"&gt;// may throw ParsingException&lt;/span&gt;
+    &lt;span class="n"&gt;someComplicatedSecurityFunction&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;  &lt;span class="c1"&gt;// may throw SecurityException&lt;/span&gt;
+    &lt;span class="c1"&gt;// phew, made it all the way&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;catch&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Exception&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;                 &lt;span class="c1"&gt;// I&amp;#39;ll just catch all exceptions&lt;/span&gt;
+    &lt;span class="n"&gt;handleError&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;                      &lt;span class="c1"&gt;// with one generic handler!&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;See the reason why and some alternatives &lt;a href="https://source.android.com/source/code-style.html#dont-catch-generic-exception"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;2.1.3 Don't use finalizers&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;We don't use finalizers. There are no guarantees as to when a finalizer will be called, or even that it will be called at all. In most cases, you can do what you need from a finalizer with good exception handling. If you absolutely need it, define a &lt;code&gt;close()&lt;/code&gt; method (or the like) and document exactly when that method needs to be called. See &lt;code&gt;InputStream&lt;/code&gt; for an example. In this case it is appropriate but not required to print a short log message from the finalizer, as long as it is not expected to flood the logs.&lt;/em&gt; - (&lt;a href="https://source.android.com/source/code-style.html#dont-use-finalizers"&gt;Android code style guidelines&lt;/a&gt;)&lt;/p&gt;
+&lt;h3&gt;2.1.4 Fully qualify imports&lt;/h3&gt;
+&lt;p&gt;This is bad: &lt;code&gt;import foo.*;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This is good: &lt;code&gt;import foo.Bar;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;See more info &lt;a href="https://source.android.com/source/code-style.html#fully-qualify-imports"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;2.2 Java style rules&lt;/h2&gt;
+&lt;h3&gt;2.2.1 Fields definition and naming&lt;/h3&gt;
+&lt;p&gt;Fields should be defined at the &lt;strong&gt;top of the file&lt;/strong&gt; and they should follow the naming rules listed below.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Private, non-static field names start with &lt;strong&gt;m&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Private, static field names start with &lt;strong&gt;s&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Other fields start with a lower case letter.&lt;/li&gt;
+&lt;li&gt;Static final fields (constants) are ALL_CAPS_WITH_UNDERSCORES.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MyClass&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;SOME_CONSTANT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;publicField&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="n"&gt;MyClass&lt;/span&gt; &lt;span class="n"&gt;sSingleton&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;mPackagePrivate&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;mPrivate&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;mProtected&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;2.2.3 Treat acronyms as words&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Good&lt;/th&gt;
+&lt;th&gt;Bad&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;XmlHttpRequest&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;XMLHTTPRequest&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;getCustomerId&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;getCustomerID&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;String url&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;String URL&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;long id&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;long ID&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;2.2.4 Use spaces for indentation&lt;/h3&gt;
+&lt;p&gt;Use &lt;strong&gt;4 space&lt;/strong&gt; indents for blocks:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;++;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Use &lt;strong&gt;8 space&lt;/strong&gt; indents for line wraps:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Instrument&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;
+        &lt;span class="n"&gt;someLongExpression&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;that&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;wouldNotFit&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;2.2.5 Use standard brace style&lt;/h3&gt;
+&lt;p&gt;Braces go on the same line as the code before them.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MyClass&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;func&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;something&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+            &lt;span class="c1"&gt;// ...&lt;/span&gt;
+        &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;somethingElse&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+            &lt;span class="c1"&gt;// ...&lt;/span&gt;
+        &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+            &lt;span class="c1"&gt;// ...&lt;/span&gt;
+        &lt;span class="o"&gt;}&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Braces around the statements are required unless the condition and the body fit on one line.&lt;/p&gt;
+&lt;p&gt;If the condition and the body fit on one line and that line is shorter than the max line length, then braces are not required, e.g.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;condition&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;body&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is &lt;strong&gt;bad&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;condition&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;body&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;  &lt;span class="c1"&gt;// bad!&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;2.2.6 Annotations&lt;/h3&gt;
+&lt;h4&gt;2.2.6.1 Annotations practices&lt;/h4&gt;
+&lt;p&gt;According to the Android code style guide, the standard practices for some of the predefined annotations in Java are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;@Override&lt;/code&gt;: The @Override annotation &lt;strong&gt;must be used&lt;/strong&gt; whenever a method overrides the declaration or implementation from a super-class. For example, if you use the @inheritdocs Javadoc tag, and derive from a class (not an interface), you must also annotate that the method @Overrides the parent class's method.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;@SuppressWarnings&lt;/code&gt;: The @SuppressWarnings annotation should only be used under circumstances where it is impossible to eliminate a warning. If a warning passes this "impossible to eliminate" test, the @SuppressWarnings annotation must be used, so as to ensure that all warnings reflect actual problems in the code.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;More information about annotation guidelines can be found &lt;a href="http://source.android.com/source/code-style.html#use-standard-java-annotations"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h4&gt;2.2.6.2 Annotations style&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Classes, Methods and Constructors&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;When annotations are applied to a class, method, or constructor, they are listed after the documentation block and should appear as &lt;strong&gt;one annotation per line&lt;/strong&gt; .&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/* This is the documentation block about the class */&lt;/span&gt;
+&lt;span class="nd"&gt;@AnnotationA&lt;/span&gt;
+&lt;span class="nd"&gt;@AnnotationB&lt;/span&gt;
+&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MyAnnotatedClass&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt; &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Fields&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Annotations applying to fields should be listed &lt;strong&gt;on the same line&lt;/strong&gt;, unless the line reaches the maximum line length.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nd"&gt;@Nullable&lt;/span&gt; &lt;span class="nd"&gt;@Mock&lt;/span&gt; &lt;span class="n"&gt;DataManager&lt;/span&gt; &lt;span class="n"&gt;mDataManager&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;2.2.7 Limit variable scope&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;The scope of local variables should be kept to a minimum (Effective Java Item 29). By doing so, you increase the readability and maintainability of your code and reduce the likelihood of error. Each variable should be declared in the innermost block that encloses all uses of the variable.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Local variables should be declared at the point they are first used. Nearly every local variable declaration should contain an initializer. If you don't yet have enough information to initialize a variable sensibly, you should postpone the declaration until you do.&lt;/em&gt; - (&lt;a href="https://source.android.com/source/code-style.html#limit-variable-scope"&gt;Android code style guidelines&lt;/a&gt;)&lt;/p&gt;
+&lt;h3&gt;2.2.8 Order import statements&lt;/h3&gt;
+&lt;p&gt;If you are using an IDE such as Android Studio, you don't have to worry about this because your IDE is already obeying these rules. If not, have a look below.&lt;/p&gt;
+&lt;p&gt;The ordering of import statements is:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Android imports&lt;/li&gt;
+&lt;li&gt;Imports from third parties (com, junit, net, org)&lt;/li&gt;
+&lt;li&gt;java and javax&lt;/li&gt;
+&lt;li&gt;Same project imports&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To exactly match the IDE settings, the imports should be:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Alphabetically ordered within each grouping, with capital letters before lower case letters (e.g. Z before a).&lt;/li&gt;
+&lt;li&gt;There should be a blank line between each major grouping (android, com, junit, net, org, java, javax).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;More info &lt;a href="https://source.android.com/source/code-style.html#limit-variable-scope"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;2.2.9 Logging guidelines&lt;/h3&gt;
+&lt;p&gt;Use the logging methods provided by the &lt;code&gt;Log&lt;/code&gt; class to print out error messages or other information that may be useful for developers to identify issues:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Log.v(String tag, String msg)&lt;/code&gt; (verbose)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Log.d(String tag, String msg)&lt;/code&gt; (debug)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Log.i(String tag, String msg)&lt;/code&gt; (information)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Log.w(String tag, String msg)&lt;/code&gt; (warning)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Log.e(String tag, String msg)&lt;/code&gt; (error)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As a general rule, we use the class name as tag and we define it as a &lt;code&gt;static final&lt;/code&gt; field at the top of the file. For example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MyClass&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;TAG&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MyClass&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getSimpleName&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;myMethod&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;e&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;TAG&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;My error message&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;VERBOSE and DEBUG logs &lt;strong&gt;must&lt;/strong&gt; be disabled on release builds. It is also recommended to disable INFORMATION, WARNING and ERROR logs but you may want to keep them enabled if you think they may be useful to identify issues on release builds. If you decide to leave them enabled, you have to make sure that they are not leaking private information such as email addresses, user ids, etc.&lt;/p&gt;
+&lt;p&gt;To only show logs on debug builds:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;BuildConfig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;DEBUG&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;d&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;TAG&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;The value of x is &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;2.2.10 Class member ordering&lt;/h3&gt;
+&lt;p&gt;There is no single correct solution for this but using a &lt;strong&gt;logical&lt;/strong&gt; and &lt;strong&gt;consistent&lt;/strong&gt; order will improve code learnability and readability. It is recommendable to use the following order:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Constants&lt;/li&gt;
+&lt;li&gt;Fields&lt;/li&gt;
+&lt;li&gt;Constructors&lt;/li&gt;
+&lt;li&gt;Override methods and callbacks (public or private)&lt;/li&gt;
+&lt;li&gt;Public methods&lt;/li&gt;
+&lt;li&gt;Private methods&lt;/li&gt;
+&lt;li&gt;Inner classes or interfaces&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MainActivity&lt;/span&gt; &lt;span class="kd"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Activity&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+
+    &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;mTitle&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="n"&gt;TextView&lt;/span&gt; &lt;span class="n"&gt;mTextViewTitle&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;setTitle&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;mTitle&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+
+    &lt;span class="nd"&gt;@Override&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;onCreate&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="o"&gt;...&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+
+    &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;setUpView&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="o"&gt;...&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+
+    &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;AnInnerClass&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+
+    &lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If your class is extending an &lt;strong&gt;Android component&lt;/strong&gt; such as an Activity or a Fragment, it is a good practice to order the override methods so that they &lt;strong&gt;match the component's lifecycle&lt;/strong&gt;. For example, if you have an Activity that implements &lt;code&gt;onCreate()&lt;/code&gt;, &lt;code&gt;onDestroy()&lt;/code&gt;, &lt;code&gt;onPause()&lt;/code&gt; and &lt;code&gt;onResume()&lt;/code&gt;, then the correct order is:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MainActivity&lt;/span&gt; &lt;span class="kd"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Activity&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+
+    &lt;span class="c1"&gt;//Order matches Activity lifecycle&lt;/span&gt;
+    &lt;span class="nd"&gt;@Override&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;onCreate&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{}&lt;/span&gt;
+
+    &lt;span class="nd"&gt;@Override&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;onResume&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{}&lt;/span&gt;
+
+    &lt;span class="nd"&gt;@Override&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;onPause&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{}&lt;/span&gt;
+
+    &lt;span class="nd"&gt;@Override&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;onDestroy&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{}&lt;/span&gt;
+
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;2.2.11 Parameter ordering in methods&lt;/h3&gt;
+&lt;p&gt;When programming for Android, it is quite common to define methods that take a &lt;code&gt;Context&lt;/code&gt;. If you are writing a method like this, then the &lt;strong&gt;Context&lt;/strong&gt; must be the &lt;strong&gt;first&lt;/strong&gt; parameter.&lt;/p&gt;
+&lt;p&gt;The opposite case are &lt;strong&gt;callback&lt;/strong&gt; interfaces that should always be the &lt;strong&gt;last&lt;/strong&gt; parameter.&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;// Context always goes first&lt;/span&gt;
+&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;User&lt;/span&gt; &lt;span class="nf"&gt;loadUser&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Context&lt;/span&gt; &lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;userId&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Callbacks always go last&lt;/span&gt;
+&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;loadUserAsync&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Context&lt;/span&gt; &lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;userId&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;UserCallback&lt;/span&gt; &lt;span class="n"&gt;callback&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;2.2.13 String constants, naming, and values&lt;/h3&gt;
+&lt;p&gt;Many elements of the Android SDK such as &lt;code&gt;SharedPreferences&lt;/code&gt;, &lt;code&gt;Bundle&lt;/code&gt;, or &lt;code&gt;Intent&lt;/code&gt; use a key-value pair approach so it's very likely that even for a small app you end up having to write a lot of String constants.&lt;/p&gt;
+&lt;p&gt;When using one of these components, you &lt;strong&gt;must&lt;/strong&gt; define the keys as a &lt;code&gt;static final&lt;/code&gt; fields and they should be prefixed as indicated below.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Element&lt;/th&gt;
+&lt;th&gt;Field Name Prefix&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;SharedPreferences&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;PREF_&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Bundle&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;BUNDLE_&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Fragment Arguments&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ARGUMENT_&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Intent Extra&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;EXTRA_&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Intent Action&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ACTION_&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Note that the arguments of a Fragment - &lt;code&gt;Fragment.getArguments()&lt;/code&gt; - are also a Bundle. However, because this is a quite common use of Bundles, we define a different prefix for them.&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;// Note the value of the field is the same as the name to avoid duplication issues&lt;/span&gt;
+&lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;PREF_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;PREF_EMAIL&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;BUNDLE_AGE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;BUNDLE_AGE&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;ARGUMENT_USER_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;ARGUMENT_USER_ID&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Intent-related items use full package name as value&lt;/span&gt;
+&lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;EXTRA_SURNAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;com.myapp.extras.EXTRA_SURNAME&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;ACTION_OPEN_USER&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;com.myapp.action.ACTION_OPEN_USER&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;2.2.14 Arguments in Fragments and Activities&lt;/h3&gt;
+&lt;p&gt;When data is passed into an &lt;code&gt;Activity&lt;/code&gt;or &lt;code&gt;Fragment&lt;/code&gt; via an &lt;code&gt;Intent&lt;/code&gt; or a &lt;code&gt;Bundle&lt;/code&gt;, the keys for the different values &lt;strong&gt;must&lt;/strong&gt; follow the rules described in the section above.&lt;/p&gt;
+&lt;p&gt;When an &lt;code&gt;Activity&lt;/code&gt; or &lt;code&gt;Fragment&lt;/code&gt; expects arguments, it should provide a &lt;code&gt;public static&lt;/code&gt; method that facilitates the creation of the relevant &lt;code&gt;Intent&lt;/code&gt; or &lt;code&gt;Fragment&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In the case of Activities the method is usually called &lt;code&gt;getStartIntent()&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="n"&gt;Intent&lt;/span&gt; &lt;span class="nf"&gt;getStartIntent&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Context&lt;/span&gt; &lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;User&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;Intent&lt;/span&gt; &lt;span class="n"&gt;intent&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Intent&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ThisActivity&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;intent&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;putParcelableExtra&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;EXTRA_USER&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;intent&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;For Fragments it is named &lt;code&gt;newInstance()&lt;/code&gt; and handles the creation of the Fragment with the right arguments:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="n"&gt;UserFragment&lt;/span&gt; &lt;span class="nf"&gt;newInstance&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;User&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;UserFragment&lt;/span&gt; &lt;span class="n"&gt;fragment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;UserFragment&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;Bundle&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Bundle&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+    &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;putParcelable&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ARGUMENT_USER&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;fragment&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setArguments&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;fragment&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Note 1&lt;/strong&gt;: These methods should go at the top of the class before &lt;code&gt;onCreate()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note 2&lt;/strong&gt;: If we provide the methods described above, the keys for extras and arguments should be &lt;code&gt;private&lt;/code&gt; because there is not need for them to be exposed outside the class.&lt;/p&gt;
+&lt;h3&gt;2.2.15 Line length limit&lt;/h3&gt;
+&lt;p&gt;Code lines should not exceed &lt;strong&gt;100 characters&lt;/strong&gt;. If the line is longer than this limit there are usually two options to reduce its length:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Extract a local variable or method (preferable).&lt;/li&gt;
+&lt;li&gt;Apply line-wrapping to divide a single line into multiple ones.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are two &lt;strong&gt;exceptions&lt;/strong&gt; where it is possible to have lines longer than 100:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lines that are not possible to split, e.g. long URLs in comments.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;package&lt;/code&gt; and &lt;code&gt;import&lt;/code&gt; statements.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;2.2.15.1 Line-wrapping strategies&lt;/h4&gt;
+&lt;p&gt;There isn't an exact formula that explains how to line-wrap and quite often different solutions are valid. However there are a few rules that can be applied to common cases.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Break at operators&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;When the line is broken at an operator, the break comes &lt;strong&gt;before&lt;/strong&gt; the operator. For example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;longName&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;anotherVeryLongVariable&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;anEvenLongerOne&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;thisRidiculousLongOne&lt;/span&gt;
+        &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;theFinalOne&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Assignment Operator Exception&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;An exception to the &lt;code&gt;break at operators&lt;/code&gt; rule is the assignment operator &lt;code&gt;=&lt;/code&gt;, where the line break should happen &lt;strong&gt;after&lt;/strong&gt; the operator.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;longName&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;
+        &lt;span class="n"&gt;anotherVeryLongVariable&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;anEvenLongerOne&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;thisRidiculousLongOne&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;theFinalOne&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Method chain case&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;When multiple methods are chained in the same line - for example when using Builders - every call to a method should go in its own line, breaking the line before the &lt;code&gt;.&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Picasso&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;with&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="na"&gt;load&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://ribot.co.uk/images/sexyjoe.jpg&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="na"&gt;into&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;imageView&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Picasso&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;with&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+        &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;load&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://ribot.co.uk/images/sexyjoe.jpg&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+        &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;into&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;imageView&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Long parameters case&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;When a method has many parameters or its parameters are very long, we should break the line after every comma &lt;code&gt;,&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;loadPicture&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;http://ribot.co.uk/images/sexyjoe.jpg&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mImageViewProfilePicture&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;clickListener&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Title of the picture&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;loadPicture&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;http://ribot.co.uk/images/sexyjoe.jpg&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;mImageViewProfilePicture&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;clickListener&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;Title of the picture&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;2.2.16 RxJava chains styling&lt;/h3&gt;
+&lt;p&gt;Rx chains of operators require line-wrapping. Every operator must go in a new line and the line should be broken before the &lt;code&gt;.&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Observable&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Location&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;syncLocations&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;mDatabaseHelper&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getAllLocations&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+            &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;concatMap&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Func1&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Location&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Observable&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;?&lt;/span&gt; &lt;span class="kd"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Location&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+                &lt;span class="nd"&gt;@Override&lt;/span&gt;
+                 &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Observable&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;?&lt;/span&gt; &lt;span class="kd"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Location&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;call&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Location&lt;/span&gt; &lt;span class="n"&gt;location&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+                     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;mRetrofitService&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getLocation&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;location&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+                 &lt;span class="o"&gt;}&lt;/span&gt;
+            &lt;span class="o"&gt;})&lt;/span&gt;
+            &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;retry&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Func2&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Throwable&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Boolean&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+                 &lt;span class="nd"&gt;@Override&lt;/span&gt;
+                 &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Boolean&lt;/span&gt; &lt;span class="nf"&gt;call&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Integer&lt;/span&gt; &lt;span class="n"&gt;numRetries&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Throwable&lt;/span&gt; &lt;span class="n"&gt;throwable&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+                     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;throwable&lt;/span&gt; &lt;span class="k"&gt;instanceof&lt;/span&gt; &lt;span class="n"&gt;RetrofitError&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+                 &lt;span class="o"&gt;}&lt;/span&gt;
+            &lt;span class="o"&gt;});&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;2.3 XML style rules&lt;/h2&gt;
+&lt;h3&gt;2.3.1 Use self closing tags&lt;/h3&gt;
+&lt;p&gt;When an XML element doesn't have any contents, you &lt;strong&gt;must&lt;/strong&gt; use self closing tags.&lt;/p&gt;
+&lt;p&gt;This is good:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;TextView&lt;/span&gt;
+    &lt;span class="na"&gt;android:id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;@+id/text_view_profile&amp;quot;&lt;/span&gt;
+    &lt;span class="na"&gt;android:layout_width=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt;
+    &lt;span class="na"&gt;android:layout_height=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is &lt;strong&gt;bad&lt;/strong&gt; :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;&amp;lt;!-- Don\&amp;#39;t do this! --&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;TextView&lt;/span&gt;
+    &lt;span class="na"&gt;android:id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;@+id/text_view_profile&amp;quot;&lt;/span&gt;
+    &lt;span class="na"&gt;android:layout_width=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt;
+    &lt;span class="na"&gt;android:layout_height=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/TextView&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;2.3.2 Resources naming&lt;/h3&gt;
+&lt;p&gt;Resource IDs and names are written in &lt;strong&gt;lowercase_underscore&lt;/strong&gt;.&lt;/p&gt;
+&lt;h4&gt;2.3.2.1 ID naming&lt;/h4&gt;
+&lt;p&gt;IDs should be prefixed with the name of the element in lowercase underscore. For example:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Element&lt;/th&gt;
+&lt;th&gt;Prefix&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;TextView&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;text_&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ImageView&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;image_&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Button&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;button_&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Menu&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;menu_&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Image view example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;ImageView&lt;/span&gt;
+    &lt;span class="na"&gt;android:id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;@+id/image_profile&amp;quot;&lt;/span&gt;
+    &lt;span class="na"&gt;android:layout_width=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt;
+    &lt;span class="na"&gt;android:layout_height=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Menu example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;menu&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;item&lt;/span&gt;
+        &lt;span class="na"&gt;android:id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;@+id/menu_done&amp;quot;&lt;/span&gt;
+        &lt;span class="na"&gt;android:title=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Done&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/menu&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;2.3.2.2 Strings&lt;/h4&gt;
+&lt;p&gt;String names start with a prefix that identifies the section they belong to. For example &lt;code&gt;registration_email_hint&lt;/code&gt; or &lt;code&gt;registration_name_hint&lt;/code&gt;. If a string &lt;strong&gt;doesn't belong&lt;/strong&gt; to any section, then you should follow the rules below:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Prefix&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;error_&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;An error message&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;msg_&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;A regular information message&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;title_&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;A title, i.e. a dialog title&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;action_&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;An action such as "Save" or "Create"&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;2.3.2.3 Styles and Themes&lt;/h4&gt;
+&lt;p&gt;Unless the rest of resources, style names are written in &lt;strong&gt;UpperCamelCase&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3&gt;2.3.3 Attributes ordering&lt;/h3&gt;
+&lt;p&gt;As a general rule you should try to group similar attributes together. A good way of ordering the most common attributes is:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;View Id&lt;/li&gt;
+&lt;li&gt;Style&lt;/li&gt;
+&lt;li&gt;Layout width and layout height&lt;/li&gt;
+&lt;li&gt;Other layout attributes, sorted alphabetically&lt;/li&gt;
+&lt;li&gt;Remaining attributes, sorted alphabetically&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;2.4 Tests style rules&lt;/h2&gt;
+&lt;h3&gt;2.4.1 Unit tests&lt;/h3&gt;
+&lt;p&gt;Test classes should match the name of the class the tests are targeting, followed by &lt;code&gt;Test&lt;/code&gt;. For example, if we create a test class that contains tests for the &lt;code&gt;DatabaseHelper&lt;/code&gt;, we should name it &lt;code&gt;DatabaseHelperTest&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Test methods are annotated with &lt;code&gt;@Test&lt;/code&gt; and should generally start with the name of the method that is being tested, followed by a precondition and/or expected behaviour.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Template: &lt;code&gt;@Test void methodNamePreconditionExpectedBehaviour()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Example: &lt;code&gt;@Test void signInWithEmptyEmailFails()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Precondition and/or expected behaviour may not always be required if the test is clear enough without them.&lt;/p&gt;
+&lt;p&gt;Sometimes a class may contain a large amount of methods, that at the same time require several tests for each method. In this case, it's recommendable to split up the test class into multiple ones. For example, if the &lt;code&gt;DataManager&lt;/code&gt; contains a lot of methods we may want to divide it into &lt;code&gt;DataManagerSignInTest&lt;/code&gt;, &lt;code&gt;DataManagerLoadUsersTest&lt;/code&gt;, etc. Generally you will be able to see what tests belong together because they have common &lt;a href="https://en.wikipedia.org/wiki/Test_fixture"&gt;test fixtures&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;2.4.2 Espresso tests&lt;/h3&gt;
+&lt;p&gt;Every Espresso test class usually targets an Activity, therefore the name should match the name of the targeted Activity followed by &lt;code&gt;Test&lt;/code&gt;, e.g. &lt;code&gt;SignInActivityTest&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;When using the Espresso API it is a common practice to place chained methods in new lines.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;onView&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;withId&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;R&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;view&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt;
+        &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;perform&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;scrollTo&lt;/span&gt;&lt;span class="o"&gt;())&lt;/span&gt;
+        &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;check&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;matches&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;isDisplayed&lt;/span&gt;&lt;span class="o"&gt;()))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;License&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Copyright 2015 Ribot Ltd.
+
+Licensed under the Apache License, Version 2.0 (the &amp;quot;License&amp;quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &amp;quot;AS IS&amp;quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="Android"></category></entry><entry><title>The mind behind Linux</title><link href="https://leelir.github.io/articles/interview.html" rel="alternate"></link><updated>2016-04-10T14:10:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2016-04-10:articles/interview.html</id><summary type="html">&lt;h1&gt;The mind behind Linux&lt;/h1&gt;
 &lt;h3&gt;The mind behind Linux：&lt;iframe height=498 width=510 src="http://120.52.73.94/video.ted.com/talk/podcast/2016/None/LinusTorvalds_2016-480p.mp4" frameborder=0 allowfullscreen&gt;&lt;/iframe&gt;&lt;/h3&gt;
 &lt;p&gt;00:12   Chris Anderson: This is such a strange thing. Your software, Linux, is in millions of computers, it probably powers much of the Internet. And I think that there are, like, a billion and a half active Android devices out there. Your software is in every single one of them. It's kind of amazing. You must have some amazing software headquarters driving all this. That's what I thought -- and I was shocked when I saw a picture of it. I mean, this is -- this is the Linux world headquarters.&lt;br /&gt;
 00:42   (Laughter)&lt;br /&gt;
