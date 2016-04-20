@@ -1,5 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>H4C3R</title><link href="https://leelir.github.io/" rel="alternate"></link><link href="https://leelir.github.io/feeds/android.atom.xml" rel="self"></link><id>https://leelir.github.io/</id><updated>2016-04-20T16:56:00+08:00</updated><entry><title>Android project guidelines</title><link href="https://leelir.github.io/articles/project%20guidelines.html" rel="alternate"></link><updated>2016-04-20T16:56:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2016-04-20:articles/project guidelines.html</id><summary type="html">&lt;h1&gt;1. Project guidelines&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>H4C3R</title><link href="https://leelir.github.io/" rel="alternate"></link><link href="https://leelir.github.io/feeds/android.atom.xml" rel="self"></link><id>https://leelir.github.io/</id><updated>2016-04-20T17:20:00+08:00</updated><entry><title>Architecture Guidelines</title><link href="https://leelir.github.io/articles/Architecture%20Guidelines.html" rel="alternate"></link><updated>2016-04-20T17:20:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2016-04-20:articles/Architecture Guidelines.html</id><summary type="html">&lt;h1&gt;Architecture Guidelines&lt;/h1&gt;
+&lt;p&gt;The architecture of our Android apps is based on the &lt;a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter"&gt;MVP&lt;/a&gt; (Model View Presenter) pattern.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;View (UI layer)&lt;/strong&gt;: this is where Activities, Fragments and other standard Android components live. It's responsible for displaying the data received from the presenters to the user. It also handles user interactions and inputs (click listeners, etc) and triggers the right action in the Presenter if needed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Presenter&lt;/strong&gt;: presenters subscribe to RxJava Observables provided by the &lt;code&gt;DataManager&lt;/code&gt;. They are in charge of handling the subscription lifecycle, analysing/modifying the data returned by the &lt;code&gt;DataManager&lt;/code&gt; and calling the appropriate methods in the View in order to display the data.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Model (Data Layer)&lt;/strong&gt;: this is responsible for retrieving, saving, caching and massaging data. It can communicate with local databases and other data stores as well as with restful APIs or third party SDKs. It is divided in two parts: a group of helpers and a &lt;code&gt;DataManager&lt;/code&gt;. The number of helpers vary between project and each of them has a very specific function, e.g. talking to an API or saving data in &lt;code&gt;SharedPreferences&lt;/code&gt;. The &lt;code&gt;DataManager&lt;/code&gt; combines and transforms the outputs from different helpers using Rx operators so it can: 1) provide meaningful data to the Presenter,  2) group actions that will always happen together. This layer also contains the actual model classes that define how the data structure is.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="" src="../images/architecture_diagram.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Looking at the diagram from right to left:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Helpers (Model)&lt;/strong&gt;: A set of classes, each of them with a very specific responsibility. Their function can range from talking to APIs or a database to implementing some specific business logic. Every project will have different helpers but the most common ones are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DatabaseHelper&lt;/strong&gt;: It handles inserting, updating and retrieving data from a local SQLite database. Its methods return Rx Observables that emit plain java objects (models)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PreferencesHelper&lt;/strong&gt;: It saves and gets data from &lt;code&gt;SharedPreferences&lt;/code&gt;, it can return Observables or plain java objects directly.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Retrofit services&lt;/strong&gt; : &lt;a href="http://square.github.io/retrofit"&gt;Retrofit&lt;/a&gt; interfaces that talk to Restful APIs, each different API will have its own Retrofit service. They return Rx Observables.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Data Manager (Model)&lt;/strong&gt;: It's a key part of the architecture. It keeps a reference to every helper class and uses them to satisfy the requests coming from the presenters. Its methods make extensive use of Rx operators to combine, transform or filter the output coming from the helpers in order to generate the desired output ready for the Presenters. It returns observables that emit data models.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Presenters&lt;/strong&gt;: Subscribe to observables provided by the &lt;code&gt;DataManager&lt;/code&gt; and process the data in order to call the right method in the View.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Activities, Fragments, ViewGroups (View)&lt;/strong&gt;: Standard Android components that implement a set of methods that the Presenters can call. They also handle user interactions such as clicks and act accordingly by calling the appropriate method in the Presenter. These components also implement framework-related tasks such us managing the Android lifecycle, inflating views, etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Event Bus&lt;/strong&gt;: It allows the View components to be notified of certain types of events that happen in the Model. Generally the  &lt;code&gt;DataManager&lt;/code&gt; posts events which can then be subscribed to by Activities and Fragments. The event bus is &lt;strong&gt;only used for very specific actions&lt;/strong&gt; that are not related to only one screen and have a broadcasting nature, e.g. the user has signed out.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;License&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Copyright 2015 Ribot Ltd.
+
+Licensed under the Apache License, Version 2.0 (the &amp;quot;License&amp;quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &amp;quot;AS IS&amp;quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="Android"></category></entry><entry><title>Android project guidelines</title><link href="https://leelir.github.io/articles/project%20guidelines.html" rel="alternate"></link><updated>2016-04-20T16:56:00+08:00</updated><author><name>leelir</name></author><id>tag:leelir.github.io,2016-04-20:articles/project guidelines.html</id><summary type="html">&lt;h1&gt;1. Project guidelines&lt;/h1&gt;
 &lt;h2&gt;1.1 Project structure&lt;/h2&gt;
 &lt;p&gt;New projects should follow the Android Gradle project structure that is defined on the &lt;a href="http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Project-Structure"&gt;Android Gradle plugin user guide&lt;/a&gt;. The &lt;a href="https://github.com/ribot/android-boilerplate"&gt;ribot Boilerplate&lt;/a&gt; project is a good reference to start from.&lt;/p&gt;
 &lt;h2&gt;1.2 File naming&lt;/h2&gt;

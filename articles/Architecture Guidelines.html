@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>H4C3R - Android</title>
+    <title>Architecture Guidelines</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="leelir">
@@ -64,7 +64,7 @@
           <div class="nav-collapse">
             <ul class="nav">
                           <li class="divider-vertical"></li>
-                  <li >
+                  <li class="active">
                     <a href="https://leelir.github.io/category/android.html">
 						<i class="icon-folder-open icon-large"></i>Android
 					</a>
@@ -114,9 +114,20 @@
     <div class="container-fluid">
       <div class="row">
         <div class="span9" id="content">
-        <div class="article">
-                <h1><a href="https://leelir.github.io/articles/Architecture Guidelines.html">Architecture Guidelines</a></h1>
-                <div class="well small"><footer class="post-info">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to Architecture Guidelines">
+                                        Architecture Guidelines
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
 <span class="label">Date</span>
 <abbr class="published" title="2016-04-20T17:20:00+08:00">
         <i class="icon-calendar"></i>2016-04-20
@@ -129,34 +140,76 @@
 
 <span class="label">Tags</span>
 	<a href="https://leelir.github.io/tag/android.html"><i class="icon-tag"></i>Android</a>
-</footer><!-- /.post-info --></div>
-                <div class="summary"><p>项目的设计模式</p>
-                        <a class="btn primary xsmall" href="https://leelir.github.io/articles/Architecture Guidelines.html">more ...</a>
+</footer><!-- /.post-info -->                </div>
+                <h1>Architecture Guidelines</h1>
+<p>The architecture of our Android apps is based on the <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter">MVP</a> (Model View Presenter) pattern.</p>
+<ul>
+<li>
+<p><strong>View (UI layer)</strong>: this is where Activities, Fragments and other standard Android components live. It's responsible for displaying the data received from the presenters to the user. It also handles user interactions and inputs (click listeners, etc) and triggers the right action in the Presenter if needed.</p>
+</li>
+<li>
+<p><strong>Presenter</strong>: presenters subscribe to RxJava Observables provided by the <code>DataManager</code>. They are in charge of handling the subscription lifecycle, analysing/modifying the data returned by the <code>DataManager</code> and calling the appropriate methods in the View in order to display the data.</p>
+</li>
+<li>
+<p><strong>Model (Data Layer)</strong>: this is responsible for retrieving, saving, caching and massaging data. It can communicate with local databases and other data stores as well as with restful APIs or third party SDKs. It is divided in two parts: a group of helpers and a <code>DataManager</code>. The number of helpers vary between project and each of them has a very specific function, e.g. talking to an API or saving data in <code>SharedPreferences</code>. The <code>DataManager</code> combines and transforms the outputs from different helpers using Rx operators so it can: 1) provide meaningful data to the Presenter,  2) group actions that will always happen together. This layer also contains the actual model classes that define how the data structure is.</p>
+</li>
+</ul>
+<p><img alt="" src="../images/architecture_diagram.png" /></p>
+<p>Looking at the diagram from right to left:</p>
+<ul>
+<li>
+<p><strong>Helpers (Model)</strong>: A set of classes, each of them with a very specific responsibility. Their function can range from talking to APIs or a database to implementing some specific business logic. Every project will have different helpers but the most common ones are:</p>
+<ul>
+<li><strong>DatabaseHelper</strong>: It handles inserting, updating and retrieving data from a local SQLite database. Its methods return Rx Observables that emit plain java objects (models)</li>
+<li><strong>PreferencesHelper</strong>: It saves and gets data from <code>SharedPreferences</code>, it can return Observables or plain java objects directly.</li>
+<li><strong>Retrofit services</strong> : <a href="http://square.github.io/retrofit">Retrofit</a> interfaces that talk to Restful APIs, each different API will have its own Retrofit service. They return Rx Observables.</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Manager (Model)</strong>: It's a key part of the architecture. It keeps a reference to every helper class and uses them to satisfy the requests coming from the presenters. Its methods make extensive use of Rx operators to combine, transform or filter the output coming from the helpers in order to generate the desired output ready for the Presenters. It returns observables that emit data models.</p>
+</li>
+<li>
+<p><strong>Presenters</strong>: Subscribe to observables provided by the <code>DataManager</code> and process the data in order to call the right method in the View.</p>
+</li>
+<li>
+<p><strong>Activities, Fragments, ViewGroups (View)</strong>: Standard Android components that implement a set of methods that the Presenters can call. They also handle user interactions such as clicks and act accordingly by calling the appropriate method in the Presenter. These components also implement framework-related tasks such us managing the Android lifecycle, inflating views, etc.</p>
+</li>
+<li>
+<p><strong>Event Bus</strong>: It allows the View components to be notified of certain types of events that happen in the Model. Generally the  <code>DataManager</code> posts events which can then be subscribed to by Activities and Fragments. The event bus is <strong>only used for very specific actions</strong> that are not related to only one screen and have a broadcasting nature, e.g. the user has signed out.</p>
+</li>
+</ul>
+<h1>License</h1>
+<div class="highlight"><pre>Copyright 2015 Ribot Ltd.
+
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</pre></div>
+                </div><!-- /.entry-content -->
+                <div class="comments">
+                <h2>Comments !</h2>
+                        <div id="disqus_thread"></div>
+                        <script type="text/javascript">
+                           var disqus_identifier = "articles/Architecture Guidelines.html";
+                           (function() {
+                                var dsq = document.createElement('script');
+                                dsq.type = 'text/javascript'; dsq.async = true;
+                                dsq.src = 'https://leelir.disqus.com/embed.js';
+                                (document.getElementsByTagName('head')[0] ||
+                                 document.getElementsByTagName('body')[0]).appendChild(dsq);
+                          })();
+                        </script>
                 </div>
-        </div>
-        <hr />
-        <div class="article">
-                <h1><a href="https://leelir.github.io/articles/project guidelines.html">Android project guidelines</a></h1>
-                <div class="well small"><footer class="post-info">
-<span class="label">Date</span>
-<abbr class="published" title="2016-04-20T16:56:00+08:00">
-        <i class="icon-calendar"></i>2016-04-20
-</abbr>
-<span class="label">By</span>
-<a href="https://leelir.github.io/author/leelir.html"><i class="icon-user"></i>leelir</a>
-<span class="label">Category</span>
-<a href="https://leelir.github.io/category/android.html"><i class="icon-folder-open"></i>Android</a>.
-
-
-<span class="label">Tags</span>
-	<a href="https://leelir.github.io/tag/android.html"><i class="icon-tag"></i>Android</a>
-</footer><!-- /.post-info --></div>
-                <div class="summary"><p>这个是将要参加项目的项目规范，里面详述了项目要遵守的命名规则，代码规范等。</p>
-                        <a class="btn primary xsmall" href="https://leelir.github.io/articles/project guidelines.html">more ...</a>
-                </div>
-        </div>
-        <hr />
-
+        </article>
+</section>
         </div><!--/span-->
 
                 <div class="span3 well sidebar-nav" id="sidebar">
