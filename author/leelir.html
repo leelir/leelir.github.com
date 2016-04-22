@@ -1,432 +1,386 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
     <title>H4C3R - leelir</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="leelir">
 
-    <!-- Le styles -->
-    <link rel="stylesheet" href="https://leelir.github.io/theme/css/bootstrap.min.css" type="text/css" />
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
-      .tag-1 {
-        font-size: 13pt;
-      }
-      .tag-2 {
-        font-size: 10pt;
-      }
-      .tag-2 {
-        font-size: 8pt;
-      }
-      .tag-4 {
-        font-size: 6pt;
-     }
-    </style>
-    <link href="https://leelir.github.io/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
-        <link href="https://leelir.github.io/theme/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://leelir.github.io/theme/css/normalize.css" />
+    <link rel="stylesheet" href="https://leelir.github.io/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://leelir.github.io/theme/css/style.css" />
+    <link rel="stylesheet" href="https://leelir.github.io/theme/css/pygments.css" />	
+    <script src="https://leelir.github.io/theme/js/custom.modernizr.js"></script>
 
-    <link href="https://leelir.github.io/theme/css/pygments.css" rel="stylesheet">
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="feeds/all.atom.xml" rel="alternate" title="H4C3R" type="application/atom+xml">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+</head>
 
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="https://leelir.github.io/theme/images/favicon.ico">
-    <link rel="apple-touch-icon" href="https://leelir.github.io/theme/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="https://leelir.github.io/theme/images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="https://leelir.github.io/theme/images/apple-touch-icon-114x114.png">
+<body>
 
-    <link href="https://leelir.github.io/" type="application/atom+xml" rel="alternate" title="H4C3R ATOM Feed" />
-
-  </head>
-
-  <body>
-
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="https://leelir.github.io/index.html">H4C3R </a>
-          <div class="nav-collapse">
-            <ul class="nav">
-                          <li class="divider-vertical"></li>
-                  <li >
-                    <a href="https://leelir.github.io/category/android.html">
-						<i class="icon-folder-open icon-large"></i>Android
-					</a>
-                  </li>
-                  <li >
-                    <a href="https://leelir.github.io/category/diary.html">
-						<i class="icon-folder-open icon-large"></i>diary
-					</a>
-                  </li>
-                  <li >
-                    <a href="https://leelir.github.io/category/funny-things.html">
-						<i class="icon-folder-open icon-large"></i>funny things
-					</a>
-                  </li>
-                  <li >
-                    <a href="https://leelir.github.io/category/interview.html">
-						<i class="icon-folder-open icon-large"></i>interview
-					</a>
-                  </li>
-                  <li >
-                    <a href="https://leelir.github.io/category/ios.html">
-						<i class="icon-folder-open icon-large"></i>IOS
-					</a>
-                  </li>
-                  <li >
-                    <a href="https://leelir.github.io/category/svn.html">
-						<i class="icon-folder-open icon-large"></i>svn
-					</a>
-                  </li>
-                  <li >
-                    <a href="https://leelir.github.io/category/work.html">
-						<i class="icon-folder-open icon-large"></i>work
-					</a>
-                  </li>
-
-                          <ul class="nav pull-right">
-                                <li><a href="https://leelir.github.io/archives.html"><i class="icon-th-list"></i>Archives</a></li>
-                          </ul>
-
-            </ul>
-            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="https://leelir.github.io">H4C3R</a></h1>
     </div>
+</div>
+</div>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="span9" id="content">
-        <div class="article">
-                <h1><a href="https://leelir.github.io/articles/Architecture Guidelines.html">Architecture Guidelines</a></h1>
-                <div class="well small"><footer class="post-info">
-<span class="label">Date</span>
-<abbr class="published" title="2016-04-20T17:20:00+08:00">
-        <i class="icon-calendar"></i>2016-04-20
-</abbr>
-<span class="label">By</span>
-<a href="https://leelir.github.io/author/leelir.html"><i class="icon-user"></i>leelir</a>
-<span class="label">Category</span>
-<a href="https://leelir.github.io/category/android.html"><i class="icon-folder-open"></i>Android</a>.
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
 
 
-<span class="label">Tags</span>
-	<a href="https://leelir.github.io/tag/android.html"><i class="icon-tag"></i>Android</a>
-</footer><!-- /.post-info --></div>
-                <div class="summary"><p>项目的设计模式</p>
-                        <a class="btn primary xsmall" href="https://leelir.github.io/articles/Architecture Guidelines.html">more ...</a>
-                </div>
-        </div>
-        <hr />
-        <div class="article">
-                <h1><a href="https://leelir.github.io/articles/project guidelines.html">Android project guidelines</a></h1>
-                <div class="well small"><footer class="post-info">
-<span class="label">Date</span>
-<abbr class="published" title="2016-04-20T16:56:00+08:00">
-        <i class="icon-calendar"></i>2016-04-20
-</abbr>
-<span class="label">By</span>
-<a href="https://leelir.github.io/author/leelir.html"><i class="icon-user"></i>leelir</a>
-<span class="label">Category</span>
-<a href="https://leelir.github.io/category/android.html"><i class="icon-folder-open"></i>Android</a>.
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+        
+        
+
+            <article>
+                <a href="https://leelir.github.io/articles/Architecture Guidelines.html"><h3 class="article-title">Architecture Guidelines</h3></a>
+<h6 class="subheader" title="2016-04-20T17:20:00+08:00">2016-04-20
+</h6>
 
 
-<span class="label">Tags</span>
-	<a href="https://leelir.github.io/tag/android.html"><i class="icon-tag"></i>Android</a>
-</footer><!-- /.post-info --></div>
-                <div class="summary"><p>这个是将要参加项目的项目规范，里面详述了项目要遵守的命名规则，代码规范等。</p>
-                        <a class="btn primary xsmall" href="https://leelir.github.io/articles/project guidelines.html">more ...</a>
-                </div>
-        </div>
-        <hr />
-        <div class="article">
-                <h1><a href="https://leelir.github.io/articles/interview.html">The mind behind Linux</a></h1>
-                <div class="well small"><footer class="post-info">
-<span class="label">Date</span>
-<abbr class="published" title="2016-04-10T14:10:00+08:00">
-        <i class="icon-calendar"></i>2016-04-10
-</abbr>
-<span class="label">By</span>
-<a href="https://leelir.github.io/author/leelir.html"><i class="icon-user"></i>leelir</a>
-<span class="label">Category</span>
-<a href="https://leelir.github.io/category/interview.html"><i class="icon-folder-open"></i>interview</a>.
+<h1>Architecture Guidelines</h1>
+<p>The architecture of our Android apps is based on the <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter">MVP</a> (Model View Presenter) pattern.</p>
+<ul>
+<li>
+<p><strong>View (UI layer)</strong>: this is where Activities, Fragments and other standard Android components live. It's responsible for displaying the data received from the presenters to the user. It also handles user interactions and inputs (click listeners, etc) and triggers the right action in the Presenter if needed.</p>
+</li>
+<li>
+<p><strong>Presenter</strong>: presenters subscribe to RxJava Observables provided by the <code>DataManager</code>. They are in charge of handling the subscription lifecycle, analysing/modifying the data returned by the <code>DataManager</code> and calling the appropriate methods in the View in order to display the data.</p>
+</li>
+<li>
+<p><strong>Model (Data Layer)</strong>: this is responsible for retrieving, saving, caching and massaging data. It can communicate with local databases and other data stores as well as with restful APIs or third party SDKs. It is divided in two parts: a group of helpers and a <code>DataManager</code>. The number of helpers vary between project and each of them has a very specific function, e.g. talking to an API or saving data in <code>SharedPreferences</code>. The <code>DataManager</code> combines and transforms the outputs from different helpers using Rx operators so it can: 1) provide meaningful data to the Presenter,  2) group actions that will always happen together. This layer also contains the actual model classes that define how the data structure is.</p>
+</li>
+</ul>
+<p><img alt="" src="../images/architecture_diagram.png" /></p>
+<p>Looking at the diagram from right to left:</p>
+<ul>
+<li>
+<p><strong>Helpers (Model)</strong>: A set of classes, each of them with a very specific responsibility. Their function can range from talking to APIs or a database to implementing some specific business logic. Every project will have different helpers but the most common ones are:</p>
+<ul>
+<li><strong>DatabaseHelper</strong>: It handles inserting, updating and retrieving data from a local SQLite database. Its methods return Rx Observables that emit plain java objects (models)</li>
+<li><strong>PreferencesHelper</strong>: It saves and gets data from <code>SharedPreferences</code>, it can return Observables or plain java objects directly.</li>
+<li><strong>Retrofit services</strong> : <a href="http://square.github.io/retrofit">Retrofit</a> interfaces that talk to Restful APIs, each different API will have its own Retrofit service. They return Rx Observables.</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Manager (Model)</strong>: It's a key part of the architecture. It keeps a reference to every helper class and uses them to satisfy the requests coming from the presenters. Its methods make extensive use of Rx operators to combine, transform or filter the output coming from the helpers in order to generate the desired output ready for the Presenters. It returns observables that emit data models.</p>
+</li>
+<li>
+<p><strong>Presenters</strong>: Subscribe to observables provided by the <code>DataManager</code> and process the data in order to call the right method in the View.</p>
+</li>
+<li>
+<p><strong>Activities, Fragments, ViewGroups (View)</strong>: Standard Android components that implement a set of methods that the Presenters can call. They also handle user interactions such as clicks and act accordingly by calling the appropriate method in the Presenter. These components also implement framework-related tasks such us managing the Android lifecycle, inflating views, etc.</p>
+</li>
+<li>
+<p><strong>Event Bus</strong>: It allows the View components to be notified of certain types of events that happen in the Model. Generally the  <code>DataManager</code> posts events which can then be subscribed to by Activities and Fragments. The event bus is <strong>only used for very specific actions</strong> that are not related to only one screen and have a broadcasting nature, e.g. the user has signed out.</p>
+</li>
+</ul>
+<h1>License</h1>
+<div class="highlight"><pre>Copyright 2015 Ribot Ltd.
+
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</pre></div><p class="subheader">Category: <a href="https://leelir.github.io/category/android.html">Android</a>
+
+    Tagged: 
+    <a href="https://leelir.github.io/tag/android.html">Android </a>
+</p>
 
 
-<span class="label">Tags</span>
-	<a href="https://leelir.github.io/tag/interview.html"><i class="icon-tag"></i>interview</a>
-</footer><!-- /.post-info --></div>
-                <div class="summary"><p>从网上看到的ted关于大神Linus的视频。顺便整理了一下对话记录。有时间可以看看。</p>
-                        <a class="btn primary xsmall" href="https://leelir.github.io/articles/interview.html">more ...</a>
-                </div>
-        </div>
-        <hr />
-        <div class="article">
-                <h1><a href="https://leelir.github.io/articles/IOS.html">Introducing iOS Design Patterns in Swift Part 2（完整版）</a></h1>
-                <div class="well small"><footer class="post-info">
-<span class="label">Date</span>
-<abbr class="published" title="2016-04-09T02:40:00+08:00">
-        <i class="icon-calendar"></i>2016-04-09
-</abbr>
-<span class="label">By</span>
-<a href="https://leelir.github.io/author/leelir.html"><i class="icon-user"></i>leelir</a>
-<span class="label">Category</span>
-<a href="https://leelir.github.io/category/ios.html"><i class="icon-folder-open"></i>IOS</a>.
+
+<p><a href="https://leelir.github.io/articles/Architecture Guidelines.html#disqus_thread">comments</a></p>            </article>
 
 
-<span class="label">Tags</span>
-	<a href="https://leelir.github.io/tag/ios.html"><i class="icon-tag"></i>IOS</a>
-</footer><!-- /.post-info --></div>
-                <div class="summary"><p>很好的一篇文章，<a href="http://www.devtalking.com/articles/ios-design-pattern-in-swift-1/">程序员说翻译了上半部分</a>我从网上找到了下半部分的英文版，英文渣渣，边练边写，多多指教！</p>
-                        <a class="btn primary xsmall" href="https://leelir.github.io/articles/IOS.html">more ...</a>
-                </div>
-        </div>
-        <hr />
-        <div class="article">
-                <h1><a href="https://leelir.github.io/articles/curiosity and intuition.html">The most important thing I’ve learned as a college student</a></h1>
-                <div class="well small"><footer class="post-info">
-<span class="label">Date</span>
-<abbr class="published" title="2016-04-07T23:55:00+08:00">
-        <i class="icon-calendar"></i>2016-04-07
-</abbr>
-<span class="label">By</span>
-<a href="https://leelir.github.io/author/leelir.html"><i class="icon-user"></i>leelir</a>
-<span class="label">Category</span>
-<a href="https://leelir.github.io/category/diary.html"><i class="icon-folder-open"></i>diary</a>.
+                <hr  class="gradient"/>
 
 
-<span class="label">Tags</span>
-	<a href="https://leelir.github.io/tag/diary.html"><i class="icon-tag"></i>diary</a>
-</footer><!-- /.post-info --></div>
-                <div class="summary"><p>英语老师布置的作业，本来是不想写的。可是写着写着还是想把自己大学着点东西写下来，留个纪念吧。一会接着写ios的，今晚finish it！</p>
-                        <a class="btn primary xsmall" href="https://leelir.github.io/articles/curiosity and intuition.html">more ...</a>
-                </div>
-        </div>
-        <hr />
-        <div class="article">
-                <h1><a href="https://leelir.github.io/articles/svn.html">ubuntu14.04如何安装可视化svn</a></h1>
-                <div class="well small"><footer class="post-info">
-<span class="label">Date</span>
-<abbr class="published" title="2015-08-27T08:55:00+08:00">
-        <i class="icon-calendar"></i>2015-08-27
-</abbr>
-<span class="label">By</span>
-<a href="https://leelir.github.io/author/leelir.html"><i class="icon-user"></i>leelir</a>
-<span class="label">Category</span>
-<a href="https://leelir.github.io/category/svn.html"><i class="icon-folder-open"></i>svn</a>.
+        
 
 
-<span class="label">Tags</span>
-	<a href="https://leelir.github.io/tag/svn.html"><i class="icon-tag"></i>svn</a>
-	<a href="https://leelir.github.io/tag/linux.html"><i class="icon-tag"></i>linux</a>
-</footer><!-- /.post-info --></div>
-                <div class="summary"><p>在linux下比较好用的可视化svn，可以不用复杂的指令，但是速度有点慢。</p>
-                        <a class="btn primary xsmall" href="https://leelir.github.io/articles/svn.html">more ...</a>
-                </div>
-        </div>
-        <hr />
-        <div class="article">
-                <h1><a href="https://leelir.github.io/articles/just write.html">无题</a></h1>
-                <div class="well small"><footer class="post-info">
-<span class="label">Date</span>
-<abbr class="published" title="2015-07-29T21:36:00+08:00">
-        <i class="icon-calendar"></i>2015-07-29
-</abbr>
-<span class="label">By</span>
-<a href="https://leelir.github.io/author/leelir.html"><i class="icon-user"></i>leelir</a>
-<span class="label">Category</span>
-<a href="https://leelir.github.io/category/diary.html"><i class="icon-folder-open"></i>diary</a>.
+            <article>
+                <a href="https://leelir.github.io/articles/project guidelines.html"><h3 class="article-title">Android project guidelines</h3></a>
+<h6 class="subheader" title="2016-04-20T16:56:00+08:00">2016-04-20
+</h6>
 
 
-<span class="label">Tags</span>
-	<a href="https://leelir.github.io/tag/dairy.html"><i class="icon-tag"></i>dairy</a>
-</footer><!-- /.post-info --></div>
-                <div class="summary"><p>no sense.</p>
-                        <a class="btn primary xsmall" href="https://leelir.github.io/articles/just write.html">more ...</a>
-                </div>
-        </div>
-        <hr />
-        <div class="article">
-                <h1><a href="https://leelir.github.io/articles/summary.html">学习总结</a></h1>
-                <div class="well small"><footer class="post-info">
-<span class="label">Date</span>
-<abbr class="published" title="2015-07-29T21:07:00+08:00">
-        <i class="icon-calendar"></i>2015-07-29
-</abbr>
-<span class="label">By</span>
-<a href="https://leelir.github.io/author/leelir.html"><i class="icon-user"></i>leelir</a>
-<span class="label">Category</span>
-<a href="https://leelir.github.io/category/work.html"><i class="icon-folder-open"></i>work</a>.
+<p>这个是将要参加项目的项目规范，里面详述了项目要遵守的命名规则，代码规范等。</p><p class="subheader">Category: <a href="https://leelir.github.io/category/android.html">Android</a>
+
+    Tagged: 
+    <a href="https://leelir.github.io/tag/android.html">Android </a>
+</p>
 
 
-<span class="label">Tags</span>
-	<a href="https://leelir.github.io/tag/work.html"><i class="icon-tag"></i>work</a>
-</footer><!-- /.post-info --></div>
-                <div class="summary"><p>work.</p>
-                        <a class="btn primary xsmall" href="https://leelir.github.io/articles/summary.html">more ...</a>
-                </div>
-        </div>
-        <hr />
-        <div class="article">
-                <h1><a href="https://leelir.github.io/articles/headache.html">headache</a></h1>
-                <div class="well small"><footer class="post-info">
-<span class="label">Date</span>
-<abbr class="published" title="2015-07-28T21:01:00+08:00">
-        <i class="icon-calendar"></i>2015-07-28
-</abbr>
-<span class="label">By</span>
-<a href="https://leelir.github.io/author/leelir.html"><i class="icon-user"></i>leelir</a>
-<span class="label">Category</span>
-<a href="https://leelir.github.io/category/diary.html"><i class="icon-folder-open"></i>diary</a>.
+
+<p><a href="https://leelir.github.io/articles/project guidelines.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="https://leelir.github.io/articles/project guidelines.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
 
 
-<span class="label">Tags</span>
-	<a href="https://leelir.github.io/tag/diary.html"><i class="icon-tag"></i>diary</a>
-</footer><!-- /.post-info --></div>
-                <div class="summary"><p>headache.</p>
-                        <a class="btn primary xsmall" href="https://leelir.github.io/articles/headache.html">more ...</a>
-                </div>
-        </div>
-        <hr />
-        <div class="article">
-                <h1><a href="https://leelir.github.io/articles/fun.html">fun</a></h1>
-                <div class="well small"><footer class="post-info">
-<span class="label">Date</span>
-<abbr class="published" title="2015-07-27T16:46:00+08:00">
-        <i class="icon-calendar"></i>2015-07-27
-</abbr>
-<span class="label">By</span>
-<a href="https://leelir.github.io/author/leelir.html"><i class="icon-user"></i>leelir</a>
-<span class="label">Category</span>
-<a href="https://leelir.github.io/category/funny-things.html"><i class="icon-folder-open"></i>funny things</a>.
+            <article>
+                <a href="https://leelir.github.io/articles/interview.html"><h3 class="article-title">The mind behind Linux</h3></a>
+<h6 class="subheader" title="2016-04-10T14:10:00+08:00">2016-04-10
+</h6>
 
 
-<span class="label">Tags</span>
-	<a href="https://leelir.github.io/tag/fun.html"><i class="icon-tag"></i>fun</a>
-</footer><!-- /.post-info --></div>
-                <div class="summary">
-                        <a class="btn primary xsmall" href="https://leelir.github.io/articles/fun.html">more ...</a>
-                </div>
-        </div>
-        <hr />
+<p>从网上看到的ted关于大神Linus的视频。顺便整理了一下对话记录。有时间可以看看。</p><p class="subheader">Category: <a href="https://leelir.github.io/category/interview.html">interview</a>
 
-        <div class="pagination">
-        <ul>
-                        <li class="prev disabled"><a href="#">&larr; Previous</a></li>
-                        <li class="active"><a href="https://leelir.github.io/author/leelir.html">1</a></li>
-                        <li class=""><a href="https://leelir.github.io/author/leelir2.html">2</a></li>
-                        <li class="next"><a href="https://leelir.github.io/author/leelir2.html">Next &rarr;</a></li>
+    Tagged: 
+    <a href="https://leelir.github.io/tag/interview.html">interview </a>
+</p>
+
+
+
+<p><a href="https://leelir.github.io/articles/interview.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="https://leelir.github.io/articles/interview.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://leelir.github.io/articles/IOS.html"><h3 class="article-title">Introducing iOS Design Patterns in Swift Part 2（完整版）</h3></a>
+<h6 class="subheader" title="2016-04-09T02:40:00+08:00">2016-04-09
+</h6>
+
+
+<p>很好的一篇文章，<a href="http://www.devtalking.com/articles/ios-design-pattern-in-swift-1/">程序员说翻译了上半部分</a>我从网上找到了下半部分的英文版，英文渣渣，边练边写，多多指教！</p><p class="subheader">Category: <a href="https://leelir.github.io/category/ios.html">IOS</a>
+
+    Tagged: 
+    <a href="https://leelir.github.io/tag/ios.html">IOS </a>
+</p>
+
+
+
+<p><a href="https://leelir.github.io/articles/IOS.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="https://leelir.github.io/articles/IOS.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://leelir.github.io/articles/curiosity and intuition.html"><h3 class="article-title">The most important thing I’ve learned as a college student</h3></a>
+<h6 class="subheader" title="2016-04-07T23:55:00+08:00">2016-04-07
+</h6>
+
+
+<p>英语老师布置的作业，本来是不想写的。可是写着写着还是想把自己大学着点东西写下来，留个纪念吧。一会接着写ios的，今晚finish it！</p><p class="subheader">Category: <a href="https://leelir.github.io/category/diary.html">diary</a>
+
+    Tagged: 
+    <a href="https://leelir.github.io/tag/diary.html">diary </a>
+</p>
+
+
+
+<p><a href="https://leelir.github.io/articles/curiosity and intuition.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="https://leelir.github.io/articles/curiosity and intuition.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://leelir.github.io/articles/svn.html"><h3 class="article-title">ubuntu14.04如何安装可视化svn</h3></a>
+<h6 class="subheader" title="2015-08-27T08:55:00+08:00">2015-08-27
+</h6>
+
+
+<p>在linux下比较好用的可视化svn，可以不用复杂的指令，但是速度有点慢。</p><p class="subheader">Category: <a href="https://leelir.github.io/category/svn.html">svn</a>
+
+    Tagged: 
+    <a href="https://leelir.github.io/tag/svn.html">svn </a>
+    <a href="https://leelir.github.io/tag/linux.html">linux </a>
+</p>
+
+
+
+<p><a href="https://leelir.github.io/articles/svn.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="https://leelir.github.io/articles/svn.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://leelir.github.io/articles/just write.html"><h3 class="article-title">无题</h3></a>
+<h6 class="subheader" title="2015-07-29T21:36:00+08:00">2015-07-29
+</h6>
+
+
+<p>no sense.</p><p class="subheader">Category: <a href="https://leelir.github.io/category/diary.html">diary</a>
+
+    Tagged: 
+    <a href="https://leelir.github.io/tag/dairy.html">dairy </a>
+</p>
+
+
+
+<p><a href="https://leelir.github.io/articles/just write.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="https://leelir.github.io/articles/just write.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://leelir.github.io/articles/summary.html"><h3 class="article-title">学习总结</h3></a>
+<h6 class="subheader" title="2015-07-29T21:07:00+08:00">2015-07-29
+</h6>
+
+
+<p>work.</p><p class="subheader">Category: <a href="https://leelir.github.io/category/work.html">work</a>
+
+    Tagged: 
+    <a href="https://leelir.github.io/tag/work.html">work </a>
+</p>
+
+
+
+<p><a href="https://leelir.github.io/articles/summary.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="https://leelir.github.io/articles/summary.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://leelir.github.io/articles/headache.html"><h3 class="article-title">headache</h3></a>
+<h6 class="subheader" title="2015-07-28T21:01:00+08:00">2015-07-28
+</h6>
+
+
+<p>headache.</p><p class="subheader">Category: <a href="https://leelir.github.io/category/diary.html">diary</a>
+
+    Tagged: 
+    <a href="https://leelir.github.io/tag/diary.html">diary </a>
+</p>
+
+
+
+<p><a href="https://leelir.github.io/articles/headache.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="https://leelir.github.io/articles/headache.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://leelir.github.io/articles/fun.html"><h3 class="article-title">fun</h3></a>
+<h6 class="subheader" title="2015-07-27T16:46:00+08:00">2015-07-27
+</h6>
+
+
+<p class="subheader">Category: <a href="https://leelir.github.io/category/funny-things.html">funny things</a>
+
+    Tagged: 
+    <a href="https://leelir.github.io/tag/fun.html">fun </a>
+</p>
+
+
+
+<p><a href="https://leelir.github.io/articles/fun.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="https://leelir.github.io/articles/fun.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+            <!-- /#posts-list -->
+<div class="pagination-centered">
+<h6 class="subheader">Page 1 of 2</h6>
+
+<p>
+
+        <a href="https://leelir.github.io/author/leelir2.html">Next &raquo;</a>
+</p>
+</div>
+
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="https://leelir.github.io/archives.html">Archives</a>
+            <li><a href="https://leelir.github.io/tags.html">Tags</a>
+
+
+                <li><a href="https://leelir.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
         </ul>
-        </div>
 
-        </div><!--/span-->
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="https://leelir.github.io/category/android.html">Android</a></li>
+            <li><a href="https://leelir.github.io/category/diary.html">diary</a></li>
+            <li><a href="https://leelir.github.io/category/funny-things.html">funny things</a></li>
+            <li><a href="https://leelir.github.io/category/interview.html">interview</a></li>
+            <li><a href="https://leelir.github.io/category/ios.html">IOS</a></li>
+            <li><a href="https://leelir.github.io/category/svn.html">svn</a></li>
+            <li><a href="https://leelir.github.io/category/work.html">work</a></li>
+   
+        </ul>
 
-                <div class="span3 well sidebar-nav" id="sidebar">
-<ul class="nav nav-list">
-<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
-    <li><a href="http://heylinux.com"><i class="icon-external-link"></i>HeyLinux</a></li>
-<li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
-<li><a href="https://leelir.github.io/" rel="alternate"><i class="icon-bookmark icon-large"></i>atom feed</a></li>
-    <li><a href="https://github.com/leelir/leelir.github.com"><i class="icon-Github-sign icon-large"></i>Github</a></li>
-    <li><a href="http://weibo.com/2372180553/profile?topnav=1&wvr=6"><i class="icon-sina-sign icon-large"></i>sina</a></li>
+        <h5 class="sidebar-title">Links</h5>
+        <ul class="side-nav">
+            <li><a href="http://heylinux.com">HeyLinux</a></li>
+        </ul>
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="https://github.com/leelir/leelir.github.com">Github</a></li>
+            <li><a href="http://weibo.com/2372180553/profile?topnav=1&wvr=6">sina</a></li>
+        </ul>
 
-<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
-<li>
-<a href="https://leelir.github.io/category/android.html">
-    <i class="icon-folder-open icon-large"></i>Android
-</a>
-</li>
-<li>
-<a href="https://leelir.github.io/category/diary.html">
-    <i class="icon-folder-open icon-large"></i>diary
-</a>
-</li>
-<li>
-<a href="https://leelir.github.io/category/funny-things.html">
-    <i class="icon-folder-open icon-large"></i>funny things
-</a>
-</li>
-<li>
-<a href="https://leelir.github.io/category/interview.html">
-    <i class="icon-folder-open icon-large"></i>interview
-</a>
-</li>
-<li>
-<a href="https://leelir.github.io/category/ios.html">
-    <i class="icon-folder-open icon-large"></i>IOS
-</a>
-</li>
-<li>
-<a href="https://leelir.github.io/category/svn.html">
-    <i class="icon-folder-open icon-large"></i>svn
-</a>
-</li>
-<li>
-<a href="https://leelir.github.io/category/work.html">
-    <i class="icon-folder-open icon-large"></i>work
-</a>
-</li>
+    </aside> <!-- End Sidebar -->
 
-<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+</div> <!-- End Main Content and Sidebar -->
 
 
-</ul>        </div><!--/.well -->
-
-      </div><!--/row-->
-
-      <hr>
-
-      <footer>
-        <address id="about">
-                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
-                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
-        </address><!-- /#about -->
-
-        <p>The theme is from <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
-                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
-      </footer>
-
-    </div><!--/.fluid-container-->
-
-
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-	var pageTracker = _gat._getTracker("UA-65525757-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
-<script type="text/javascript">
-    var disqus_shortname = 'leelir';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-
-    <!-- Le javascript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://leelir.github.io/theme/js/jquery-1.7.2.min.js"></script>
-    <script src="https://leelir.github.io/theme/js/bootstrap.min.js"></script>
-  </body>
-</html>
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+                <p>H4C3R by leelir</p>
+            </div>
+            </div>
+    </div>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-65525757-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+</footer>

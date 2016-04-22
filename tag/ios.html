@@ -1,233 +1,846 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
     <title>H4C3R - IOS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="leelir">
 
-    <!-- Le styles -->
-    <link rel="stylesheet" href="https://leelir.github.io/theme/css/bootstrap.min.css" type="text/css" />
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
-      .tag-1 {
-        font-size: 13pt;
-      }
-      .tag-2 {
-        font-size: 10pt;
-      }
-      .tag-2 {
-        font-size: 8pt;
-      }
-      .tag-4 {
-        font-size: 6pt;
-     }
-    </style>
-    <link href="https://leelir.github.io/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
-        <link href="https://leelir.github.io/theme/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://leelir.github.io/theme/css/normalize.css" />
+    <link rel="stylesheet" href="https://leelir.github.io/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://leelir.github.io/theme/css/style.css" />
+    <link rel="stylesheet" href="https://leelir.github.io/theme/css/pygments.css" />	
+    <script src="https://leelir.github.io/theme/js/custom.modernizr.js"></script>
 
-    <link href="https://leelir.github.io/theme/css/pygments.css" rel="stylesheet">
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="feeds/all.atom.xml" rel="alternate" title="H4C3R" type="application/atom+xml">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+</head>
 
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="https://leelir.github.io/theme/images/favicon.ico">
-    <link rel="apple-touch-icon" href="https://leelir.github.io/theme/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="https://leelir.github.io/theme/images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="https://leelir.github.io/theme/images/apple-touch-icon-114x114.png">
+<body>
 
-    <link href="https://leelir.github.io/" type="application/atom+xml" rel="alternate" title="H4C3R ATOM Feed" />
-
-  </head>
-
-  <body>
-
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="https://leelir.github.io/index.html">H4C3R </a>
-          <div class="nav-collapse">
-            <ul class="nav">
-                          <li class="divider-vertical"></li>
-                  <li >
-                    <a href="https://leelir.github.io/category/android.html">
-						<i class="icon-folder-open icon-large"></i>Android
-					</a>
-                  </li>
-                  <li >
-                    <a href="https://leelir.github.io/category/diary.html">
-						<i class="icon-folder-open icon-large"></i>diary
-					</a>
-                  </li>
-                  <li >
-                    <a href="https://leelir.github.io/category/funny-things.html">
-						<i class="icon-folder-open icon-large"></i>funny things
-					</a>
-                  </li>
-                  <li >
-                    <a href="https://leelir.github.io/category/interview.html">
-						<i class="icon-folder-open icon-large"></i>interview
-					</a>
-                  </li>
-                  <li >
-                    <a href="https://leelir.github.io/category/ios.html">
-						<i class="icon-folder-open icon-large"></i>IOS
-					</a>
-                  </li>
-                  <li >
-                    <a href="https://leelir.github.io/category/svn.html">
-						<i class="icon-folder-open icon-large"></i>svn
-					</a>
-                  </li>
-                  <li >
-                    <a href="https://leelir.github.io/category/work.html">
-						<i class="icon-folder-open icon-large"></i>work
-					</a>
-                  </li>
-
-                          <ul class="nav pull-right">
-                                <li><a href="https://leelir.github.io/archives.html"><i class="icon-th-list"></i>Archives</a></li>
-                          </ul>
-
-            </ul>
-            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="https://leelir.github.io">H4C3R</a></h1>
     </div>
+</div>
+</div>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="span9" id="content">
-        <div class="article">
-                <h1><a href="https://leelir.github.io/articles/IOS.html">Introducing iOS Design Patterns in Swift Part 2（完整版）</a></h1>
-                <div class="well small"><footer class="post-info">
-<span class="label">Date</span>
-<abbr class="published" title="2016-04-09T02:40:00+08:00">
-        <i class="icon-calendar"></i>2016-04-09
-</abbr>
-<span class="label">By</span>
-<a href="https://leelir.github.io/author/leelir.html"><i class="icon-user"></i>leelir</a>
-<span class="label">Category</span>
-<a href="https://leelir.github.io/category/ios.html"><i class="icon-folder-open"></i>IOS</a>.
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
 
 
-<span class="label">Tags</span>
-	<a href="https://leelir.github.io/tag/ios.html"><i class="icon-tag"></i>IOS</a>
-</footer><!-- /.post-info --></div>
-                <div class="summary"><p>很好的一篇文章，<a href="http://www.devtalking.com/articles/ios-design-pattern-in-swift-1/">程序员说翻译了上半部分</a>我从网上找到了下半部分的英文版，英文渣渣，边练边写，多多指教！</p>
-                        <a class="btn primary xsmall" href="https://leelir.github.io/articles/IOS.html">more ...</a>
-                </div>
-        </div>
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+        
+        
+
+            <article>
+                <a href="https://leelir.github.io/articles/IOS.html"><h3 class="article-title">Introducing iOS Design Patterns in Swift Part 2（完整版）</h3></a>
+<h6 class="subheader" title="2016-04-09T02:40:00+08:00">2016-04-09
+</h6>
+
+
+<hr />
+<p><strong>3月31日</strong> 刚刚开始写。</p>
+<p><strong>4月5日</strong>写着写着就凌晨一点多了，又添加了一些内容。本来想着写到项目目前的状态来，不过也不早了，明天还要好好想一想论文的实验的几个关键点。睡了，明天接着写。 </p>
+<p><strong>4月6日</strong>网络不好真的很耽误事，还影响心情，今天整了一天的网，不开心。本来能多做好多事的，明天继续。  </p>
+<p><strong>4月7日</strong>早上早起写的，写着写着饿了，看看中午加把劲，把这个弄完，再把项目自己写一遍。</p>
+<p><strong>4月9日</strong>终于写完了，这只是个开始。博文继续，代码不止！</p>
+<hr />
+<p><strong>2015年4月22日</strong>: Xcode6.3 和Swift1.2 更新<br />
+<strong>更新日志</strong>：这次IOS8和Swift的指导课是有Vincent Ngo更新的。原版本事由指导课成员Eli Ganem推出的。<br />
+欢迎回到设计模式介绍指导课的第二部分！在第一部分，你已经学习关于Cocoa的一些基本的设计模式，例如MVC，单例模式，和装饰模式等。<br />
+在最后这一部分，你将会学习一些其他的由大量IOS和OS X开发者提出的一些基本设计模式。例如：适配器模式，观察者模式和纪念品模式。让我们马上开始学习吧！  </p>
+<h1>Getting Started</h1>
+<p>你可以下载<a href="http://www.raywenderlich.com/wp-content/uploads/2014/12/BlueLibrarySwift-Part11.zip">第一部分的实例代码</a>开始这一部分。<br />
+这是我们在第一部分结束的时候完成的音乐库APP：
+<div align=center>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/Screen-Shot-2014-11-11-at-12.38.53-AM.png" width="240" height="430" alt="第一部分效果图"/>
+</div><br />
+这个APP原来的设计是在屏幕的顶部设计一个水平滚动窗口来选择相册。既然不是为了单一的目的而设计使用的，为什么我们不使他为每一个视图重复使用呢？<br />
+为了使这个视图重复使用，因此所有关于它内容的决定都要交给另一个对象：一个委托。这个水平滑动视图要声明委托工具（delegate implements）的方法来使他为滚动窗口工作。这种方法一UITableView委托方法相似。我们将在接下来的要讨论的设计模式中用到这种方法。  </p>
+<h1>The Adapter Pattern</h1>
+<p>适配器可以使接口不匹配的类一起工作。他用一个类将自己包裹起来，并且暴露出标准接口给要交流的类。<br />
+如果你熟悉适配器模式，你会发现，苹果的用一种完全不同的方法使用它－苹果用协议来完成这份工作。你可能已经了解了UITableViewDelegate，UIScrollViewDelegate，NSCoding和NSCopying. 例如：在NSCopying协议里面，每一种协议可以提供一种标准的复制方法。</p>
+<h1>How to Use the Adapter Pattern</h1>
+<p>水平滑动的方法看起来会是这样的：
+<div align=center>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern7.png" width="450" height="140" alt="相册效果图"/>
+</div>
+在开始之前，在工程视图里面选择新建文件选择IOS》cocola touch class 并且点击下一步。设置类名为HorizontalSCroller，使他继承自UIView。<br />
+打开HorizontalSCroller.swift 然后插入如下代码：  </p>
+<div class="highlight"><pre><span class="kr">@objc</span> <span class="kd">protocol</span> <span class="nc">HorizontalScrollerDelegate</span> <span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>定义一个名为HorizontalScrollerDelegate的协议。你需要在协议声明前添加一个@objc。然后你就可以像在Object－C里面一样好好使用@optional代理的方法了。<br />
+你定义了需要的和可选的方法，然后代理就会使用协议中的方法。因此在协议中加入如下方法：</p>
+<div class="highlight"><pre><span class="c1">// ask the delegate how many views he wants to present inside the horizontal scroller</span>
+<span class="kd">func</span> <span class="nf">numberOfViewsForHorizontalScroller</span><span class="p">(</span><span class="n">scroller</span><span class="p">:</span> <span class="n">HorizontalScroller</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span>
+<span class="c1">// ask the delegate to return the view that should appear at &lt;index&gt;</span>
+<span class="kd">func</span> <span class="nf">horizontalScrollerViewAtIndex</span><span class="p">(</span><span class="n">scroller</span><span class="p">:</span> <span class="n">HorizontalScroller</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span><span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="bp">UIView</span>
+<span class="c1">// inform the delegate what the view at &lt;index&gt; has been clicked</span>
+<span class="kd">func</span> <span class="nf">horizontalScrollerClickedViewAtIndex</span><span class="p">(</span><span class="n">scroller</span><span class="p">:</span> <span class="n">HorizontalScroller</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span><span class="nb">Int</span><span class="p">)</span>
+<span class="c1">// ask the delegate for the index of the initial view to display. this method is optional</span>
+<span class="c1">// and defaults to 0 if it&#39;s not implemented by the delegate</span>
+<span class="kr">optional</span> <span class="kd">func</span> <span class="nf">initialViewIndex</span><span class="p">(</span><span class="n">scroller</span><span class="p">:</span> <span class="n">HorizontalScroller</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span>
+</pre></div>
+
+
+<p>现在已经有了必需的方法和可选的方法。必需的方法是代理必需使用的，并且通常包含者一些类必需用刀的数据。在这个例子里面，这些必需的细节是view的数量，view的具体编号和当view被触摸时的行为。可选方法是view的初始化；如果它没有被使用HorizontalScroller将会默认设置为第一个。<br />
+在HorizontalScroller.swift里加上如下代码定义HorizontalScroller类：</p>
+<div class="highlight"><pre><span class="kr">weak</span> <span class="kd">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="n">HorizontalScrollerDelegate</span><span class="p">?</span>
+</pre></div>
+
+
+<p>将你定义的变量属性设置为weak，这是避免死循环而必需做的。如果类与它的代理有着强引用关系，并且代理对它遵从的类也保持着强引用，你的APP将会内存不足，因为所有的类都不会释放内存再分配给其他类。swift里面所有的变量都默认是strong。<br />
+代理是可选的，因此，无论是谁都可能不比提供代理而使用这个类。但是，如果它们这么做了，它就会遵从HorizontalScrollerDelegate 并且可以保证协议里的方法是可以在这里被使用的。<br />
+为类添加几个的变量：  </p>
+<div class="highlight"><pre><span class="c1">// 1</span>
+<span class="kd">private</span> <span class="kd">let</span> <span class="nv">VIEW_PADDING</span> <span class="p">=</span> <span class="mi">10</span>
+<span class="kd">private</span> <span class="kd">let</span> <span class="nv">VIEW_DIMENSIONS</span> <span class="p">=</span> <span class="mi">100</span>
+<span class="kd">private</span> <span class="kd">let</span> <span class="nv">VIEWS_OFFSET</span> <span class="p">=</span> <span class="mi">100</span>
+<span class="c1">// 2</span>
+<span class="kd">private</span> <span class="kd">var</span> <span class="nv">scroller</span> <span class="p">:</span> <span class="bp">UIScrollView</span><span class="p">!</span>
+<span class="c1">// 3</span>
+<span class="kd">var</span> <span class="nv">viewArray</span> <span class="p">=</span> <span class="p">[</span><span class="bp">UIView</span><span class="p">]()</span>
+</pre></div>
+
+
+<p>下面给出每一块代码的注释：<br />
+1.定义常量使他在设计时更容易模块化。scroller里面view的大小是100＊100，到闭合长方形边界有10像素点。<br />
+2.创建一个scroller包含这个view。<br />
+3.创建一个包含所有相册封面的数组。
+接下来就要执行初始化，添加如下代码：  </p>
+<div class="highlight"><pre><span class="c1">// 1</span>
+<span class="kd">private</span> <span class="kd">let</span> <span class="nv">VIEW_PADDING</span> <span class="p">=</span> <span class="mi">10</span>
+<span class="kd">private</span> <span class="kd">let</span> <span class="nv">VIEW_DIMENSIONS</span> <span class="p">=</span> <span class="mi">100</span>
+<span class="kd">private</span> <span class="kd">let</span> <span class="nv">VIEWS_OFFSET</span> <span class="p">=</span> <span class="mi">100</span>
+<span class="c1">// 2</span>
+<span class="kd">private</span> <span class="kd">var</span> <span class="nv">scroller</span> <span class="p">:</span> <span class="bp">UIScrollView</span><span class="p">!</span>
+<span class="c1">// 3</span>
+<span class="kd">var</span> <span class="nv">viewArray</span> <span class="p">=</span> <span class="p">[</span><span class="bp">UIView</span><span class="p">]()</span>
+</pre></div>
+
+
+<div class="highlight"><pre> <span class="kr">override</span> <span class="kd">init</span><span class="p">(</span><span class="n">frame</span><span class="p">:</span> <span class="bp">CGRect</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kc">super</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">frame</span><span class="p">:</span> <span class="n">frame</span><span class="p">)</span>
+  <span class="n">initializeScrollView</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="kr">required</span> <span class="kd">init</span><span class="p">(</span><span class="n">coder</span> <span class="n">aDecoder</span><span class="p">:</span> <span class="bp">NSCoder</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kc">super</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">coder</span><span class="p">:</span> <span class="n">aDecoder</span><span class="p">)</span>
+  <span class="n">initializeScrollView</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="nf">initializeScrollView</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">//1</span>
+  <span class="n">scroller</span> <span class="p">=</span> <span class="bp">UIScrollView</span><span class="p">()</span>
+  <span class="n">addSubview</span><span class="p">(</span><span class="n">scroller</span><span class="p">)</span>
+  <span class="c1">//2</span>
+  <span class="n">scroller</span><span class="p">.</span><span class="n">setTranslatesAutoresizingMaskIntoConstraints</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+  <span class="c1">//3</span>
+  <span class="kc">self</span><span class="p">.</span><span class="n">addConstraint</span><span class="p">(</span><span class="bp">NSLayoutConstraint</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">scroller</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="p">.</span><span class="n">Leading</span><span class="p">,</span> <span class="n">relatedBy</span><span class="p">:</span> <span class="p">.</span><span class="n">Equal</span><span class="p">,</span> <span class="n">toItem</span><span class="p">:</span> <span class="kc">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="p">.</span><span class="n">Leading</span><span class="p">,</span> <span class="n">multiplier</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">constant</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">))</span>
+  <span class="kc">self</span><span class="p">.</span><span class="n">addConstraint</span><span class="p">(</span><span class="bp">NSLayoutConstraint</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">scroller</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="p">.</span><span class="n">Trailing</span><span class="p">,</span> <span class="n">relatedBy</span><span class="p">:</span> <span class="p">.</span><span class="n">Equal</span><span class="p">,</span> <span class="n">toItem</span><span class="p">:</span> <span class="kc">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="p">.</span><span class="n">Trailing</span><span class="p">,</span> <span class="n">multiplier</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">constant</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">))</span>
+  <span class="kc">self</span><span class="p">.</span><span class="n">addConstraint</span><span class="p">(</span><span class="bp">NSLayoutConstraint</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">scroller</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="p">.</span><span class="n">Top</span><span class="p">,</span> <span class="n">relatedBy</span><span class="p">:</span> <span class="p">.</span><span class="n">Equal</span><span class="p">,</span> <span class="n">toItem</span><span class="p">:</span> <span class="kc">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="p">.</span><span class="n">Top</span><span class="p">,</span> <span class="n">multiplier</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">constant</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">))</span>
+  <span class="kc">self</span><span class="p">.</span><span class="n">addConstraint</span><span class="p">(</span><span class="bp">NSLayoutConstraint</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">scroller</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="p">.</span><span class="n">Bottom</span><span class="p">,</span> <span class="n">relatedBy</span><span class="p">:</span> <span class="p">.</span><span class="n">Equal</span><span class="p">,</span> <span class="n">toItem</span><span class="p">:</span> <span class="kc">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="p">.</span><span class="n">Bottom</span><span class="p">,</span> <span class="n">multiplier</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">constant</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">))</span>
+  <span class="c1">//4</span>
+  <span class="kd">let</span> <span class="nv">tapRecognizer</span> <span class="p">=</span> <span class="bp">UITapGestureRecognizer</span><span class="p">(</span><span class="n">target</span><span class="p">:</span> <span class="kc">self</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span><span class="nb">Selector</span><span class="p">(</span><span class="s">&quot;scrollerTapped:&quot;</span><span class="p">))</span>
+  <span class="n">scroller</span><span class="p">.</span><span class="n">addGestureRecognizer</span><span class="p">(</span><span class="n">tapRecognizer</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>重装的方法是在重新加载UITableView数据数据之后建模的；它重新加载所有的数据用于构建horizontal scroller。<br />
+下面是每一步的步骤：<br />
+1.创建一个新的UIScrollerView实例并且把它添加到父视图。<br />
+2.关闭自动排版。这样你就可以使用你自己的布局约束条件。<br />
+3.对scrollview使用约束条件，使scroller view完全填充满horizontalscroller<br />
+4.创建一个tap手势识别。tap收拾识别探测在scrollerview上的触摸并且检查是否有相册封面被选中。如果被选中将会通知horizontalscroller delegate。<br />
+现在再添加上这个方法：  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">scrollerTapped</span><span class="p">(</span><span class="n">gesture</span><span class="p">:</span> <span class="bp">UITapGestureRecognizer</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">location</span> <span class="p">=</span> <span class="n">gesture</span><span class="p">.</span><span class="n">locationInView</span><span class="p">(</span><span class="n">gesture</span><span class="p">.</span><span class="n">view</span><span class="p">)</span>
+    <span class="k">if</span> <span class="kd">let</span> <span class="nv">delegate</span> <span class="p">=</span> <span class="n">delegate</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="n">index</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="n">delegate</span><span class="p">.</span><span class="n">numberOfViewsForHorizontalScroller</span><span class="p">(</span><span class="kc">self</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">view</span> <span class="p">=</span> <span class="n">scroller</span><span class="p">.</span><span class="n">subviews</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="kc">as</span><span class="p">!</span> <span class="bp">UIView</span>
+        <span class="k">if</span> <span class="n">CGRectContainsPoint</span><span class="p">(</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">,</span> <span class="n">location</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">delegate</span><span class="p">.</span><span class="n">horizontalScrollerClickedViewAtIndex</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n">index</span><span class="p">)</span>
+          <span class="n">scroller</span><span class="p">.</span><span class="n">setContentOffset</span><span class="p">(</span><span class="bp">CGPoint</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">origin</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="kc">self</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">),</span> <span class="n">animated</span><span class="p">:</span><span class="kc">true</span><span class="p">)</span>
+          <span class="k">break</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+
+
+<p>这个手势以一个元素传入，使你用locationInView（）来提取位置信息。<br />
+接下来，调用delegate里面的numberOfViewsForHorizontalScroller（）。HorizontalScroller实例没有关于delegate的信息，而是知道它可以安全地传递消息，因为delegate必须遵从HorizontalScrollerDelegate协议。<br />
+对于在scroll view里的每一个view用一个点击测试CGRectContainsPoint找到被触摸的view。当找到了这个view，调用horizontalScrollerClickedViewAtIndex方法。在打破for循环之前，触摸scroll view里的view。<br />
+现在添加reload到scroller里面：  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">reload</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 1 - Check if there is a delegate, if not there is nothing to load.</span>
+    <span class="k">if</span> <span class="kd">let</span> <span class="nv">delegate</span> <span class="p">=</span> <span class="n">delegate</span> <span class="p">{</span>
+      <span class="c1">//2 - Will keep adding new album views on reload, need to reset.</span>
+      <span class="n">viewArray</span> <span class="p">=</span> <span class="p">[]</span>
+      <span class="kd">let</span> <span class="nv">views</span><span class="p">:</span> <span class="bp">NSArray</span> <span class="p">=</span> <span class="n">scroller</span><span class="p">.</span><span class="n">subviews</span>
+            <span class="c1">// 3 - remove all subviews</span>
+            <span class="k">for</span> <span class="n">view</span> <span class="k">in</span> <span class="n">views</span> <span class="p">{</span>
+                <span class="n">view</span><span class="p">.</span><span class="n">removeFromSuperview</span><span class="p">()</span>
+            <span class="p">}</span>
+      <span class="c1">// 4 - xValue is the starting point of the views inside the scroller</span>
+      <span class="kd">var</span> <span class="nv">xValue</span> <span class="p">=</span> <span class="n">VIEWS_OFFSET</span>
+      <span class="k">for</span> <span class="n">index</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="n">delegate</span><span class="p">.</span><span class="n">numberOfViewsForHorizontalScroller</span><span class="p">(</span><span class="kc">self</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 5 - add a view at the right position</span>
+        <span class="n">xValue</span> <span class="o">+=</span> <span class="n">VIEW_PADDING</span>
+        <span class="kd">let</span> <span class="nv">view</span> <span class="p">=</span> <span class="n">delegate</span><span class="p">.</span><span class="n">horizontalScrollerViewAtIndex</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n">index</span><span class="p">)</span>
+        <span class="n">view</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">(</span><span class="n">xValue</span><span class="p">),</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">VIEW_PADDING</span><span class="p">),</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">VIEW_DIMENSIONS</span><span class="p">),</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">VIEW_DIMENSIONS</span><span class="p">))</span>
+        <span class="n">scroller</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">view</span><span class="p">)</span>
+        <span class="n">xValue</span> <span class="o">+=</span> <span class="n">VIEW_DIMENSIONS</span> <span class="o">+</span> <span class="n">VIEW_PADDING</span>
+        <span class="c1">// 6 - Store the view so we can reference it later</span>
+        <span class="n">viewArray</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">view</span><span class="p">)</span>
+      <span class="p">}</span>
+      <span class="c1">// 7</span>
+      <span class="n">scroller</span><span class="p">.</span><span class="n">contentSize</span> <span class="p">=</span> <span class="n">CGSizeMake</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">(</span><span class="n">xValue</span> <span class="o">+</span> <span class="n">VIEWS_OFFSET</span><span class="p">),</span> <span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">)</span>
+      <span class="c1">// 8 - If an initial view is defined, center the scroller on it</span>
+      <span class="k">if</span> <span class="kd">let</span> <span class="nv">initialView</span> <span class="p">=</span> <span class="n">delegate</span><span class="p">.</span><span class="n">initialViewIndex</span><span class="p">?(</span><span class="kc">self</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">scroller</span><span class="p">.</span><span class="n">setContentOffset</span><span class="p">(</span><span class="bp">CGPoint</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">initialView</span><span class="p">)</span><span class="o">*</span><span class="n">CGFloat</span><span class="p">((</span><span class="n">VIEW_DIMENSIONS</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">VIEW_PADDING</span><span class="p">))),</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">),</span> <span class="n">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+
+
+<p>reload方法是在UITableView重新加载数据以后设计的模型；它重新加载了用于构建horizontal scroller的所有数据。<br />
+具体步骤如下：<br />
+1.在我们做任何一个reload之前，检查是否存在一个delegate。<br />
+2.即使你清除了相册封面，你也需要重置viewArray。否则，将会有大量的数据从之前的封面里留存下来。<br />
+3.在添加到scroller view之前，移除所有的subview。<br />
+4.所有view的初始位置都是由给定的offset定位的，当前是100，但是它可以通过修改文件开始的VIEW_OFFET的内容很容易的进行拉伸。<br />
+5.HorizontalView要求它的delegate 按照设定好的padding一次一个view水平的依次摆放。<br />
+6.将view存到viewArray里面以追踪scrollview里所有view的踪迹。<br />
+7.一旦所有的view就位以后，为scroll view设置content offset来使用户可以在所有的相册封面之间滑动。<br />
+8.horizontalscroller 检查它的delegate是否执行了initialviewindex方法。这一步检查是必不可少的，因为特殊协议方法是可选的。如果delegate没有使用这个方法，默认值就是0。最终，这段代码设置scroll view 到由delegate定义的初始视图的中心。<br />
+当数据改变时，执行reload方法。当你添加horizontalscroller到其他的view时也需要这个方法。将如下代码添加到HorizontalView.swift：  </p>
+<div class="highlight"><pre><span class="kr">override</span> <span class="kd">func</span> <span class="nf">didMoveToSuperview</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">reload</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>didMoveToSuperview是一个view在被添加到另一个view作为子视图时被调用的。这正是重新加载scroller内容的好时机。<br />
+关于HorizontalScroller最后的一个难点就是要确定你正在浏览的相册总是在scrollerview的内部。要做到这一点，当用户用手指拖拽scroll的时候你需要做一些计算。<br />
+添加如下代码：  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">centerCurrentView</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">xFinal</span> <span class="p">=</span> <span class="nb">Int</span><span class="p">(</span><span class="n">scroller</span><span class="p">.</span><span class="n">contentOffset</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">VIEWS_OFFSET</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">VIEW_PADDING</span>
+    <span class="kd">let</span> <span class="nv">viewIndex</span> <span class="p">=</span> <span class="n">xFinal</span> <span class="o">/</span> <span class="p">(</span><span class="n">VIEW_DIMENSIONS</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">VIEW_PADDING</span><span class="p">))</span>
+    <span class="n">xFinal</span> <span class="p">=</span> <span class="n">viewIndex</span> <span class="o">*</span> <span class="p">(</span><span class="n">VIEW_DIMENSIONS</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">VIEW_PADDING</span><span class="p">))</span>
+        <span class="n">scroller</span><span class="p">.</span><span class="n">setContentOffset</span><span class="p">(</span><span class="bp">CGPoint</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">xFinal</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">),</span> <span class="n">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+    <span class="k">if</span> <span class="kd">let</span> <span class="nv">delegate</span> <span class="p">=</span> <span class="n">delegate</span> <span class="p">{</span>
+      <span class="n">delegate</span><span class="p">.</span><span class="n">horizontalScrollerClickedViewAtIndex</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">(</span><span class="n">viewIndex</span><span class="p">))</span>
+    <span class="p">}</span>  
+ <span class="p">}</span>
+</pre></div>
+
+
+<p>上面的代码时为了计算当前view到中心的距离，所以要考虑到当前scroll view的offset，尺寸和view的padding。最后一行是很重要的，一旦view居中了，然后你就通知delegate选中的view改变了。<br />
+为了探测到用户在scroll view里面结束拖动，你需要使用一些UIScrollViewDelegate方法。添加如下类拓展，记住要添加在类的大括号外面！  </p>
+<div class="highlight"><pre><span class="kd">extension</span> <span class="nc">HorizontalScroller</span><span class="p">:</span> <span class="bp">UIScrollViewDelegate</span> <span class="p">{</span>
+  <span class="kd">func</span> <span class="nf">scrollViewDidEndDragging</span><span class="p">(</span><span class="n">scrollView</span><span class="p">:</span> <span class="bp">UIScrollView</span><span class="p">,</span> <span class="n">willDecelerate</span> <span class="n">decelerate</span><span class="p">:</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="o">!</span><span class="n">decelerate</span> <span class="p">{</span>
+      <span class="n">centerCurrentView</span><span class="p">()</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="kd">func</span> <span class="nf">scrollViewDidEndDecelerating</span><span class="p">(</span><span class="n">scrollView</span><span class="p">:</span> <span class="bp">UIScrollView</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">centerCurrentView</span><span class="p">()</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>scrollViewDidEndDragging(_:willDecelerate:)当用户结束拖动时通知delegate。如果scroll view 没有完全停止则减速参数为真。当scroll动作停止了，系统将会调用scrollViewDidEndDecelerating。这两种情况你都需要调用新方法使当前的view居中，即使当前的试图可能在用户的拖拽scroll view时改变了。<br />
+左后不要忘了设置delegate。在initializeScrollView（）里面的scroller = UIScrollView():后面添加如下代码： </p>
+<div class="highlight"><pre><span class="n">scroller</span><span class="p">.</span><span class="n">delegate</span> <span class="p">=</span> <span class="kc">self</span><span class="p">;</span>
+</pre></div>
+
+
+<p>HorizontalScroller已经等着你使用了！浏览你刚才写的代码你会发现；你一点也没有提到Album类或AlbumView类。这太棒了，因为这意味着新的scroller真正的实现了独立和重用。<br />
+build你的工程确保每一件事都完美完成。<br />
+现在HorizontalScroller 已经完成了，是时候在你的app里面使用了。首先，打开main.storyboard.点击顶部的灰色矩形视图，并且点击 identity inspector。用如下操作修改类名。<br />
+<div align=center>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattwern9.png" width="640" height="430" alt="修改类名效果图"/>
+</div> 
+接下来，打开assistant editor按住control从灰色矩形视图拖动到ViewController.swift创建一个outlet命名为scroller，如下所示：<br />
+<div align=center>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern10.png" width="640" height="430" alt="拖动效果图"/>
+</div> 
+下一步，打开ViewController.swift。是时候使用一些HorizontalScrollerDelegate方法了。
+在文件底部添加如下扩展：  </p>
+<div class="highlight"><pre><span class="kd">extension</span> <span class="nc">ViewController</span><span class="p">:</span> <span class="n">HorizontalScrollerDelegate</span> <span class="p">{</span>
+  <span class="kd">func</span> <span class="nf">horizontalScrollerClickedViewAtIndex</span><span class="p">(</span><span class="n">scroller</span><span class="p">:</span> <span class="n">HorizontalScroller</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//1</span>
+    <span class="kd">let</span> <span class="nv">previousAlbumView</span> <span class="p">=</span> <span class="n">scroller</span><span class="p">.</span><span class="n">viewAtIndex</span><span class="p">(</span><span class="n">currentAlbumIndex</span><span class="p">)</span> <span class="kc">as</span><span class="p">!</span> <span class="n">AlbumView</span>
+    <span class="n">previousAlbumView</span><span class="p">.</span><span class="n">highlightAlbum</span><span class="p">(</span><span class="n">didHighlightView</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+    <span class="c1">//2</span>
+    <span class="n">currentAlbumIndex</span> <span class="p">=</span> <span class="n">index</span>
+    <span class="c1">//3</span>
+    <span class="kd">let</span> <span class="nv">albumView</span> <span class="p">=</span> <span class="n">scroller</span><span class="p">.</span><span class="n">viewAtIndex</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="kc">as</span><span class="p">!</span> <span class="n">AlbumView</span>
+    <span class="n">albumView</span><span class="p">.</span><span class="n">highlightAlbum</span><span class="p">(</span><span class="n">didHighlightView</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+    <span class="c1">//4</span>
+    <span class="n">showDataForAlbum</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>让我们再一行一行的走一遍delegate方法：<br />
+1.首先，抓取之前选定的相册，不选定相册封面。<br />
+2.存储当前你点击的相册封面的序号。<br />
+3.抓取当前选定的相册封面并且使它高亮选中。<br />
+4.在tableview中显示新的相册的数据。
+接下来，添加如下扩展方法：  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">numberOfViewsForHorizontalScroller</span><span class="p">(</span><span class="n">scroller</span><span class="p">:</span> <span class="n">HorizontalScroller</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">allAlbums</span><span class="p">.</span><span class="bp">count</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>这个方法就像你想的一样，是一个返回scroll view里view数量的一个协议方法。因为scroll view将会显示所有相册数据的封面，这个值是相册记录的数量。<br />
+现在添加如下代码：  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">horizontalScrollerViewAtIndex</span><span class="p">(</span><span class="n">scroller</span><span class="p">:</span> <span class="n">HorizontalScroller</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="bp">UIView</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">album</span> <span class="p">=</span> <span class="n">allAlbums</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="kd">let</span> <span class="nv">albumView</span> <span class="p">=</span> <span class="n">AlbumView</span><span class="p">(</span><span class="n">frame</span><span class="p">:</span> <span class="bp">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">100</span><span class="p">),</span> <span class="n">albumCover</span><span class="p">:</span> <span class="n">album</span><span class="p">.</span><span class="n">coverUrl</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">currentAlbumIndex</span> <span class="p">==</span> <span class="n">index</span> <span class="p">{</span>
+      <span class="n">albumView</span><span class="p">.</span><span class="n">highlightAlbum</span><span class="p">(</span><span class="n">didHighlightView</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n">albumView</span><span class="p">.</span><span class="n">highlightAlbum</span><span class="p">(</span><span class="n">didHighlightView</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">albumView</span>
+  <span class="p">}</span>
+</pre></div>
+
+
+<p>在这里创建一个新的AlbumView，接下来点击试一下用户是否选中了这个相册。然后就可以根据相册是否被选中设置为高亮显示或不高亮。最后传递给HorizontalScroller。<br />
+这就好了！仅仅三个简单的方法就能实现一个好看的水平滑动窗口。<br />
+是的，你还需要创建一个scroller并把它添加到你的主view中，但是在你做这个之前，添加如下方法到主类：  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">reloadScroller</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">allAlbums</span> <span class="p">=</span> <span class="n">LibraryAPI</span><span class="p">.</span><span class="n">sharedInstance</span><span class="p">.</span><span class="n">getAlbums</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">currentAlbumIndex</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">{</span>
+      <span class="n">currentAlbumIndex</span> <span class="p">=</span> <span class="mi">0</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">currentAlbumIndex</span> <span class="o">&gt;=</span> <span class="n">allAlbums</span><span class="p">.</span><span class="bp">count</span> <span class="p">{</span>
+      <span class="n">currentAlbumIndex</span> <span class="p">=</span> <span class="n">allAlbums</span><span class="p">.</span><span class="bp">count</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="p">}</span>
+    <span class="n">scroller</span><span class="p">.</span><span class="n">reload</span><span class="p">()</span>
+    <span class="n">showDataForAlbum</span><span class="p">(</span><span class="n">currentAlbumIndex</span><span class="p">)</span>
+  <span class="p">}</span>
+</pre></div>
+
+
+<p>这个方法通过LibraryAPI重新加载相册数据，并且基于当前view的序号值显示当前的view。如果当前的view序号小于0，意味着现在没有view被选中，然后显示list中的第一个相册。否则，显示最后一个相册。<br />
+现在，通过在viewDidLoad的最后添加如下代码初始化scroller：  </p>
+<div class="highlight"><pre><span class="n">scroller</span><span class="p">.</span><span class="n">delegate</span> <span class="p">=</span> <span class="kc">self</span>
+<span class="n">reloadScroller</span><span class="p">()</span>
+</pre></div>
+
+
+<p>既然HorizontalScroller在storyboard中创建，你所要做的事情有：设置delegate，调用reloadScroller（）来为scroller加载subview以显示相册数据。  </p>
+<div class="highlight"><pre>    注意：如果一个协议变得很大并且有很多可选的方法，你就要考虑把它拆成几个小的协议。UITableViewDelegate and UITableViewDataSource就是很好的例子。试着设计你的协议，这样每一个协议处理一个具体的功能区域。
+</pre></div>
+
+
+<p>编译运行你的项目，然后就能看到你美好的水平滑动窗口。<br />
+<div align=center>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern12.png" width="360" height="430" alt="初始效果图"/>
+</div> 
+哈哈，😄😄😄。等等，水平滑动窗口有了，可是封面去哪儿了？<br />
+是的，你还没有写用来加载封面的代码。你需要添加一个下载图片的方法。因为，你所有的存取服务都是通过LibraryAPI。这就是新的方法要做的事情。然而，在这之前还有一些事情需要考虑：<br />
+1.AlbumView不应该直接使用LibraryAPI。你不想将视图逻辑和交互逻辑混合。<br />
+2.出于相同的理由，LibraryAPI不应该知道AlbumView。<br />
+3.一旦封面下载完成，LibraryAPI需要告知AlbumView，因为AlbumView需要显示封面。<br />
+听起来是不是很复杂？不要担心，接下来你将会学习观察者模式！😄  </p>
+<h1>The Observer Pattern</h1>
+<p>在观察者模式中，一个对象通知其他的对象所有关于状态的改变。参与对象不需要知道彼此－尽管支持松耦合。这些模式大多数用于感兴趣的对象，当属性发生变化的时候。<br />
+通常的做法是需要一个观察登记员对另一个对象的状态感兴趣。当状态发生改变时，所有的观察对象都会被通知。<br />
+如果你想依照MVC概念，你需要Model对象与View对象交互，但不是直接在两者之间交互。这就产生了观察者模式。<br />
+Cocoa用两种相似的方法使用了观察者模式：Notifications 和 Key-Value Observing。  </p>
+<h2>Notifications</h2>
+<p>不要将它与推送和本地通知混淆，Notification是基于subscribe-and-publish模型，这个模型允许一个对象发送消息给其他的对象。出版商永远不必知道关于订购者的任何消息。<br />
+Notification在Apple中广泛使用。例如，键盘显示或隐藏时，系统发送一个UIKeyboardWillShowNotification/UIKeyboardWillHideNotification，当你的程序进入后台时，系统发送一个UIApplicationDidEnterBackgroundNotification。  </p>
+<div class="highlight"><pre>    注意：打开UIApplication.swift,在文档的末尾，你会看见至少20个由系统发出的notifications。
+</pre></div>
+
+
+<h2>How to Use Notifations</h2>
+<p>打开AlbumView.swift在init（）后面插入如下代码：  </p>
+<div class="highlight"><pre><span class="bp">NSNotificationCenter</span><span class="p">.</span><span class="n">defaultCenter</span><span class="p">().</span><span class="n">postNotificationName</span><span class="p">(</span><span class="s">&quot;BLDownloadImageNotification&quot;</span><span class="p">,</span> <span class="n">object</span><span class="p">:</span> <span class="kc">self</span><span class="p">,</span> <span class="n">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;imageView&quot;</span><span class="p">:</span><span class="n">coverImage</span><span class="p">,</span> <span class="s">&quot;coverUrl&quot;</span> <span class="p">:</span> <span class="n">albumCover</span><span class="p">])</span>
+</pre></div>
+
+
+<p>这一行代码通过NSNotifacationCenter单例来发送一个notification。通知信息包括UIImageview和将要下载的封面信息的URL。这是所有你需要的完成封面下载任务的信息。<br />
+直接在super.init()后添加如下一行初始化LibraryAPI.swift：  </p>
+<div class="highlight"><pre><span class="bp">NSNotificationCenter</span><span class="p">.</span><span class="n">defaultCenter</span><span class="p">().</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span><span class="s">&quot;downloadImage:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&quot;BLDownloadImageNotification&quot;</span><span class="p">,</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+</pre></div>
+
+
+<p>这就是方程的另一面：观察者。每次AlbumView类发出一个BLDownloadImageNotification 通知时，因为LibraryAPI已经登记为为了相同通知的观察者，系统通知LibraryAPI。然后LibraryAPI调用downloadImage（）作为回应。<br />
+然而，在你使用downloadImage（）之前，你必须记住当类被释放的时候你要从通知中取消订阅。如果你不从你注册的通知中取消订阅，通知可能会送到一个释放的实例。这可能导致应用冲突。<br />
+在LibraryAPI.swift中添加如下代码：  </p>
+<div class="highlight"><pre><span class="kd">deinit</span> <span class="p">{</span>
+  <span class="bp">NSNotificationCenter</span><span class="p">.</span><span class="n">defaultCenter</span><span class="p">().</span><span class="n">removeObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>当对象被释放，它将会从所有登记过的通知中移除观察者自己。<br />
+这儿还有一件事情要做。将下载的封面保存到本地是一个好方法，这样app就不用一遍一遍地下载相同的封面了。<br />
+打开PersistencyManager.swift并且添加如下方法：  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">getImage</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="bp">UIImage</span><span class="p">?</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+        <span class="kd">let</span> <span class="nv">path</span> <span class="p">=</span> <span class="n">NSHomeDirectory</span><span class="p">().</span><span class="n">stringByAppendingString</span><span class="p">(</span><span class="s">&quot;/Documents/</span><span class="si">\(</span><span class="n">filename</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="kd">let</span> <span class="nv">data</span> <span class="p">:</span> <span class="bp">NSData</span><span class="p">?</span>
+        <span class="k">do</span> <span class="p">{</span>
+            <span class="n">data</span> <span class="p">=</span> <span class="n">try</span> <span class="bp">NSData</span><span class="p">(</span><span class="n">contentsOfFile</span><span class="p">:</span> <span class="n">path</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="p">.</span><span class="n">UncachedRead</span><span class="p">)</span>
+        <span class="p">}</span> <span class="n">catch</span> <span class="kd">let</span> <span class="nv">error1</span> <span class="kc">as</span> <span class="bp">NSError</span> <span class="p">{</span>
+            <span class="n">error</span> <span class="p">=</span> <span class="n">error1</span>
+            <span class="n">data</span> <span class="p">=</span> <span class="kc">nil</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="kd">let</span> <span class="nv">unwrappedError</span> <span class="p">=</span> <span class="n">error</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">nil</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="bp">UIImage</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">data</span><span class="p">!)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+
+<p>这段代码十分的直接，下载的图片将会存储直接存储到document，如果没有在document中找到匹配的文件，getImage（）会返回nil。<br />
+现在在LibraryAPI.swift中添加如下方法：  </p>
+<div class="highlight"><pre>  <span class="kd">func</span> <span class="nf">downloadImage</span><span class="p">(</span><span class="n">notification</span><span class="p">:</span> <span class="bp">NSNotification</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//1</span>
+    <span class="kd">let</span> <span class="nv">userInfo</span> <span class="p">=</span> <span class="n">notification</span><span class="p">.</span><span class="n">userInfo</span> <span class="kc">as</span><span class="p">!</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span>
+    <span class="kd">var</span> <span class="nv">imageView</span> <span class="p">=</span> <span class="n">userInfo</span><span class="p">[</span><span class="s">&quot;imageView&quot;</span><span class="p">]</span> <span class="kc">as</span><span class="p">!</span> <span class="bp">UIImageView</span><span class="p">?</span>
+    <span class="kd">let</span> <span class="nv">coverUrl</span> <span class="p">=</span> <span class="n">userInfo</span><span class="p">[</span><span class="s">&quot;coverUrl&quot;</span><span class="p">]</span> <span class="kc">as</span><span class="p">!</span> <span class="nb">String</span>
+    <span class="c1">//2</span>
+    <span class="k">if</span> <span class="kd">let</span> <span class="nv">imageViewUnWrapped</span> <span class="p">=</span> <span class="n">imageView</span> <span class="p">{</span>
+      <span class="n">imageViewUnWrapped</span><span class="p">.</span><span class="n">image</span> <span class="p">=</span> <span class="n">persistencyManager</span><span class="p">.</span><span class="n">getImage</span><span class="p">(</span><span class="n">coverUrl</span><span class="p">.</span><span class="n">lastPathComponent</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">imageViewUnWrapped</span><span class="p">.</span><span class="n">image</span> <span class="p">==</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="c1">//3</span>
+        <span class="n">dispatch_async</span><span class="p">(</span><span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="n">DISPATCH_QUEUE_PRIORITY_DEFAULT</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">{</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Void</span> <span class="k">in</span>
+          <span class="kd">let</span> <span class="nv">downloadedImage</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">httpClient</span><span class="p">.</span><span class="n">downloadImage</span><span class="p">(</span><span class="n">coverUrl</span> <span class="kc">as</span> <span class="nb">String</span><span class="p">)</span>
+          <span class="c1">//4</span>
+          <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">dispatch_get_main_queue</span><span class="p">(),</span> <span class="p">{</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Void</span> <span class="k">in</span>
+            <span class="n">imageViewUnWrapped</span><span class="p">.</span><span class="n">image</span> <span class="p">=</span> <span class="n">downloadedImage</span>
+            <span class="kc">self</span><span class="p">.</span><span class="n">persistencyManager</span><span class="p">.</span><span class="n">saveImage</span><span class="p">(</span><span class="n">downloadedImage</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="n">coverUrl</span><span class="p">.</span><span class="n">lastPathComponent</span><span class="p">)</span>
+          <span class="p">})</span>
+        <span class="p">})</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+
+
+<p>下面就是代码中的断点：<br />
+1.downloadImage是通过通知执行的，所以方法接收通知对象作为参数。UIImageView和图像的URL从通知中取回。<br />
+2.如果之前已经下载了图像，直接从PersistencyManager里取回图像。<br />
+3.如果图像还没有被下载，用HTTPClient取回。<br />
+4.当下载完成，在图像窗口显示图像，并且用PersistencyManager保存到本地。<br />
+在次说明，你正在使用Facade模式隐藏从其他类下载图片的复杂细节。通知发送者不关心图像是来自网络还是本地。<br />
+编译运行你的程序，你就会在水平滑动窗口里面看到美丽的封面。<br />
+<div align=center>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern13.png" width="360" height="430" alt="带封面初始效果图"/>
+</div> 
+停止项目重新运行，你将会发现现在毫无延迟的加载封面，因为它们已经被加载到本地了。你甚至可以断网，你的app还会正常工作的。然而这儿有一点非常古怪：这个转动进度图不断的转动！到底是怎么了？<br />
+当你下载图片的时候开启的旋转，但你没有做当图片加载完成时停止旋转的逻辑。每次你可以在一个图片下载完成时发出一个通知，但是作为替代，你将会你将会用到其他的观察者模式，KOV。  </p>
+<h1>Key-Value Observing(KVO)</h1>
+<p>在kvo中一个对象能够具体性质的任意变化的通知，不管是他自己的还是其他对象的。如果你感兴趣，你可以参考<a href="https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html">Apple’s KVO Programming Guide.</a>  </p>
+<h2>如何使用KVO模式</h2>
+<p>上边我们提到过，KVO机制允许对象观察一个属性的变化。在你的示例中，你可以用KVO观察者模式去观察UIImageView中image属性的变化。<br />
+打开AlbumView.swift添加如下代码到init（frame：albumCover），就像添加coverImage作为自窗口一样：  </p>
+<div class="highlight"><pre><span class="n">coverImage</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">forKeyPath</span><span class="p">:</span> <span class="s">&quot;image&quot;</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="p">[],</span> <span class="n">context</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+</pre></div>
+
+
+<p>添加self是指当前作为coverImage属性image的观察者。<br />
+当你用完以后，你还需要注销观察者。还是在AlbumView.swift,添加如下代码：  </p>
+<div class="highlight"><pre><span class="kd">deinit</span> <span class="p">{</span>
+  <span class="n">coverImage</span><span class="p">.</span><span class="n">removeObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">forKeyPath</span><span class="p">:</span> <span class="s">&quot;image&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>最后添加如下方法：</p>
+<div class="highlight"><pre><span class="kr">override</span> <span class="kd">func</span> <span class="nf">observeValueForKeyPath</span><span class="p">(</span><span class="n">keyPath</span><span class="p">:</span> <span class="nb">String</span><span class="p">?,</span> <span class="n">ofObject</span> <span class="n">object</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">?,</span> <span class="n">change</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span> <span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]?,</span> <span class="n">context</span><span class="p">:</span> <span class="nb">UnsafeMutablePointer</span><span class="p">&lt;</span><span class="nb">Void</span><span class="p">&gt;)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">keyPath</span> <span class="p">==</span> <span class="s">&quot;image&quot;</span> <span class="p">{</span>
+            <span class="n">indicator</span><span class="p">.</span><span class="n">stopAnimating</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+
+<p>作为一个观察者，你必须在每一个类里面都适用这个方法。每当被观察的属性发生改变时系统都会执行这个方法。在上面的代码中。当“image”属性发生变化时停止转动。这样，当一个图像加载完成时，就会停止转动。<br />
+编译运行，这时转动加载将会消失：<br />
+<div align=center>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern14.png" width="360" height="430" alt="带封面无加载初始效果图"/>
+</div> </p>
+<div class="highlight"><pre>    注意：一定要记住当观察者结束时，移除它们。否则你的app会在对象视图发送消息给那些不存在的观察者时崩溃。
+</pre></div>
+
+
+<p>如果你玩弄一下你的app并且终止他，你将会发现你app的状态没有保存。当app启动的时候，你最后观察的相册不会时默认的相册。<br />
+为了修正这个问题，你可以使用下一个设计模式－纪念品模式（Memento）。</p>
+<h1>The Memento Pattern</h1>
+<p>纪念品模式捕获并展示项目的初始状态。用另外一句话说就是，他保存你某一时刻的事情。然后，这种外部状态在不违背封装的情况下恢复，也就是说，私有数据还是私有的。</p>
+<h2>How to Use Memnto pattern</h2>
+<p>添加如下代码到viewcontroler.swift:  </p>
+<div class="highlight"><pre><span class="c1">//</span><span class="cs">MARK:</span><span class="c1"> Memento Pattern</span>
+<span class="kd">func</span> <span class="nf">saveCurrentState</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// When the user leaves the app and then comes back again, he wants it to be in the exact same state</span>
+  <span class="c1">// he left it. In order to do this we need to save the currently displayed album.</span>
+  <span class="c1">// Since it&#39;s only one piece of information we can use NSUserDefaults.</span>
+  <span class="bp">NSUserDefaults</span><span class="p">.</span><span class="n">standardUserDefaults</span><span class="p">().</span><span class="n">setInteger</span><span class="p">(</span><span class="n">currentAlbumIndex</span><span class="p">,</span> <span class="n">forKey</span><span class="p">:</span> <span class="s">&quot;currentAlbumIndex&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="nf">loadPreviousState</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">currentAlbumIndex</span> <span class="p">=</span> <span class="bp">NSUserDefaults</span><span class="p">.</span><span class="n">standardUserDefaults</span><span class="p">().</span><span class="n">integerForKey</span><span class="p">(</span><span class="s">&quot;currentAlbumIndex&quot;</span><span class="p">)</span>
+  <span class="n">showDataForAlbum</span><span class="p">(</span><span class="n">currentAlbumIndex</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>saveCurrentState()保存当前相册的序号到NSUserDefaults – NSUserDefaults是由IOS为了保存应用具体的设置和数据提供的标准数据存储。<br />
+loadPreviousState()加载之前保存的序号。这并不是纪念品模式全部的应用，你学到这儿即可。<br />
+现在，在scroller.delegate = self:添加下边这一行到ViewControler.swift的viewDidLoad  </p>
+<div class="highlight"><pre><span class="n">loadPreviousState</span><span class="p">()</span>
+</pre></div>
+
+
+<p>这样当app启动的时候就会加载之前保存的状态。但是你从那个地方保存当前app的状态呢？你可以用通知解决这个问题。当app进入后台时ios发售一个UIApplicationDidEnterBackgroundNotification的通知。你可以用这个通知去调用saveCurrentState，这不是很方便吗？<br />
+在viewDidLoad方法末尾添加下边这一行  </p>
+<div class="highlight"><pre><span class="bp">NSNotificationCenter</span><span class="p">.</span><span class="n">defaultCenter</span><span class="p">().</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span><span class="s">&quot;saveCurrentState&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">UIApplicationDidEnterBackgroundNotification</span><span class="p">,</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+</pre></div>
+
+
+<p>现在当app进入后台运行的时候，ViewControler将会通过调用saveCurrentState自动的保存当前状态。<br />
+想往常一样，你还需要注销观察者通知。添加如下代码：  </p>
+<div class="highlight"><pre><span class="kd">deinit</span> <span class="p">{</span>
+  <span class="bp">NSNotificationCenter</span><span class="p">.</span><span class="n">defaultCenter</span><span class="p">().</span><span class="n">removeObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>这可以保证当ViewController被释放时，移除类的观察者。<br />
+编译运行你的程序，指到其中的一个相册，点击 home键（command＋shift＋H如果你用的是虚拟机）然后从Xcode里面关闭你的应用程序。重新启动发现之前选中的相册已经居中了。<br />
+<div align=center>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern15.png" width="280" height="430" alt="重启初始效果图"/>
+</div>
+这样看起来相册数据已经正确了，但是scroller不集中在当前的相册上，怎么办？<br />
+这就是方法initialViewIndexForHorizontalScroller 要做的事情！然而这个方法没有在delegate中使用，在这个例子中ViewControler的初始view总是设置为第一个view。<br />
+为了修复这个问题，添加如下代码到ViewControler.swift中：  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">initialViewIndex</span><span class="p">(</span><span class="n">scroller</span><span class="p">:</span> <span class="n">HorizontalScroller</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">currentAlbumIndex</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>现在HorizontalScroller的第一个view的相册已经设置为由currentAlbumIndex决定的。这是一个确保app保持私人化并且可以重用的好方法。<br />
+再次运行你的app，按照上一步的操作执行，发现问题已经解决了。<br />
+<div align=center>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern16.png" width="280" height="430" alt="重启修正初始效果图"/>
+</div>
+如果你观察PersistencyManager的初始化，你将会发现相册数据是硬编码，并且每次创建PersistencyManager时都会被重新创建。但是最好的方法是一次创建相册列表，并且把他们存到文件里面。那你怎么把相册数据保存到一个文件里呢？<br />
+其中的一个办法是通过相册是属性迭代，把他们保存到一个plist文件中，当需要的时候重建Album的实例。但这并不是最好的选择，因为你需要写的代码决定于每一个类中的数据或属性。例如，你后来创建了一个有不同属性的Movie类，那么报讯和加载数据需要写一段新的代码。<br />
+另外，你不能保存每一个类实例中的私有变量，因为他们不能被外部类读写，这就是为什么Apple创建了archiving机制的原因了。  </p>
+<h1>Archiving(档案)</h1>
+<p>Apple在纪念品模式中最特别的应用之一就是Archiving.他把对象转化成一个流，这样就能在不暴漏私有属性给外部类的情况下存储和重新加载。你也可以在iOS6指导书的第16章阅读更多与这个方程相关的工作。或者在<a href="https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Archiving/Archiving.html">Apple’s Archives and Serializations Programming Guide.</a>  </p>
+<h2>How to Use Archving</h2>
+<p>首先，你需要声明相册可以通过遵守NSCoding协议被存档。打开Album.swift按照下面的代码修改类：  </p>
+<div class="highlight"><pre><span class="kd">class</span> <span class="nc">Album</span><span class="p">:</span> <span class="bp">NSObject</span><span class="p">,</span> <span class="bp">NSCoding</span> <span class="p">{</span>
+</pre></div>
+
+
+<p>添加下面两个方法到Album.swift:  </p>
+<div class="highlight"><pre><span class="kr">required</span> <span class="kd">init</span><span class="p">(</span><span class="n">coder</span> <span class="n">decoder</span><span class="p">:</span> <span class="bp">NSCoder</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kc">super</span><span class="p">.</span><span class="kd">init</span><span class="p">()</span>
+  <span class="kc">self</span><span class="p">.</span><span class="n">title</span> <span class="p">=</span> <span class="n">decoder</span><span class="p">.</span><span class="n">decodeObjectForKey</span><span class="p">(</span><span class="s">&quot;title&quot;</span><span class="p">)</span> <span class="kc">as</span><span class="p">!</span> <span class="nb">String</span>
+  <span class="kc">self</span><span class="p">.</span><span class="n">artist</span> <span class="p">=</span> <span class="n">decoder</span><span class="p">.</span><span class="n">decodeObjectForKey</span><span class="p">(</span><span class="s">&quot;artist&quot;</span><span class="p">)</span> <span class="kc">as</span><span class="p">!</span> <span class="nb">String</span>
+  <span class="kc">self</span><span class="p">.</span><span class="n">genre</span> <span class="p">=</span> <span class="n">decoder</span><span class="p">.</span><span class="n">decodeObjectForKey</span><span class="p">(</span><span class="s">&quot;genre&quot;</span><span class="p">)</span> <span class="kc">as</span><span class="p">!</span> <span class="nb">String</span>
+  <span class="kc">self</span><span class="p">.</span><span class="n">coverUrl</span> <span class="p">=</span> <span class="n">decoder</span><span class="p">.</span><span class="n">decodeObjectForKey</span><span class="p">(</span><span class="s">&quot;cover_url&quot;</span><span class="p">)</span> <span class="kc">as</span><span class="p">!</span> <span class="nb">String</span>
+  <span class="kc">self</span><span class="p">.</span><span class="n">year</span> <span class="p">=</span> <span class="n">decoder</span><span class="p">.</span><span class="n">decodeObjectForKey</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">)</span> <span class="kc">as</span><span class="p">!</span> <span class="nb">String</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="nf">encodeWithCoder</span><span class="p">(</span><span class="n">aCoder</span><span class="p">:</span> <span class="bp">NSCoder</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">aCoder</span><span class="p">.</span><span class="n">encodeObject</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">forKey</span><span class="p">:</span> <span class="s">&quot;title&quot;</span><span class="p">)</span>
+  <span class="n">aCoder</span><span class="p">.</span><span class="n">encodeObject</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">forKey</span><span class="p">:</span> <span class="s">&quot;artist&quot;</span><span class="p">)</span>
+  <span class="n">aCoder</span><span class="p">.</span><span class="n">encodeObject</span><span class="p">(</span><span class="n">genre</span><span class="p">,</span> <span class="n">forKey</span><span class="p">:</span> <span class="s">&quot;genre&quot;</span><span class="p">)</span>
+  <span class="n">aCoder</span><span class="p">.</span><span class="n">encodeObject</span><span class="p">(</span><span class="n">coverUrl</span><span class="p">,</span> <span class="n">forKey</span><span class="p">:</span> <span class="s">&quot;cover_url&quot;</span><span class="p">)</span>
+  <span class="n">aCoder</span><span class="p">.</span><span class="n">encodeObject</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">forKey</span><span class="p">:</span> <span class="s">&quot;year&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>作为NSCoding协议的一部分，encodingWithCoder函数将会在你请求一个Album实例的时候被存档。相反，init(coder:)初始化将会被用于从保存的实例中重建或者回档。它很简单，但是很强大！<br />
+现在，Album类能够被存档了，添加如下代码，使它能够真正的保存和加载相册列表。<br />
+添加如下方法到PersistencyManager.swift.  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">saveAlbums</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nv">filename</span> <span class="p">=</span> <span class="n">NSHomeDirectory</span><span class="p">().</span><span class="n">stringByAppendingString</span><span class="p">(</span><span class="s">&quot;/Documents/albums.bin&quot;</span><span class="p">)</span>
+  <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="bp">NSKeyedArchiver</span><span class="p">.</span><span class="n">archivedDataWithRootObject</span><span class="p">(</span><span class="n">albums</span><span class="p">)</span>
+  <span class="n">data</span><span class="p">.</span><span class="n">writeToFile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">atomically</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>这个是将要被用来调用保存相册的方法。NSKeyedArchiver将相册数组归档到一个叫做album.bin的文件中。<br />
+当你归档一个包含其他对象的对象时，归档器将会自动地递归存档子对象和子对象的子对象。在这个例子中，从album开始归档，这是一个相册数组的实例。既然数组和相册都支持NSCopying接口，数组中的每一个都会被归档。<br />
+现在用下面的代码重写PersistencyManager.swift的init方法：  </p>
+<div class="highlight"><pre> <span class="kr">override</span> <span class="kd">init</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="kd">init</span><span class="p">()</span>
+        <span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="bp">NSData</span><span class="p">(</span><span class="n">contentsOfFile</span><span class="p">:</span> <span class="n">NSHomeDirectory</span><span class="p">().</span><span class="n">stringByAppendingString</span><span class="p">(</span><span class="s">&quot;/Documents/albums.bin&quot;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nv">unarchiveAlbums</span> <span class="p">=</span> <span class="bp">NSKeyedUnarchiver</span><span class="p">.</span><span class="n">unarchiveObjectWithData</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="kc">as</span><span class="p">!</span> <span class="p">[</span><span class="n">Album</span><span class="p">]?</span>
+            <span class="k">if</span> <span class="kd">let</span> <span class="nv">unwrappedAlbum</span> <span class="p">=</span> <span class="n">unarchiveAlbums</span> <span class="p">{</span>
+                <span class="n">albums</span> <span class="p">=</span> <span class="n">unwrappedAlbum</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">createPlaceholderAlbum</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+        <span class="kd">func</span> <span class="nf">createPlaceholderAlbum</span><span class="p">(){</span>
+        <span class="c1">//Dummy list of albums</span>
+        <span class="kd">let</span> <span class="nv">album1</span> <span class="p">=</span> <span class="n">Album</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="s">&quot;Best of Bowie&quot;</span><span class="p">,</span>
+                           <span class="n">artist</span><span class="p">:</span> <span class="s">&quot;David Bowie&quot;</span><span class="p">,</span>
+                           <span class="n">genre</span><span class="p">:</span> <span class="s">&quot;Pop&quot;</span><span class="p">,</span>
+                           <span class="n">coverUrl</span><span class="p">:</span> <span class="s">&quot;https://upload.wikimedia.org/wikipedia/en/2/29/Best_of_bowie.jpg&quot;</span><span class="p">,</span>
+                           <span class="n">year</span><span class="p">:</span> <span class="s">&quot;1992&quot;</span><span class="p">)</span>
+        <span class="kd">let</span> <span class="nv">album2</span> <span class="p">=</span> <span class="n">Album</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="s">&quot;It&#39;s My Life&quot;</span><span class="p">,</span>
+                           <span class="n">artist</span><span class="p">:</span> <span class="s">&quot;No Doubt&quot;</span><span class="p">,</span>
+                           <span class="n">genre</span><span class="p">:</span> <span class="s">&quot;Pop&quot;</span><span class="p">,</span>
+                           <span class="n">coverUrl</span><span class="p">:</span> <span class="s">&quot;https://upload.wikimedia.org/wikipedia/en/c/c1/BonJoviItsMyLifeCDSingleCover.jpg&quot;</span><span class="p">,</span>
+                           <span class="n">year</span><span class="p">:</span> <span class="s">&quot;2003&quot;</span><span class="p">)</span>
+        <span class="kd">let</span> <span class="nv">album3</span> <span class="p">=</span> <span class="n">Album</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="s">&quot;Nothing Like The Sun&quot;</span><span class="p">,</span>
+                           <span class="n">artist</span><span class="p">:</span> <span class="s">&quot;Sting&quot;</span><span class="p">,</span>
+                           <span class="n">genre</span><span class="p">:</span> <span class="s">&quot;Pop&quot;</span><span class="p">,</span>
+                           <span class="n">coverUrl</span><span class="p">:</span> <span class="s">&quot;https://upload.wikimedia.org/wikipedia/en/3/30/%E2%80%A6Nothing_Like_the_Sun_(Sting_album_-_cover_art).jpg&quot;</span><span class="p">,</span>
+                           <span class="n">year</span><span class="p">:</span> <span class="s">&quot;1999&quot;</span><span class="p">)</span>
+        <span class="kd">let</span> <span class="nv">album4</span> <span class="p">=</span> <span class="n">Album</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="s">&quot;Staring at the Sun&quot;</span><span class="p">,</span>
+                           <span class="n">artist</span><span class="p">:</span> <span class="s">&quot;U2&quot;</span><span class="p">,</span>
+                           <span class="n">genre</span><span class="p">:</span> <span class="s">&quot;Pop&quot;</span><span class="p">,</span>
+                           <span class="n">coverUrl</span><span class="p">:</span> <span class="s">&quot;https://upload.wikimedia.org/wikipedia/en/2/22/Rooster_-_Staring_At_The_Sun_-Single-.jpg&quot;</span><span class="p">,</span>
+                           <span class="n">year</span><span class="p">:</span> <span class="s">&quot;2000&quot;</span><span class="p">)</span>
+        <span class="kd">let</span> <span class="nv">album5</span> <span class="p">=</span> <span class="n">Album</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="s">&quot;American Pie&quot;</span><span class="p">,</span>
+                           <span class="n">artist</span><span class="p">:</span> <span class="s">&quot;Madonna&quot;</span><span class="p">,</span>
+                           <span class="n">genre</span><span class="p">:</span> <span class="s">&quot;Pop&quot;</span><span class="p">,</span>
+                           <span class="n">coverUrl</span><span class="p">:</span> <span class="s">&quot;http://ecx.images-amazon.com/images/I/71WZbVhqbkL._SL1300_.jpg&quot;</span><span class="p">,</span>
+                           <span class="n">year</span><span class="p">:</span> <span class="s">&quot;2000&quot;</span><span class="p">)</span>
+        <span class="n">albums</span> <span class="p">=</span> <span class="p">[</span><span class="n">album1</span><span class="p">,</span> <span class="n">album2</span><span class="p">,</span> <span class="n">album3</span><span class="p">,</span> <span class="n">album4</span><span class="p">,</span> <span class="n">album5</span><span class="p">]</span>
+        <span class="n">saveAlbums</span><span class="p">()</span>
+    <span class="p">}</span>
+</pre></div>
+
+
+<p>为了提高可读性，你已经将placeholder album creation代码放到一个独立的方法createPlaceholderAlbum中。在新的代码里面，如果存在文件，NSKeyedUnarchiver从文件里加载相册数据。如果不存在的话他就创建相册数据并且为了保证下一次的启动立即保存。<br />
+每次app进入后台的时候，你还想要保存相册数据。这个现在看起来没有必要，但是如果你以后添加了修改相册信息的操作怎么办？然后，你就要确保你所有的更改都会被保存。<br />
+因为所有主要的存取操作都是通过LibraryAPI完成的，这就是应用如何使PersistencyManager知道什么时候需要保存相册数据。<br />
+现在添加执行方法到LibraryAPI.swift  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">saveAlbums</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">persistencyManager</span><span class="p">.</span><span class="n">saveAlbums</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>为了保存相册到PersistencyManger,这段代码简单地传递了一个请求到LibraryAPI。<br />
+添加如下代码到ViewControler.swift的saveCurrentState的末尾：  </p>
+<div class="highlight"><pre><span class="n">LibraryAPI</span><span class="p">.</span><span class="n">sharedInstance</span><span class="p">.</span><span class="n">saveAlbums</span><span class="p">()</span>
+</pre></div>
+
+
+<p>上面这段代码是无论什么时候ViewController保存他的状态都是用LibraryAPI去触发保存相册信息。<br />
+编译运行你的程序，检查所有的编译。<br />
+不幸的是，没有一种简单的方法可以检查数据是否持续正确的写入。你可以查看你的App的监视文档目录看看相册信息的文件是否被创建，但是为了看的其他的变化，你必须添加修改相册数据的技能。<br />
+但是如果不是修改数据，你怎样添加一个方法可以删除Library中你不再想要的相册？另外，如果你误删了一个相册这时有撤消操作不是很好嘛。  </p>
+<h1>Final Touch</h1>
+<p>你要通过允许用户使用删除动作来移除一个相册或者是万一他改变了想法要撤消操作最后完善你的音乐应用。<br />
+添加如下属性到ViewControler：  </p>
+<div class="highlight"><pre><span class="c1">// We will use this array as a stack to push and pop operation for the undo option</span>
+<span class="kd">var</span> <span class="nv">undoStack</span><span class="p">:</span> <span class="p">[(</span><span class="n">Album</span><span class="p">,</span> <span class="nb">Int</span><span class="p">)]</span> <span class="p">=</span> <span class="p">[]</span>
+</pre></div>
+
+
+<p>这是创建了一个空的撤销栈。这个撤销栈有一个两个变量的数组。第一个是相册，第二个是相册的编号。<br />
+在viewDidload中的reloadScroller（）后面添加如下代码：  </p>
+<div class="highlight"><pre><span class="kd">let</span> <span class="nv">undoButton</span> <span class="p">=</span> <span class="bp">UIBarButtonItem</span><span class="p">(</span><span class="n">barButtonSystemItem</span><span class="p">:</span> <span class="p">.</span><span class="n">Undo</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="kc">self</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span><span class="s">&quot;undoAction&quot;</span><span class="p">)</span>
+<span class="n">undoButton</span><span class="p">.</span><span class="n">enabled</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nv">space</span> <span class="p">=</span> <span class="bp">UIBarButtonItem</span><span class="p">(</span><span class="n">barButtonSystemItem</span><span class="p">:</span> <span class="p">.</span><span class="n">FlexibleSpace</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span><span class="kc">nil</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span><span class="kc">nil</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">trashButton</span> <span class="p">=</span> <span class="bp">UIBarButtonItem</span><span class="p">(</span><span class="n">barButtonSystemItem</span><span class="p">:</span> <span class="p">.</span><span class="n">Trash</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span><span class="kc">self</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span><span class="s">&quot;deleteAlbum&quot;</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">toolbarButtonItems</span> <span class="p">=</span> <span class="p">[</span><span class="n">undoButton</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">trashButton</span><span class="p">]</span>
+<span class="n">toolbar</span><span class="p">.</span><span class="n">setItems</span><span class="p">(</span><span class="n">toolbarButtonItems</span><span class="p">,</span> <span class="n">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+</pre></div>
+
+
+<p>上面的代码是为了创建一个有两个按钮并且他们之间空隙可变的工具栏。撤销按钮现在还不能用，因为撤销栈还是空的。需要注意toolbar已经在storyboard里面了，所以你只需要设置一下。<br />
+你为了处理相册管理的三个动作：添加，删除和撤销，添加了三种方法到ViewControler.swift<br />
+第一个方法是添加一个新的相册。  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">addAlbumAtIndex</span><span class="p">(</span><span class="n">album</span><span class="p">:</span> <span class="n">Album</span><span class="p">,</span><span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">LibraryAPI</span><span class="p">.</span><span class="n">sharedInstance</span><span class="p">.</span><span class="n">addAlbum</span><span class="p">(</span><span class="n">album</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n">index</span><span class="p">)</span>
+  <span class="n">currentAlbumIndex</span> <span class="p">=</span> <span class="n">index</span>
+  <span class="n">reloadScroller</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>添加一个新的相册，设置当前的相册序号，重新加载scroller。<br />
+接下来添加删除操作：  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">deleteAlbum</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">//1</span>
+  <span class="kd">var</span> <span class="nv">deletedAlbum</span> <span class="p">:</span> <span class="n">Album</span> <span class="p">=</span> <span class="n">allAlbums</span><span class="p">[</span><span class="n">currentAlbumIndex</span><span class="p">]</span>
+  <span class="c1">//2</span>
+  <span class="kd">var</span> <span class="nv">undoAction</span> <span class="p">=</span> <span class="p">(</span><span class="n">deletedAlbum</span><span class="p">,</span> <span class="n">currentAlbumIndex</span><span class="p">)</span>
+  <span class="n">undoStack</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="n">undoAction</span><span class="p">,</span> <span class="n">atIndex</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="c1">//3</span>
+  <span class="n">LibraryAPI</span><span class="p">.</span><span class="n">sharedInstance</span><span class="p">.</span><span class="n">deleteAlbum</span><span class="p">(</span><span class="n">currentAlbumIndex</span><span class="p">)</span>
+  <span class="n">reloadScroller</span><span class="p">()</span>
+  <span class="c1">//4</span>
+  <span class="kd">let</span> <span class="nv">barButtonItems</span> <span class="p">=</span> <span class="n">toolbar</span><span class="p">.</span><span class="n">items</span><span class="p">!</span> <span class="kc">as</span> <span class="p">[</span><span class="bp">UIBarButtonItem</span><span class="p">]</span>
+  <span class="kd">var</span> <span class="nv">undoButton</span> <span class="p">:</span> <span class="bp">UIBarButtonItem</span> <span class="p">=</span> <span class="n">barButtonItems</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">undoButton</span><span class="p">.</span><span class="n">enabled</span> <span class="p">=</span> <span class="kc">true</span>
+  <span class="c1">//5</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">allAlbums</span><span class="p">.</span><span class="bp">count</span> <span class="p">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">trashButton</span> <span class="p">:</span> <span class="bp">UIBarButtonItem</span> <span class="p">=</span> <span class="n">barButtonItems</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">trashButton</span><span class="p">.</span><span class="n">enabled</span> <span class="p">=</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>思考下面每一小节的内容。<br />
+1.获取要删除的相册。<br />
+2.创建叫做undoAction的变量来存储一个关于相册和相册序号的数组。然后让数组进栈。<br />
+3.用LibraryAPI从数据结构中删除相册并且重新加载。<br />
+4.既然在撤销栈里面有动作，你就需要激活这个撤销按钮。<br />
+5.最后检查是否有相册留下，如果没有你可以disable这个垃圾桶按钮。<br />
+最后，添加撤消操作：  </p>
+<div class="highlight"><pre><span class="kd">func</span> <span class="nf">undoAction</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nv">barButtonItems</span> <span class="p">=</span> <span class="n">toolbar</span><span class="p">.</span><span class="n">items</span><span class="p">!</span> <span class="kc">as</span> <span class="p">[</span><span class="bp">UIBarButtonItem</span><span class="p">]</span>
+  <span class="c1">//1       </span>
+  <span class="k">if</span> <span class="n">undoStack</span><span class="p">.</span><span class="bp">count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="p">(</span><span class="n">deletedAlbum</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span> <span class="p">=</span> <span class="n">undoStack</span><span class="p">.</span><span class="bp">removeAtIndex</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">addAlbumAtIndex</span><span class="p">(</span><span class="n">deletedAlbum</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n">index</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="c1">//2       </span>
+  <span class="k">if</span> <span class="n">undoStack</span><span class="p">.</span><span class="bp">count</span> <span class="p">==</span> <span class="mi">0</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">undoButton</span> <span class="p">:</span> <span class="bp">UIBarButtonItem</span> <span class="p">=</span> <span class="n">barButtonItems</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">undoButton</span><span class="p">.</span><span class="n">enabled</span> <span class="p">=</span> <span class="kc">false</span>
+  <span class="p">}</span>
+  <span class="c1">//3       </span>
+  <span class="kd">let</span> <span class="nv">trashButton</span> <span class="p">:</span> <span class="bp">UIBarButtonItem</span> <span class="p">=</span> <span class="n">barButtonItems</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+  <span class="n">trashButton</span><span class="p">.</span><span class="n">enabled</span> <span class="p">=</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>最后解释一下上面的几个方法：<br />
+1.第一步是出栈操作，给你一个包含删除的相册和序号的数组。然后你处理并找回相册。<br />
+2.既然当你“poped”它的时候你也删除了栈里面最后一个对象，现在你就需要检查栈是否为空。如果为空，这就意味着没有需要撤销操作的。因此可以disable撤销按钮。<br />
+3.你也明白既然你已经做了一个撤销动作，所以这儿至少有一个相册封面。因此你就要激活这个垃圾桶按钮。<br />
+编译运行你的程序测试一下我们的撤销机制，删除一个或两个相册再点击撤销按钮看看他的反应：<br />
+<div align=center>
+<img src="http://www.raywenderlich.com/wp-content/uploads/2014/11/swiftDesignPattern1.png" width="240" height="430" alt="最终效果图"/>
+</div> 
+这也是一个测试你的相册数据在不同小节之间是否变化的好方法。现在，如果你删除了一个相册，将app送入后台，终止app，下一次你打开app显示的相册列表应该是删除后的。<br />
+如果你想找回所有的相册，你可以删除app再重新运行一遍即可。</p>
+<h3>这是最终的完整工程代码：<a href="http://www.raywenderlich.com/wp-content/uploads/2014/12/BlueLibrarySwift-Final-2.zip">BlueLibrarySwift-Final</a></h3><p class="subheader">Category: <a href="https://leelir.github.io/category/ios.html">IOS</a>
+
+    Tagged: 
+    <a href="https://leelir.github.io/tag/ios.html">IOS </a>
+</p>
+
+
+
+<p><a href="https://leelir.github.io/articles/IOS.html#disqus_thread">comments</a></p>            </article>
+
+<div class="pagination-centered">
+<h6 class="subheader">Page 1 of 1</h6>
+
+<p>
+
+</p>
+</div>
+
+
+
+            <!-- /#posts-list -->
+
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="https://leelir.github.io/archives.html">Archives</a>
+            <li><a href="https://leelir.github.io/tags.html">Tags</a>
+
+
+                <li><a href="https://leelir.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="https://leelir.github.io/category/android.html">Android</a></li>
+            <li><a href="https://leelir.github.io/category/diary.html">diary</a></li>
+            <li><a href="https://leelir.github.io/category/funny-things.html">funny things</a></li>
+            <li><a href="https://leelir.github.io/category/interview.html">interview</a></li>
+            <li><a href="https://leelir.github.io/category/ios.html">IOS</a></li>
+            <li><a href="https://leelir.github.io/category/svn.html">svn</a></li>
+            <li><a href="https://leelir.github.io/category/work.html">work</a></li>
+   
+        </ul>
+
+        <h5 class="sidebar-title">Links</h5>
+        <ul class="side-nav">
+            <li><a href="http://heylinux.com">HeyLinux</a></li>
+        </ul>
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="https://github.com/leelir/leelir.github.com">Github</a></li>
+            <li><a href="http://weibo.com/2372180553/profile?topnav=1&wvr=6">sina</a></li>
+        </ul>
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
         <hr />
-
-        </div><!--/span-->
-
-                <div class="span3 well sidebar-nav" id="sidebar">
-<ul class="nav nav-list">
-<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
-    <li><a href="http://heylinux.com"><i class="icon-external-link"></i>HeyLinux</a></li>
-<li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
-<li><a href="https://leelir.github.io/" rel="alternate"><i class="icon-bookmark icon-large"></i>atom feed</a></li>
-    <li><a href="https://github.com/leelir/leelir.github.com"><i class="icon-Github-sign icon-large"></i>Github</a></li>
-    <li><a href="http://weibo.com/2372180553/profile?topnav=1&wvr=6"><i class="icon-sina-sign icon-large"></i>sina</a></li>
-
-<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
-<li>
-<a href="https://leelir.github.io/category/android.html">
-    <i class="icon-folder-open icon-large"></i>Android
-</a>
-</li>
-<li>
-<a href="https://leelir.github.io/category/diary.html">
-    <i class="icon-folder-open icon-large"></i>diary
-</a>
-</li>
-<li>
-<a href="https://leelir.github.io/category/funny-things.html">
-    <i class="icon-folder-open icon-large"></i>funny things
-</a>
-</li>
-<li>
-<a href="https://leelir.github.io/category/interview.html">
-    <i class="icon-folder-open icon-large"></i>interview
-</a>
-</li>
-<li>
-<a href="https://leelir.github.io/category/ios.html">
-    <i class="icon-folder-open icon-large"></i>IOS
-</a>
-</li>
-<li>
-<a href="https://leelir.github.io/category/svn.html">
-    <i class="icon-folder-open icon-large"></i>svn
-</a>
-</li>
-<li>
-<a href="https://leelir.github.io/category/work.html">
-    <i class="icon-folder-open icon-large"></i>work
-</a>
-</li>
-
-<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
-
-
-</ul>        </div><!--/.well -->
-
-      </div><!--/row-->
-
-      <hr>
-
-      <footer>
-        <address id="about">
-                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
-                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
-        </address><!-- /#about -->
-
-        <p>The theme is from <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
-                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
-      </footer>
-
-    </div><!--/.fluid-container-->
-
-
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-	var pageTracker = _gat._getTracker("UA-65525757-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
-<script type="text/javascript">
-    var disqus_shortname = 'leelir';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-
-    <!-- Le javascript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://leelir.github.io/theme/js/jquery-1.7.2.min.js"></script>
-    <script src="https://leelir.github.io/theme/js/bootstrap.min.js"></script>
-  </body>
-</html>
+        <div class="row">
+            <div class="large-6 columns">
+                <p>H4C3R by leelir</p>
+            </div>
+            </div>
+    </div>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-65525757-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+</footer>

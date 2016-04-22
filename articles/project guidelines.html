@@ -1,147 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
     <title>Android project guidelines</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="leelir">
 
-    <!-- Le styles -->
-    <link rel="stylesheet" href="https://leelir.github.io/theme/css/bootstrap.min.css" type="text/css" />
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
-      .tag-1 {
-        font-size: 13pt;
-      }
-      .tag-2 {
-        font-size: 10pt;
-      }
-      .tag-2 {
-        font-size: 8pt;
-      }
-      .tag-4 {
-        font-size: 6pt;
-     }
-    </style>
-    <link href="https://leelir.github.io/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
-        <link href="https://leelir.github.io/theme/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://leelir.github.io/theme/css/normalize.css" />
+    <link rel="stylesheet" href="https://leelir.github.io/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://leelir.github.io/theme/css/style.css" />
+    <link rel="stylesheet" href="https://leelir.github.io/theme/css/pygments.css" />	
+    <script src="https://leelir.github.io/theme/js/custom.modernizr.js"></script>
 
-    <link href="https://leelir.github.io/theme/css/pygments.css" rel="stylesheet">
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="feeds/all.atom.xml" rel="alternate" title="H4C3R" type="application/atom+xml">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+</head>
 
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="https://leelir.github.io/theme/images/favicon.ico">
-    <link rel="apple-touch-icon" href="https://leelir.github.io/theme/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="https://leelir.github.io/theme/images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="https://leelir.github.io/theme/images/apple-touch-icon-114x114.png">
+<body>
 
-    <link href="https://leelir.github.io/" type="application/atom+xml" rel="alternate" title="H4C3R ATOM Feed" />
-
-  </head>
-
-  <body>
-
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="https://leelir.github.io/index.html">H4C3R </a>
-          <div class="nav-collapse">
-            <ul class="nav">
-                          <li class="divider-vertical"></li>
-                  <li class="active">
-                    <a href="https://leelir.github.io/category/android.html">
-						<i class="icon-folder-open icon-large"></i>Android
-					</a>
-                  </li>
-                  <li >
-                    <a href="https://leelir.github.io/category/diary.html">
-						<i class="icon-folder-open icon-large"></i>diary
-					</a>
-                  </li>
-                  <li >
-                    <a href="https://leelir.github.io/category/funny-things.html">
-						<i class="icon-folder-open icon-large"></i>funny things
-					</a>
-                  </li>
-                  <li >
-                    <a href="https://leelir.github.io/category/interview.html">
-						<i class="icon-folder-open icon-large"></i>interview
-					</a>
-                  </li>
-                  <li >
-                    <a href="https://leelir.github.io/category/ios.html">
-						<i class="icon-folder-open icon-large"></i>IOS
-					</a>
-                  </li>
-                  <li >
-                    <a href="https://leelir.github.io/category/svn.html">
-						<i class="icon-folder-open icon-large"></i>svn
-					</a>
-                  </li>
-                  <li >
-                    <a href="https://leelir.github.io/category/work.html">
-						<i class="icon-folder-open icon-large"></i>work
-					</a>
-                  </li>
-
-                          <ul class="nav pull-right">
-                                <li><a href="https://leelir.github.io/archives.html"><i class="icon-th-list"></i>Archives</a></li>
-                          </ul>
-
-            </ul>
-            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="https://leelir.github.io">H4C3R</a></h1>
     </div>
+</div>
+</div>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="span9" id="content">
-<section id="content">
-        <article>
-                <header>
-                        <h1>
-                                <a href=""
-                                        rel="bookmark"
-                                        title="Permalink to Android project guidelines">
-                                        Android project guidelines
-                                </a>
-                        </h1>
-                </header>
-                <div class="entry-content">
-                <div class="well">
-<footer class="post-info">
-<span class="label">Date</span>
-<abbr class="published" title="2016-04-20T16:56:00+08:00">
-        <i class="icon-calendar"></i>2016-04-20
-</abbr>
-<span class="label">By</span>
-<a href="https://leelir.github.io/author/leelir.html"><i class="icon-user"></i>leelir</a>
-<span class="label">Category</span>
-<a href="https://leelir.github.io/category/android.html"><i class="icon-folder-open"></i>Android</a>.
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
 
 
-<span class="label">Tags</span>
-	<a href="https://leelir.github.io/tag/android.html"><i class="icon-tag"></i>Android</a>
-</footer><!-- /.post-info -->                </div>
-                <h1>1. Project guidelines</h1>
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+<article>
+    <header>
+        <h3 class="article-title"><a href="https://leelir.github.io/articles/project guidelines.html" rel="bookmark"
+        title="Permalink to Android project guidelines">Android project guidelines</a></h3>
+    </header>
+
+<h6 class="subheader" title="2016-04-20T16:56:00+08:00">2016-04-20
+</h6>
+
+
+    <h1>1. Project guidelines</h1>
 <h2>1.1 Project structure</h2>
 <p>New projects should follow the Android Gradle project structure that is defined on the <a href="http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Project-Structure">Android Gradle plugin user guide</a>. The <a href="https://github.com/ribot/android-boilerplate">ribot Boilerplate</a> project is a good reference to start from.</p>
 <h2>1.2 File naming</h2>
@@ -878,115 +793,91 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 </pre></div>
-                </div><!-- /.entry-content -->
-                <div class="comments">
-                <h2>Comments !</h2>
-                        <div id="disqus_thread"></div>
-                        <script type="text/javascript">
-                           var disqus_identifier = "articles/project guidelines.html";
-                           (function() {
-                                var dsq = document.createElement('script');
-                                dsq.type = 'text/javascript'; dsq.async = true;
-                                dsq.src = 'https://leelir.disqus.com/embed.js';
-                                (document.getElementsByTagName('head')[0] ||
-                                 document.getElementsByTagName('body')[0]).appendChild(dsq);
-                          })();
-                        </script>
-                </div>
-        </article>
-</section>
-        </div><!--/span-->
+<p class="subheader">Category: <a href="https://leelir.github.io/category/android.html">Android</a>
 
-                <div class="span3 well sidebar-nav" id="sidebar">
-<ul class="nav nav-list">
-<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
-    <li><a href="http://heylinux.com"><i class="icon-external-link"></i>HeyLinux</a></li>
-<li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
-<li><a href="https://leelir.github.io/" rel="alternate"><i class="icon-bookmark icon-large"></i>atom feed</a></li>
-    <li><a href="https://github.com/leelir/leelir.github.com"><i class="icon-Github-sign icon-large"></i>Github</a></li>
-    <li><a href="http://weibo.com/2372180553/profile?topnav=1&wvr=6"><i class="icon-sina-sign icon-large"></i>sina</a></li>
-
-<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
-<li>
-<a href="https://leelir.github.io/category/android.html">
-    <i class="icon-folder-open icon-large"></i>Android
-</a>
-</li>
-<li>
-<a href="https://leelir.github.io/category/diary.html">
-    <i class="icon-folder-open icon-large"></i>diary
-</a>
-</li>
-<li>
-<a href="https://leelir.github.io/category/funny-things.html">
-    <i class="icon-folder-open icon-large"></i>funny things
-</a>
-</li>
-<li>
-<a href="https://leelir.github.io/category/interview.html">
-    <i class="icon-folder-open icon-large"></i>interview
-</a>
-</li>
-<li>
-<a href="https://leelir.github.io/category/ios.html">
-    <i class="icon-folder-open icon-large"></i>IOS
-</a>
-</li>
-<li>
-<a href="https://leelir.github.io/category/svn.html">
-    <i class="icon-folder-open icon-large"></i>svn
-</a>
-</li>
-<li>
-<a href="https://leelir.github.io/category/work.html">
-    <i class="icon-folder-open icon-large"></i>work
-</a>
-</li>
-
-<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+    Tagged: 
+    <a href="https://leelir.github.io/tag/android.html">Android </a>
+</p>
 
 
-</ul>        </div><!--/.well -->
-
-      </div><!--/row-->
-
-      <hr>
-
-      <footer>
-        <address id="about">
-                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
-                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
-        </address><!-- /#about -->
-
-        <p>The theme is from <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
-                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
-      </footer>
-
-    </div><!--/.fluid-container-->
 
 
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-	var pageTracker = _gat._getTracker("UA-65525757-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
-<script type="text/javascript">
-    var disqus_shortname = 'leelir';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
+	<h4>Comments</h4>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'leelir'
+        var disqus_identifier = "articles/project guidelines.html";
+        var disqus_url = "https://leelir.github.io/articles/project guidelines.html";
 
-    <!-- Le javascript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://leelir.github.io/theme/js/jquery-1.7.2.min.js"></script>
-    <script src="https://leelir.github.io/theme/js/bootstrap.min.js"></script>
-  </body>
-</html>
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</article>
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="https://leelir.github.io/archives.html">Archives</a>
+            <li><a href="https://leelir.github.io/tags.html">Tags</a>
+
+
+                <li><a href="https://leelir.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="https://leelir.github.io/category/android.html">Android</a></li>
+            <li><a href="https://leelir.github.io/category/diary.html">diary</a></li>
+            <li><a href="https://leelir.github.io/category/funny-things.html">funny things</a></li>
+            <li><a href="https://leelir.github.io/category/interview.html">interview</a></li>
+            <li><a href="https://leelir.github.io/category/ios.html">IOS</a></li>
+            <li><a href="https://leelir.github.io/category/svn.html">svn</a></li>
+            <li><a href="https://leelir.github.io/category/work.html">work</a></li>
+   
+        </ul>
+
+        <h5 class="sidebar-title">Links</h5>
+        <ul class="side-nav">
+            <li><a href="http://heylinux.com">HeyLinux</a></li>
+        </ul>
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="https://github.com/leelir/leelir.github.com">Github</a></li>
+            <li><a href="http://weibo.com/2372180553/profile?topnav=1&wvr=6">sina</a></li>
+        </ul>
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+                <p>H4C3R by leelir</p>
+            </div>
+            </div>
+    </div>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-65525757-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+</footer>
