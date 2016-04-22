@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>H4C3R</title><link>https://leelir.github.io/</link><description></description><atom:link href="https://leelir.github.io/feeds/leelir.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 23 Apr 2016 00:30:00 +0800</lastBuildDate><item><title>Architecture Guidelines</title><link>https://leelir.github.io/articles/android%20gson.html</link><description>&lt;h1&gt;Android Gson&lt;/h1&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>H4C3R</title><link>https://leelir.github.io/</link><description></description><atom:link href="https://leelir.github.io/feeds/leelir.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 23 Apr 2016 00:30:00 +0800</lastBuildDate><item><title>Android Gson</title><link>https://leelir.github.io/articles/android%20gson.html</link><description>&lt;h1&gt;Android Gson&lt;/h1&gt;
 &lt;p&gt;目前的客户端大都有和服务端进行交互，而数据的格式基本就是json了，于是在Android开发中就经常用到json解析，方便的是Google已经为我们提供了一个很棒的json解析库–gson，那么今天就来总结分享下gson的各种用法。&lt;br /&gt;
 gson的官方下载地址：&lt;a href="https://github.com/google/gson"&gt;google-gson&lt;/a&gt;  &lt;/p&gt;
 &lt;h2&gt;单个对象&lt;/h2&gt;
