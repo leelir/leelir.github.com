@@ -5,30 +5,37 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://leelir.github.io/</loc>
-<lastmod>2016-04-22T23:28:33-00:00</lastmod>
+<lastmod>2016-04-23T00:09:29-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>https://leelir.github.io/archives.html</loc>
-<lastmod>2016-04-22T23:28:33-00:00</lastmod>
+<lastmod>2016-04-23T00:09:29-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>https://leelir.github.io/tags.html</loc>
-<lastmod>2016-04-22T23:28:33-00:00</lastmod>
+<lastmod>2016-04-23T00:09:29-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>https://leelir.github.io/categories.html</loc>
-<lastmod>2016-04-22T23:28:33-00:00</lastmod>
+<lastmod>2016-04-23T00:09:29-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://leelir.github.io/articles/android gson.html</loc>
+<lastmod>2016-04-23T00:30:00+08:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>1</priority>
 </url>
 
 <url>
@@ -110,7 +117,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://leelir.github.io/category/android.html</loc>
-<lastmod>2016-04-20T17:20:00+08:06</lastmod>
+<lastmod>2016-04-23T00:30:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -221,8 +228,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://leelir.github.io/tag/gson.html</loc>
+<lastmod>2016-04-23T00:30:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
 <loc>https://leelir.github.io/author/leelir.html</loc>
-<lastmod>2016-04-20T17:20:00+08:06</lastmod>
+<lastmod>2016-04-23T00:30:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>

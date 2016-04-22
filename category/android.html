@@ -50,63 +50,159 @@
         
 
             <article>
+                <a href="https://leelir.github.io/articles/android gson.html"><h3 class="article-title">Architecture Guidelines</h3></a>
+<h6 class="subheader" title="2016-04-23T00:30:00+08:00">2016-04-23
+</h6>
+
+
+<h1>Android Gson</h1>
+<p>目前的客户端大都有和服务端进行交互，而数据的格式基本就是json了，于是在Android开发中就经常用到json解析，方便的是Google已经为我们提供了一个很棒的json解析库–gson，那么今天就来总结分享下gson的各种用法。<br />
+gson的官方下载地址：<a href="https://github.com/google/gson">google-gson</a>  </p>
+<h2>单个对象</h2>
+<p>首先最简单的用法，假设json的数据格式是这样的：</p>
+<div class="highlight"><pre><span class="o">{</span>
+    <span class="s">&quot;id&quot;</span><span class="o">:</span> <span class="mi">100</span><span class="o">,</span>
+    <span class="s">&quot;body&quot;</span><span class="o">:</span> <span class="s">&quot;It is my post&quot;</span><span class="o">,</span>
+    <span class="s">&quot;number&quot;</span><span class="o">:</span> <span class="mf">0.13</span><span class="o">,</span>
+    <span class="s">&quot;created_at&quot;</span><span class="o">:</span> <span class="s">&quot;2016-05-22 19:30:32&quot;</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>那么我们只需要定义对应的一个类:  </p>
+<div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Foo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">body</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">float</span> <span class="n">number</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">created_at</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>使用起来只需如下几行代码就行了：  </p>
+<div class="highlight"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">JSON_DATA</span> <span class="o">=</span> <span class="s">&quot;...&quot;</span><span class="o">;</span>
+<span class="n">Foo</span> <span class="n">foo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">fromJson</span><span class="o">(</span><span class="n">JSON_DATA</span><span class="o">,</span> <span class="n">Foo</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</pre></div>
+
+
+<p>这里是最简单的用法，created_at直接定义了String类型，如果你想要Date类型的也可以，就变成下面的例子：  </p>
+<div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Foo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">body</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">float</span> <span class="n">number</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">Date</span> <span class="n">created_at</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">JSON_DATA</span> <span class="o">=</span> <span class="s">&quot;...&quot;</span><span class="o">;</span>
+<span class="n">GsonBuilder</span> <span class="n">gsonBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GsonBuilder</span><span class="o">();</span>
+<span class="n">gsonBuilder</span><span class="o">.</span><span class="na">setDateFormat</span><span class="o">(</span><span class="s">&quot;yyyy-MM-dd HH:mm:ss&quot;</span><span class="o">);</span>
+<span class="n">Gson</span> <span class="n">gson</span> <span class="o">=</span> <span class="n">gsonBuilder</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+<span class="n">Foo</span> <span class="n">foo</span> <span class="o">=</span> <span class="n">gson</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">JSON_DATA</span><span class="o">,</span> <span class="n">Foo</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</pre></div>
+
+
+<p>有人说created_at不是java风格，java编程规范是驼峰结构，那么ok，Gson很人性化的也提供注解的方式，只需要把Foo对象改成这样就ok了：  </p>
+<div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Foo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">body</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">float</span> <span class="n">number</span><span class="o">;</span>
+    <span class="nd">@SerializedName</span><span class="o">(</span><span class="s">&quot;created_at&quot;</span><span class="o">)</span><span class="c1">//使用@SerializedName标签定义属性序列化后的名字</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">createdAt</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>然后用法不变，是不是很方便。</p>
+<h2>对象的嵌入</h2>
+<p>假设要返回如下数据：</p>
+<div class="highlight"><pre><span class="o">{</span>
+    <span class="s">&quot;id&quot;</span><span class="o">:</span> <span class="mi">100</span><span class="o">,</span>
+    <span class="s">&quot;body&quot;</span><span class="o">:</span> <span class="s">&quot;It is my post&quot;</span><span class="o">,</span>
+    <span class="s">&quot;number&quot;</span><span class="o">:</span> <span class="mf">0.13</span><span class="o">,</span>
+    <span class="s">&quot;created_at&quot;</span><span class="o">:</span> <span class="s">&quot;2014-05-22 19:12:38&quot;</span><span class="o">,</span>
+    <span class="s">&quot;foo2&quot;</span><span class="o">:</span> <span class="o">{</span>
+        <span class="s">&quot;id&quot;</span><span class="o">:</span> <span class="mi">200</span><span class="o">,</span>
+        <span class="s">&quot;name&quot;</span><span class="o">:</span> <span class="s">&quot;haha&quot;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>那么对象的定义是这样的</p>
+<div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Foo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">body</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">float</span> <span class="n">number</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">created_at</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">ChildFoo</span> <span class="n">foo2</span><span class="o">;</span>
+</pre></div>
+
+
+<div class="highlight"><pre>    public class ChildFoo {
+        public int id;
+        public String name;
+    }
+}
+</pre></div>
+
+
+<p>对象数组
+假如返回的是json数组，如下：</p>
+<div class="highlight"><pre><span class="o">[{</span>
+    <span class="s">&quot;id&quot;</span><span class="o">:</span> <span class="mi">100</span><span class="o">,</span>
+    <span class="s">&quot;body&quot;</span><span class="o">:</span> <span class="s">&quot;It is my post1&quot;</span><span class="o">,</span>
+    <span class="s">&quot;number&quot;</span><span class="o">:</span> <span class="mf">0.13</span><span class="o">,</span>
+    <span class="s">&quot;created_at&quot;</span><span class="o">:</span> <span class="s">&quot;2014-05-20 19:12:38&quot;</span>
+<span class="o">},</span>
+<span class="o">{</span>
+    <span class="s">&quot;id&quot;</span><span class="o">:</span> <span class="mi">101</span><span class="o">,</span>
+    <span class="s">&quot;body&quot;</span><span class="o">:</span> <span class="s">&quot;It is my post2&quot;</span><span class="o">,</span>
+    <span class="s">&quot;number&quot;</span><span class="o">:</span> <span class="mf">0.14</span><span class="o">,</span>
+    <span class="s">&quot;created_at&quot;</span><span class="o">:</span> <span class="s">&quot;2014-05-22 19:12:38&quot;</span>
+<span class="o">}]</span>
+</pre></div>
+
+
+<p>这种解析有两种方法：  </p>
+<p>1、解析成数组  </p>
+<div class="highlight"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">JSON_DATA</span> <span class="o">=</span> <span class="s">&quot;...&quot;</span><span class="o">;</span>
+<span class="n">Foo</span><span class="o">[]</span> <span class="n">foos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">fromJson</span><span class="o">(</span><span class="n">JSON_DATA</span><span class="o">,</span> <span class="n">Foo</span><span class="o">[].</span><span class="na">class</span><span class="o">);</span>
+<span class="c1">// 这时候想转成List的话调用如下方法</span>
+<span class="c1">// List&lt;Foo&gt; foosList = Arrays.asList(foos);</span>
+</pre></div>
+
+
+<p>2、解析成List</p>
+<div class="highlight"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">JSON_DATA</span> <span class="o">=</span> <span class="s">&quot;...&quot;</span><span class="o">;</span>
+<span class="n">Type</span> <span class="n">listType</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TypeToken</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;&gt;(){}.</span><span class="na">getType</span><span class="o">();</span>
+<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span> <span class="n">foos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">fromJson</span><span class="o">(</span><span class="n">JSON_DATA</span><span class="o">,</span> <span class="n">listType</span><span class="o">);</span>
+</pre></div>
+
+
+<h2>总结</h2>
+<p>上面基本就总结到开发中常用到的几种类型，用法很简单方便，主要需要json数据抽象成对应的数据模型就ok了。不过阿里也有一套自己的开源json解析库–FastJson，据说性能更佳，但是实际应用中感觉Gson的解析已经相当快了，而且更习惯用Google官方的东西，所以对FastJson没有怎么研究，以后有时间使用体验一下。</p><p class="subheader">Category: <a href="https://leelir.github.io/category/android.html">Android</a>
+
+    Tagged: 
+    <a href="https://leelir.github.io/tag/gson.html">gson </a>
+</p>
+
+
+
+<p><a href="https://leelir.github.io/articles/android gson.html#disqus_thread">comments</a></p>            </article>
+
+
+                <hr  class="gradient"/>
+
+
+        
+
+
+            <article>
                 <a href="https://leelir.github.io/articles/Architecture Guidelines.html"><h3 class="article-title">Architecture Guidelines</h3></a>
 <h6 class="subheader" title="2016-04-20T17:20:00+08:00">2016-04-20
 </h6>
 
 
-<h1>Architecture Guidelines</h1>
-<p>The architecture of our Android apps is based on the <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter">MVP</a> (Model View Presenter) pattern.</p>
-<ul>
-<li>
-<p><strong>View (UI layer)</strong>: this is where Activities, Fragments and other standard Android components live. It's responsible for displaying the data received from the presenters to the user. It also handles user interactions and inputs (click listeners, etc) and triggers the right action in the Presenter if needed.</p>
-</li>
-<li>
-<p><strong>Presenter</strong>: presenters subscribe to RxJava Observables provided by the <code>DataManager</code>. They are in charge of handling the subscription lifecycle, analysing/modifying the data returned by the <code>DataManager</code> and calling the appropriate methods in the View in order to display the data.</p>
-</li>
-<li>
-<p><strong>Model (Data Layer)</strong>: this is responsible for retrieving, saving, caching and massaging data. It can communicate with local databases and other data stores as well as with restful APIs or third party SDKs. It is divided in two parts: a group of helpers and a <code>DataManager</code>. The number of helpers vary between project and each of them has a very specific function, e.g. talking to an API or saving data in <code>SharedPreferences</code>. The <code>DataManager</code> combines and transforms the outputs from different helpers using Rx operators so it can: 1) provide meaningful data to the Presenter,  2) group actions that will always happen together. This layer also contains the actual model classes that define how the data structure is.</p>
-</li>
-</ul>
-<p><img alt="" src="../images/architecture_diagram.png" /></p>
-<p>Looking at the diagram from right to left:</p>
-<ul>
-<li>
-<p><strong>Helpers (Model)</strong>: A set of classes, each of them with a very specific responsibility. Their function can range from talking to APIs or a database to implementing some specific business logic. Every project will have different helpers but the most common ones are:</p>
-<ul>
-<li><strong>DatabaseHelper</strong>: It handles inserting, updating and retrieving data from a local SQLite database. Its methods return Rx Observables that emit plain java objects (models)</li>
-<li><strong>PreferencesHelper</strong>: It saves and gets data from <code>SharedPreferences</code>, it can return Observables or plain java objects directly.</li>
-<li><strong>Retrofit services</strong> : <a href="http://square.github.io/retrofit">Retrofit</a> interfaces that talk to Restful APIs, each different API will have its own Retrofit service. They return Rx Observables.</li>
-</ul>
-</li>
-<li>
-<p><strong>Data Manager (Model)</strong>: It's a key part of the architecture. It keeps a reference to every helper class and uses them to satisfy the requests coming from the presenters. Its methods make extensive use of Rx operators to combine, transform or filter the output coming from the helpers in order to generate the desired output ready for the Presenters. It returns observables that emit data models.</p>
-</li>
-<li>
-<p><strong>Presenters</strong>: Subscribe to observables provided by the <code>DataManager</code> and process the data in order to call the right method in the View.</p>
-</li>
-<li>
-<p><strong>Activities, Fragments, ViewGroups (View)</strong>: Standard Android components that implement a set of methods that the Presenters can call. They also handle user interactions such as clicks and act accordingly by calling the appropriate method in the Presenter. These components also implement framework-related tasks such us managing the Android lifecycle, inflating views, etc.</p>
-</li>
-<li>
-<p><strong>Event Bus</strong>: It allows the View components to be notified of certain types of events that happen in the Model. Generally the  <code>DataManager</code> posts events which can then be subscribed to by Activities and Fragments. The event bus is <strong>only used for very specific actions</strong> that are not related to only one screen and have a broadcasting nature, e.g. the user has signed out.</p>
-</li>
-</ul>
-<h1>License</h1>
-<div class="highlight"><pre>Copyright 2015 Ribot Ltd.
-
-Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-</pre></div><p class="subheader">Category: <a href="https://leelir.github.io/category/android.html">Android</a>
+<p>项目的设计模式</p><p class="subheader">Category: <a href="https://leelir.github.io/category/android.html">Android</a>
 
     Tagged: 
     <a href="https://leelir.github.io/tag/android.html">Android </a>
@@ -114,11 +210,9 @@ limitations under the License.
 
 
 
-<p><a href="https://leelir.github.io/articles/Architecture Guidelines.html#disqus_thread">comments</a></p>            </article>
-
-
+<p><a href="https://leelir.github.io/articles/Architecture Guidelines.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="https://leelir.github.io/articles/Architecture Guidelines.html">Read More</a>
                 <hr  class="gradient"/>
-
+            </article>
 
         
 
