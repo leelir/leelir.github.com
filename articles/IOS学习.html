@@ -4,7 +4,7 @@
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width" />
 
-    <title>H4C3R</title>
+    <title>IOS边学边总结--CocoaPod + 代码形式的UI</title>
 
     <link rel="stylesheet" href="https://leelir.github.io/theme/css/normalize.css" />
     <link rel="stylesheet" href="https://leelir.github.io/theme/css/foundation.min.css" />
@@ -46,54 +46,93 @@
 
     <!-- Main Blog Content -->
     <div class="large-9 columns">
+<article>
+    <header>
+        <h3 class="article-title"><a href="https://leelir.github.io/articles/IOS学习.html" rel="bookmark"
+        title="Permalink to IOS边学边总结--CocoaPod + 代码形式的UI">IOS边学边总结--CocoaPod + 代码形式的UI</a></h3>
+    </header>
 
-<ul class="circle">
-	<li><a href="https://leelir.github.io/tag/android.html">Android</a></li>
-	<ul class="square">
-	<li><a href="https://leelir.github.io/articles/Architecture Guidelines.html"><small>Architecture Guidelines</small></li>
-	<li><a href="https://leelir.github.io/articles/project guidelines.html"><small>Android project guidelines</small></li>
-	</ul>
-	<li><a href="https://leelir.github.io/tag/dairy.html">dairy</a></li>
-	<ul class="square">
-	<li><a href="https://leelir.github.io/articles/just write.html"><small>无题</small></li>
-	</ul>
-	<li><a href="https://leelir.github.io/tag/diary.html">diary</a></li>
-	<ul class="square">
-	<li><a href="https://leelir.github.io/articles/headache.html"><small>headache</small></li>
-	<li><a href="https://leelir.github.io/articles/curiosity and intuition.html"><small>The most important thing I’ve learned as a college student</small></li>
-	</ul>
-	<li><a href="https://leelir.github.io/tag/fun.html">fun</a></li>
-	<ul class="square">
-	<li><a href="https://leelir.github.io/articles/fun.html"><small>fun</small></li>
-	<li><a href="https://leelir.github.io/articles/hello.html"><small>hello</small></li>
-	</ul>
-	<li><a href="https://leelir.github.io/tag/gson.html">gson</a></li>
-	<ul class="square">
-	<li><a href="https://leelir.github.io/articles/android gson.html"><small>Android Gson</small></li>
-	</ul>
-	<li><a href="https://leelir.github.io/tag/interview.html">interview</a></li>
-	<ul class="square">
-	<li><a href="https://leelir.github.io/articles/interview.html"><small>The mind behind Linux</small></li>
-	</ul>
-	<li><a href="https://leelir.github.io/tag/ios.html">IOS</a></li>
-	<ul class="square">
-	<li><a href="https://leelir.github.io/articles/IOS.html"><small>Introducing iOS Design Patterns in Swift Part 2（完整版）</small></li>
-	<li><a href="https://leelir.github.io/articles/IOS学习.html"><small>IOS边学边总结--CocoaPod + 代码形式的UI</small></li>
-	</ul>
-	<li><a href="https://leelir.github.io/tag/linux.html">linux</a></li>
-	<ul class="square">
-	<li><a href="https://leelir.github.io/articles/svn.html"><small>ubuntu14.04如何安装可视化svn</small></li>
-	</ul>
-	<li><a href="https://leelir.github.io/tag/svn.html">svn</a></li>
-	<ul class="square">
-	<li><a href="https://leelir.github.io/articles/svn.html"><small>ubuntu14.04如何安装可视化svn</small></li>
-	</ul>
-	<li><a href="https://leelir.github.io/tag/work.html">work</a></li>
-	<ul class="square">
-	<li><a href="https://leelir.github.io/articles/summary.html"><small>学习总结</small></li>
-	</ul>
-</ul>
+<h6 class="subheader" title="2016-05-11T01:40:00+08:00">2016-05-11
+</h6>
 
+
+    <h2>1.CocoaPod 的安装使用</h2>
+<p>由于某些原因，下面这两句就不解释了:  </p>
+<div class="highlight"><pre><span class="nv">$ </span>gem sources --remove https://rubygems.org/
+//等有反应之后再敲入以下命令
+<span class="nv">$ </span>gem sources -a http://ruby.taobao.org/
+</pre></div>
+
+
+<p>完成以后执行：  </p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo gem install cocoapods
+</pre></div>
+
+
+<p>好啦安装完成了！<br />
+下面再说一下如何使用，首先要在项目目录里面通过  </p>
+<div class="highlight"><pre>pod init
+</pre></div>
+
+
+<p>创建一个podfile文件。<br />
+在podfile文件里面添加代码以Predict项目中引用的Material为例：</p>
+<div class="highlight"><pre>target &#39;Predict&#39; do
+source &#39;https://github.com/CocoaPods/Specs.git&#39;
+use_frameworks!
+pod &#39;Material&#39;, &#39;~&gt; 1.40.1&#39;
+end
+</pre></div>
+
+
+<p>最后执行  </p>
+<div class="highlight"><pre>pod install
+</pre></div>
+
+
+<p>完毕以后将framework添加到项目中去。<br />
+Cocoapod尽量安装稳定版本 如果因为更新了新的版本而出现了问题，可以考虑降低版本。<br />
+首先移除安装包：  </p>
+<div class="highlight"><pre><span class="p">$</span><span class="nv">which</span><span class="x"> pod</span>
+<span class="p">$</span><span class="nv">sudo</span><span class="x"> rm-rf&lt;path&gt;</span>
+</pre></div>
+
+
+<p>然后移除 RubyGems 中的 Cocoapods程序包：  </p>
+<div class="highlight"><pre><span class="p">$</span><span class="nv">gem</span><span class="x"> list</span>
+<span class="p">$</span><span class="nv">sudo</span><span class="x"> gem uninstall cocoapods-v xxxx.x.x</span>
+<span class="p">$</span><span class="nv">sudo</span><span class="x"> gem uninstall cocoapods-core-v xxxx.x.x</span>
+</pre></div>
+
+
+<p>最后按照指定版本的cocoapod：  </p>
+<div class="highlight"><pre><span class="nv">$ </span>gem
+ install cocoapods --user-install -v xxx.xx.x
+</pre></div>
+<p class="subheader">Category: <a href="https://leelir.github.io/category/ios.html">IOS</a>
+
+    Tagged: 
+    <a href="https://leelir.github.io/tag/ios.html">IOS </a>
+</p>
+
+
+
+
+	<h4>Comments</h4>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'leelir'
+        var disqus_identifier = "articles/IOS学习.html";
+        var disqus_url = "https://leelir.github.io/articles/IOS学习.html";
+
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</article>
     </div>
     <!-- End Main Content -->
 

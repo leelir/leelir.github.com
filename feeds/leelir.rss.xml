@@ -1,5 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>H4C3R</title><link>https://leelir.github.io/</link><description></description><atom:link href="https://leelir.github.io/feeds/leelir.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 23 Apr 2016 00:30:00 +0800</lastBuildDate><item><title>Android Gson</title><link>https://leelir.github.io/articles/android%20gson.html</link><description>&lt;h1&gt;Android Gson&lt;/h1&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>H4C3R</title><link>https://leelir.github.io/</link><description></description><atom:link href="https://leelir.github.io/feeds/leelir.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 11 May 2016 01:40:00 +0800</lastBuildDate><item><title>IOS边学边总结--CocoaPod + 代码形式的UI</title><link>https://leelir.github.io/articles/IOS%E5%AD%A6%E4%B9%A0.html</link><description>&lt;h2&gt;1.CocoaPod 的安装使用&lt;/h2&gt;
+&lt;p&gt;由于某些原因，下面这两句就不解释了:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;gem sources --remove https://rubygems.org/
+//等有反应之后再敲入以下命令
+&lt;span class="nv"&gt;$ &lt;/span&gt;gem sources -a http://ruby.taobao.org/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;完成以后执行：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo gem install cocoapods
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;好啦安装完成了！&lt;br /&gt;
+下面再说一下如何使用，首先要在项目目录里面通过  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pod init
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;创建一个podfile文件。&lt;br /&gt;
+在podfile文件里面添加代码以Predict项目中引用的Material为例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;target &amp;#39;Predict&amp;#39; do
+source &amp;#39;https://github.com/CocoaPods/Specs.git&amp;#39;
+use_frameworks!
+pod &amp;#39;Material&amp;#39;, &amp;#39;~&amp;gt; 1.40.1&amp;#39;
+end
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;最后执行  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pod install
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;完毕以后将framework添加到项目中去。&lt;br /&gt;
+Cocoapod尽量安装稳定版本 如果因为更新了新的版本而出现了问题，可以考虑降低版本。&lt;br /&gt;
+首先移除安装包：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;which&lt;/span&gt;&lt;span class="x"&gt; pod&lt;/span&gt;
+&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;sudo&lt;/span&gt;&lt;span class="x"&gt; rm-rf&amp;lt;path&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后移除 RubyGems 中的 Cocoapods程序包：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;gem&lt;/span&gt;&lt;span class="x"&gt; list&lt;/span&gt;
+&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;sudo&lt;/span&gt;&lt;span class="x"&gt; gem uninstall cocoapods-v xxxx.x.x&lt;/span&gt;
+&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;sudo&lt;/span&gt;&lt;span class="x"&gt; gem uninstall cocoapods-core-v xxxx.x.x&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;最后按照指定版本的cocoapod：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;gem
+ install cocoapods --user-install -v xxx.xx.x
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">leelir</dc:creator><pubDate>Wed, 11 May 2016 01:40:00 +0800</pubDate><guid>tag:leelir.github.io,2016-05-11:articles/IOS学习.html</guid><category>IOS</category></item><item><title>Android Gson</title><link>https://leelir.github.io/articles/android%20gson.html</link><description>&lt;h1&gt;Android Gson&lt;/h1&gt;
 &lt;p&gt;目前的客户端大都有和服务端进行交互，而数据的格式基本就是json了，于是在Android开发中就经常用到json解析，方便的是Google已经为我们提供了一个很棒的json解析库–gson，那么今天就来总结分享下gson的各种用法。&lt;br /&gt;
 gson的官方下载地址：&lt;a href="https://github.com/google/gson"&gt;google-gson&lt;/a&gt;  &lt;/p&gt;
 &lt;h2&gt;单个对象&lt;/h2&gt;
